@@ -1,5 +1,5 @@
-NAME = a.out
-SRCS = $(shell echo *.cpp)
+NAME = q.out
+SRCS = main.cpp
 OBJDIR = ./obj/
 OBJS = $(SRCS:%.cpp=$(OBJDIR)%.o)
 
@@ -26,9 +26,22 @@ fclean: clean
 re: fclean all
 
 test:
-	@make re -s
-	./$(NAME)
-	@make fclean -s
+	$(CC) $(SRCS) -DTEST=0 -o $(NAME)
+	@./$(NAME) > out_std
+	@cat out_std
+	$(CC) $(SRCS) -DTEST=1 -o $(NAME)
+	@./$(NAME) > out_ft
+	@cat out_ft
+
+test0:
+	$(CC) $(SRCS) -DTEST=0 -o $(NAME)
+	@./$(NAME) > out_std
+	@cat out_std
+
+test1:
+	$(CC) $(SRCS) -DTEST=1 -o $(NAME)
+	@./$(NAME) > out_std
+	@cat out_std
 
 val:
 	@make re -s

@@ -1,0 +1,104 @@
+
+--- [1]:alloc_test ---
+
+V(0) = { }
+
+V(5) = { 0 0 0 0 0 }
+
+V(5) = { 123 123 123 123 123 }
+
+V(5) = { 100 123 123 123 123 }
+
+V(5) = { 123 123 123 123 123 }
+
+V(5) = { 123 123 123 123 123 }
+
+--- [2]:reserve_test ---
+
+V(5) = { 0 1 2 3 4 }
+pre V.size:5 V.cap:8
+
+V(5) = { 0 1 2 3 4 }
+aft V.size:5 V.cap:8
+
+V(0) = { }
+pre V2.size:0 V2.cap:0
+
+V(0) = { }
+aft V2.size:0 V2.cap:10000
+
+V(3) = { 0 1 2 }
+pre V3.size:3 V3.cap:4
+
+V(3) = { 0 1 2 }
+aft V3.size:3 V3.cap:10000
+
+--- [3]:resize_test ---
+
+V(0) = { }
+
+V(5) = { 0 0 0 0 0 }
+
+V(10) = { 0 0 0 0 0 10 10 10 10 10 }
+
+V(1) = { 0 }
+
+--- [4]:traits_reverse ---
+
+V(5) = { 4 3 2 1 0 }
+
+--- [5]:traits_advance ---
+The sixth element in mylist is: 50
+The three element in mylist is: 20
+
+--- [6]:traits_backinserter ---
+foo contains: 1 2 3 4 5 10 20 30 40 50
+
+--- [7]:traits_frontinserter ---
+foo contains: 50 40 30 20 10 1 2 3 4 5
+
+--- [8]:traits_inserter ---
+foo contains: 1 2 3 10 20 30 40 50 4 5
+
+--- [9]:reverse_iterator ---
+{5 4 3 2 1 0}
+
+--- [10]:rit_operator= ---
+2
+
+--- [11]:rit_base ---
+*it == 3
+*r_it == 2
+*r_it.base() == 3
+*(r_it.base()-1) == 2
+0 1 2 3 4 5 
+5 4 3 2 1 0 
+
+--- [12]:rit_op_ref ---
+*r0 = 3
+vi[3] = 42
+*r1 = 1
+
+--- [13]:rit_op_block ---
+3 2 1 0 
+
+--- [14]:rit_ops ---
+3 4 1 1 4
+
+--- [15]:rit_nonmember_ops ---
+*x == 3
+*y == 3
+*z == 2
+x == y ? true
+x != y ? false
+x <  y ? false
+x <= y ? true
+x == z ? false
+x != z ? true
+x <  z ? true
+x <= z ? true
+
+--- [16]:rit_nonmember_op_plus ---
+3 1 
+--- [17]:rit_nonmember_op_minus ---
+4 -4
