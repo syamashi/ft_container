@@ -2,6 +2,8 @@
 #include <string>
 #include <iomanip>
 #include <map>
+#include <stl_tree.h>
+
  
 template<typename Map>
 void print_map(Map& m)

@@ -8,29 +8,29 @@ namespace ft {
   // Const-volatile modifications.
 
   /// remove_const
-  template<typename _Tp>
+  template<typename T>
     struct remove_const
-    { typedef _Tp     type; };
+    { typedef T     type; };
 
-  template<typename _Tp>
-    struct remove_const<_Tp const>
-    { typedef _Tp     type; };
+  template<typename T>
+    struct remove_const<T const>
+    { typedef T     type; };
 
   /// remove_volatile
-  template<typename _Tp>
+  template<typename T>
     struct remove_volatile
-    { typedef _Tp     type; };
+    { typedef T     type; };
 
-  template<typename _Tp>
-    struct remove_volatile<_Tp volatile>
-    { typedef _Tp     type; };
+  template<typename T>
+    struct remove_volatile<T volatile>
+    { typedef T     type; };
 
   /// remove_cv
-  template<typename _Tp>
+  template<typename T>
     struct remove_cv
     {
       typedef typename
-      remove_const<typename remove_volatile<_Tp>::type>::type     type;
+      remove_const<typename remove_volatile<T>::type>::type     type;
     };
 
   template<typename>
@@ -100,10 +100,10 @@ namespace ft {
     : public true_type { };
 
 
-  /// is_integral
-  template<typename _Tp>
+  // is_integral
+  template<typename T>
     struct is_integral
-    : public __is_integral_helper<typename remove_cv<_Tp>::type>::type
+    : public __is_integral_helper<typename remove_cv<T>::type>::type
     { };
 
 

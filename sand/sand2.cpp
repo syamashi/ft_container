@@ -19,6 +19,7 @@ int main()
   int a = 42;
   int b[42] = {42};
   std::vector<int> c(1, 42);
+  c.get_allocator();
 
   func(1); //← 1は整数だよ
   func("a"); //← aは整数じゃないよ

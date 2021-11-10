@@ -29,6 +29,7 @@ class iterator_traits {
   typedef typename Iterator::reference reference;
 };
 
+  /// Partial specialization for pointer types.
 template <class T>
 class iterator_traits<T*> {
  public:
@@ -39,6 +40,7 @@ class iterator_traits<T*> {
   typedef ft::random_access_iterator_tag iterator_category;
 };
 
+  /// Partial specialization for pointer types.
 template <class T>
 class iterator_traits<const T*> {
  public:
@@ -91,16 +93,14 @@ class reverse_iterator
   template <class U>
   reverse_iterator(const reverse_iterator<U>& other) : _current(other.base()) {}
 
-/*
   template <class U>
   reverse_iterator& operator=(const ft::reverse_iterator<U>& other) {
-	if (this == &other)
-		return *this ;
+//	if (this == &other)
+//		return *this ;
     _current = other.base();
 	return *this ;
   }
-  */
-  // test
+
   virtual ~reverse_iterator() {}
 
   iterator_type base() const { return _current; }
@@ -295,33 +295,18 @@ struct insert_iterator : public iterator<output_iterator_tag, void, void, void, 
   insert_iterator& operator*() { return *this; }
   insert_iterator& operator++() { return *this; }
   insert_iterator operator++(int) { return *this; }
-  insert_iterator& operator=(const typename Container::value_type&
-                                 value) {  // ここをかえないといけない
+  insert_iterator& operator=(const typename Container::value_type& value)
+  {
     iter = c->insert(iter, value);
     ++iter;
     return *this;
   }
 };
 
-
-
-
 template <class Container, class Iterator>
 insert_iterator<Container> inserter(Container& x, Iterator it) {
   return insert_iterator<Container>(x, typename Container::iterator( it ));
 }
-
-
-/*
-  template<typename _Container, typename _Iterator>
-    inline insert_iterator<_Container>
-    inserter(_Container& __x, _Iterator __i)
-    {
-      return insert_iterator<_Container>(__x,
-					 typename _Container::iterator(__i));
-    }
-
-*/
 };  // namespace ft
 
 #endif
