@@ -34,14 +34,50 @@ bool is_pop(ll hash, ll d){ return (hash>>d)&1; }
 /*
 
 */
+namespace ft{
+  template<typename _Val>
+  struct _Rb_tree_node{
+    typedef _Rb_tree_node<_Val>* _Link_type;
+
+    _Rb_tree_color _M_color;
+    _Link_type _M_parent;
+    _Link_type _M_left;
+    _Link_type _M_right;
+    _Val _M_value_type;
+  };
+
+  template <typename _Tp>
+  struct _Rb_tree_iterator{
+	  typedef typename ft::_Rb_tree_node<_Tp>::_Link_type _Link_type;
+	  _Link_type z;
+};
+
+template <typename T>
+struct aaa{
+ public:
+  int i=0;
+  T a=0;
+};
+template <typename T>
+aaa<T> testout(aaa<T> x){
+  std::cout << x.i << std::endl;
+  std::cout << "testout" << std::endl;
+  return x;
+}
+}
+
 
 int main(){
   cincout();
-  
-  cout << 100000 << endl;
-  rep(i, 99999)
-  {
-	  cout << 1 << " " << i+2 << endl;
-  }
-  
+
+  map<ll, ll> M;
+  std::map<ll, ll>::iterator it = M.begin();
+
+  vector<ll> V;
+  std::vector<ll>::iterator vit = V.begin();
+
+  ft::aaa<int> A;
+  ft::aaa<int> B=testout(A);
+//  auto t = A.TT(Z);
+//  cout << t << endl;
 }

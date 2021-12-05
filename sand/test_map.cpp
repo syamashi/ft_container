@@ -98,8 +98,123 @@ void map_constructer_test()
 
 }
 
+void map_increment_test()
+{
+	pout("map_increment_test()");
+
+	ft::map<int, int> M;
+	rep(i, 7) M.insert({i+1, i+1});
+	rep(i, 7) M.insert({i+1, i+100}); // ignore
+
+	ft::map<int, int>::iterator mit = M.begin();
+	rep(i, 7){
+		cout << "key:" << mit->first << " val:" << mit->second << endl;
+//		mit.iterator_debug();
+		++mit;
+	}
+    cout << "key:" << mit->first << " val:" << mit->second << endl;
+
+	ft::map<int, int>::const_iterator cmit = M.begin();
+	rep(i, 7){
+		cout << "key:" << cmit->first << " val:" << cmit->second << endl;
+		++cmit;
+	}
+    cout << "key:" << cmit->first << " val:" << cmit->second << endl;
+
+}
+
+void map_increment_single_test()
+{
+	pout("map_increment_single_test");
+
+	ft::map<int, int> M;
+	ft::map<int, int>::iterator mit = M.begin();
+
+/*
+	cout << "key:" << mit->first << " val:" << mit->second << endl;
+	mit.iterator_debug();
+	++mit; // segmentation fault
+	cout << "key:" << mit->first << " val:" << mit->second << endl;
+	mit.iterator_debug();
+*/
+	M[1] = 1;
+	mit = M.begin();
+	cout << "key:" << mit->first << " val:" << mit->second << endl;
+//	mit.iterator_debug();
+	++mit;
+//	mit.iterator_debug();
+	cout << "key:" << mit->first << " val:" << mit->second << endl;
+	mit->second = 2;
+	cout << "key:" << mit->first << " val:" << mit->second << endl;
+
+	cout << endl;
+	ft::map<int, int>::const_iterator cmit = M.begin();
+	cout << "key:" << cmit->first << " val:" << cmit->second << endl;
+	++cmit;
+	cout << "key:" << cmit->first << " val:" << cmit->second << endl;
+	// cmit->second = 2; error
+}
+
+void map_decrement_test()
+{
+	pout("map_decrement_test()");
+
+	ft::map<int, int> M;
+	rep(i, 7) M[i+1] = i+1;
+	ft::map<int, int>::iterator mit = M.end();
+	rep(i, 7){
+		cout << "key:" << mit->first << " val:" << mit->second << endl;
+		--mit;
+	}
+    cout << "key:" << mit->first << " val:" << mit->second << endl;
+
+	ft::map<int, int>::const_iterator cmit = M.end();
+	rep(i, 7){
+		cout << "key:" << cmit->first << " val:" << cmit->second << endl;
+		--cmit;
+	}
+    cout << "key:" << cmit->first << " val:" << cmit->second << endl;
+
+}
+
+
+void map_decrement_single_test()
+{
+	pout("map_decrement_single_test");
+
+	ft::map<int, int> M;
+	ft::map<int, int>::iterator mit = M.end();
+//	--mit; // Segmentation fault
+	M[1] = 1;
+
+  mit = M.end();
+	rep(i, 5){
+	  cout << "key:" << mit->first << " val:" << mit->second << endl;
+	  --mit;
+  }
+	cout << "key:" << mit->first << " val:" << mit->second << endl;
+	mit->second = 2;
+	cout << "key:" << mit->first << " val:" << mit->second << endl;
+
+	cout << endl;
+	ft::map<int, int>::const_iterator cmit = M.end();
+	cout << "key:" << cmit->first << " val:" << cmit->second << endl;
+	++cmit;
+	cout << "key:" << cmit->first << " val:" << cmit->second << endl;
+	// cmit->second = 2; error
+}
+
 void map_test()
 {
 	map_constructer_test();
+	map_increment_test();
+	map_increment_single_test();
+	map_decrement_test();
+	map_decrement_single_test();
 
+}
+
+void map2_test()
+{
+	ft::map<int, int> M;
 }

@@ -1,21 +1,10 @@
 
---- [1]:map_constructer_test ---
-map1 = size:3
-
-
-iter = size:3
-
-map1 = size:3
-
-
-copied = size:3
-
-map1 = size:3
-
-The magnitude of (-8, -15) is 17
-The magnitude of (3, 4) is 5
-The magnitude of (5, -12) is 13
-
-The magnitude of (3, 4) is 5
-The magnitude of (5, -12) is 13
-The magnitude of (-8, -15) is 17
+--- [1]:map_insert_test ---
+[_N_get_node] val:{0 0}
+0 0
+[_N_get_node] val:{1 0}
+1 0
+[_N_get_node] val:{2 0}
+2 0
+[_N_get_node] val:{3 0}
+3 0

@@ -40,7 +40,7 @@ namespace ft = std;
 
 void vector_test();
 void stack_test();
-void map_test();
+void map2_test();
 void set_test();
 
 #endif
