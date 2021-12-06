@@ -37,7 +37,6 @@ void map_insert_test(){
 	pout("map_insert_test");
 
 	ft::map<int, int> M;
-	rep(i, 3) M[i+1] = i+1;
 }
 
 void map2_test()

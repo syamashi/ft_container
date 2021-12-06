@@ -71,14 +71,14 @@ class map {
   ** Element access
   */
 
-  mapped_type& operator[](const key_type& __k){
+/*  mapped_type& operator[](const key_type& __k){
     iterator __i = lower_bound(__k);
     if (__i == end() || key_compare()(__k, (*__i).first)) // key_comp() = less(__k, (*__i).first)
       __i = insert(__i, value_type(__k, mapped_type()));
     return (*__i).second;
 
   }
-
+*/
   /*
   ** Modifiers
   */
@@ -92,15 +92,21 @@ class map {
   ** がなされた場合、M[4]=4 が追加される。
   */
 
-/*
   std::pair<iterator, bool> insert(const value_type& __x) {
-    return _M_t._M_insert_unique(__x);
-  }
-*/
+    return _M_t.insert(__x);
+//    return _M_t._M_insert_unique(__x);
+
+    // keyが重複してないこと
+    // node作る
+    // insertする
+    // fixViolation(root, pt);
+    }
+
+/*
    iterator insert(iterator __position, const value_type& __x) {
     return _M_t._M_insert_unique_(__position, __x);
   }
-
+*/
 /*
   template <typename _InputIterator>
   void insert(_InputIterator __first, _InputIterator __last) {
