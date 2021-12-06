@@ -311,8 +311,8 @@ class _Rb_tree {
   typedef std::reverse_iterator<iterator> reverse_iterator;
   typedef std::reverse_iterator<const_iterator> const_reverse_iterator;
 
-  iterator begin() { return iterator(_M_header->_M_parent); }
-  const_iterator begin() const { return const_iterator(_M_header->_M_parent); }
+  iterator begin() { return iterator(_M_header->_M_left); } // _M_begin()は_M_parentなの。
+  const_iterator begin() const { return const_iterator(_M_header->_M_left); }
   iterator end() { return iterator(_M_header); }
   const_iterator end() const { return const_iterator(_M_header); }
   reverse_iterator rbegin() { return reverse_iterator(end()); }
@@ -369,13 +369,23 @@ class _Rb_tree {
   }
 
   //  std::pair<iterator, bool> _M_insert_unique(const value_type& __x);
+  /*
+  _M_get_insert_hint_unique_pos から流れる場合
+   1. size==0のとき
+   2. lower_bound(k) = pos1
+      --pos1 = pos0 >= kのとき
+      {k, pos0, pos1} // ありえない
+   3.  lower_bound(k) = posで
+     {pos, k} のとき // ありえない
+   4. pos==kのとき // ありえない
+  */
   std::pair<_Link_type, _Link_type> _M_get_insert_unique_pos(
       const key_type& __k) {
     typedef std::pair<_Link_type, _Link_type> _Res;
     _Link_type __x = _M_begin();
     _Link_type __y = _M_end();
     bool __comp = true;
-    while (__x != 0) {
+    while (__x != 0) { // upper_bound
       __y = __x;
       __comp = _M_key_compare(__k, _S_key(__x));
       __x = __comp ? __x->_M_left : __x->_M_right;
@@ -389,8 +399,41 @@ class _Rb_tree {
     }
     if (_M_key_compare(_S_key(__j._M_node), __k))
       return _Res(__x, __y);
-    return _Res(__j._M_node, 0);
+    return _Res(__j._M_node, 0);  // __comp==falseの場合。end()とかk==__y
   }
+
+// insert -> insert_unique -> _M_get_insert_hint_unique_pos
+// positionの1個前に、M[k] = 0 をいれたい
+/*
+   1. positionがend()
+     M={posx, (k)}
+     すでに何かあって、max_keyよりも大きい => (0, right)
+     M[1]=1しかないときに、M[2]=0を入れる
+     M={(k)}
+     size==0 => _M_get_insert_unique_pos(k)
+     からっぽのMに、M[0]を入れる 
+
+  2. {(k), pos}のとき
+   2.1 {(k), pos1, pos2} pos1がbegin() => {begin(), begin()}
+   2.2 {pos0, (k), pos1}
+     pos1->pos0にもどる
+     pos0の右がない => {0, pos0}
+     pos0の右があるなら、
+       {pos0, (k), pos1, pos2(pos0のright)} => {pos1, pos1}
+       {4, (4.5), 5, 6} のとき => {5, 5}
+   2.3 それ以外?? => _M_get_insert_unique_pos(k) --posしたら必ずkを下回る。
+  3. {pos, (k)} のとき。operator[]ではありえない。pos=lower_bound(k)なので
+   3.1{pos, (k), end} のとき => {0, pos}
+   posを1個進める pos2にいく。
+   3.2 {pos1, (k), pos2}
+     ・pos2の右がない　=> {0, pos1}
+     ・pos2の右がある場合
+     {pos1, (k), pos2, pos3(pos2のright)} => {pos2, pos2}
+   3.3 1個進めてもなおkを下回る
+   {pos1, pos2, (k)} => _M_get_insert_unique_pos(__k)
+   4. pos==kのとき operator[]ではありえない
+   =>   return _M_get_insert_unique_pos(__k);
+*/
   std::pair<_Link_type, _Link_type> _M_get_insert_hint_unique_pos(
       const_iterator __position, const key_type& __k) {
     iterator __pos = __position._M_const_cast();
@@ -398,27 +441,29 @@ class _Rb_tree {
 
     // _M_end()
     if (__pos._M_node == _M_end()) {
-      if (size() > 0 &&
-          _M_key_compare(_S_key(_M_header->_M_right), __k))
+      if (size() > 0 && _M_key_compare(_S_key(_M_header->_M_right), __k))
         return _Res(0, _M_header->_M_right);
       else
         return _M_get_insert_unique_pos(__k);
-    } else if (_M_key_compare(__k, _S_key(__pos._M_node))) {
+    }
+    else if (_M_key_compare(__k, _S_key(__pos._M_node))) {
       // First, try before...
       iterator __before = __pos;
-      if (__pos._M_node == _M_header->_M_left)  // begin()
-        return _Res(_M_header->_M_left, _M_header->_M_left);
+      if (__pos._M_node == begin())
+        return _Res(begin(), begin());
       else if (_M_key_compare(_S_key((--__before)._M_node), __k)) {
         if (_S_right(__before._M_node) == 0)
           return _Res(0, __before._M_node);
         else
           return _Res(__pos._M_node, __pos._M_node);
-      } else
+      }
+      else
         return _M_get_insert_unique_pos(__k);
-    } else if (_M_key_compare(_S_key(__pos._M_node), __k)) {
+    }
+    else if (_M_key_compare(_S_key(__pos._M_node), __k)) {
       // ... then try after.
       iterator __after = __pos;
-      if (__pos._M_node == _M_header->_M_right)
+      if (__pos._M_node == _M_header->_M_right) // end()-1
         return _Res(0, _M_header->_M_right);
       else if (_M_key_compare(__k,
                               (_S_key((++__after)._M_node)))) {
@@ -428,7 +473,8 @@ class _Rb_tree {
           return _Res(__after._M_node, __after._M_node);
       } else
         return _M_get_insert_unique_pos(__k);
-    } else
+    }
+    else
       // Equivalent keys.
       return _Res(__pos._M_node, 0);
   }
@@ -436,10 +482,13 @@ class _Rb_tree {
   std::pair<_Link_type, _Link_type> _M_get_insert_hint_equal_pos(
       const_iterator __pos, const key_type& __k);
 
+// insert->insert_unique
+// positionの1個前に、M[__x.first] = 0 をいれたい
   iterator _M_insert_unique_(iterator __position, const value_type& __x) {
     std::pair<_Link_type, _Link_type> __res =
         _M_get_insert_hint_unique_pos(__position, __x.first);
-    if (__res.second) return _M_insert_(__res.first, __res.second, __x);
+    if (__res.second)
+      return _M_insert_(__res.first, __res.second, __x);
     return iterator(__res.first);
   }
 
@@ -491,13 +540,33 @@ class _Rb_tree {
   }
 
   /*
-  ** Lookup
+     Lookup++
+           DUMMY(R): 0x7ffe5ab13d08
+             +       |     right: 7
+             |       +     left: 1
+     [ROOT] 2(B): 0x1892500
+              right: 4
+              left: 1
+             /       \
+   1(B): 0x18924d0     4(R): 0x1892560
+     right: 0            right: 6
+     left: 0             left: 3
+                         /      \
+             3(B): 0x1892530     6(B): 0x18925c0
+              right: 0             right: 7
+              left: 0              left: 5
+                                  /       \
+                        5(R): 0x1892590    7(R): 0x18925f0
+                          right: 0            right: 0
+                          left: 0             left: 0
+
+  __xが探索。__yが1手前の状態。
+  __xの探索がnillに至ったら、__yが
   */
 
   iterator _M_lower_bound(_Link_type __x, _Link_type __y, const _Key& __k) {
     while (__x != 0)
-      if (!_M_key_compare(__x->_M_value_type.first, __k))  // less()(key1,
-                                                           // key2)?
+      if (!_M_key_compare(_S_key(__x), __k))
         __y = __x, __x = __x->_M_left;
       else
         __x = __x->_M_right;

@@ -2,6 +2,6 @@
 int main()
 {
 	aaa<int>* a;
-//	aaa<int>* b=testout(a);
+	aaa<int>* b=testout(a);
 	return 0;
 }
