@@ -37,6 +37,12 @@ void map_insert_test(){
 	pout("map_insert_test");
 
 	ft::map<int, int> M;
+	rep(i, 3){
+		cout << "--- " << "M.insert({1, " << i+1 << "})" << " ---" << endl;
+		auto ret = M.insert({1, i+1});
+		cout << " size:" << M.size() << endl;
+		cout << " ret:" << ret.first->first << "," << ret.first->second << " " << ret.second << endl;
+	}
 }
 
 void map2_test()

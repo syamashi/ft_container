@@ -1,4 +1,11 @@
 
 --- [1]:map_insert_test ---
-[_N_get_node] val:{0 0}
-0 0
+--- M.insert({1, 1}) ---
+ size:0
+ ret:1,1 1
+--- M.insert({1, 2}) ---
+ size:0
+ ret:1,1 0
+--- M.insert({1, 3}) ---
+ size:0
+ ret:1,1 0

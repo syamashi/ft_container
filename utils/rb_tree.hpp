@@ -53,19 +53,19 @@ static _Rb_tree_node<_Val>* local_Rb_tree_increment(
   */
 
   // size==0
-  if (__x->_M_right == __x) return __x;
-  if (__x->_M_right != 0) {
-    __x = __x->_M_right;
-    while (__x->_M_left != 0) __x = __x->_M_left;
+  if (_S_right(__x) == __x) return __x;
+  if (_S_right(__x) != 0) {
+    __x = _S_right(__x);
+    while (_S_left(__x) != 0) __x = _S_left(__x);
   } else {
     _Rb_tree_node<_Val>* __y = __x->_M_parent;
     while (__x == __y->_M_right) {
       __x = __y;
       __y = __y->_M_parent;
     }
-    if (__x->_M_right != __y) {
+    if (_S_right(__x) != __y) {
       /*
-      __x->_M_right == __y
+      _S_right(__x) == __y
        <=> M.size()==1 && __x==dummy, return(dummy)
 
         dummy(R): 0x7ffde6b05688
@@ -123,12 +123,12 @@ static _Rb_tree_node<_Val>* local_Rb_tree_decrement(
   */
 
   // size==0
-  if (__x->_M_right == __x) return __x;
+  if (_S_right(__x) == __x) return __x;
   // __x == dummy == M.end()
   if (__x->_M_color == _S_red && __x->_M_parent->_M_parent == __x)
-    __x = __x->_M_right;
-  else if (__x->_M_left != 0) {
-    _Rb_tree_node<_Val>* __y = __x->_M_left;
+    __x = _S_right(__x);
+  else if (_S_left(__x) != 0) {
+    _Rb_tree_node<_Val>* __y = _S_left(__x);
     while (__y->_M_right != 0) {
       __y = __y->_M_right;
     }
@@ -292,7 +292,7 @@ class _Rb_tree {
   _Link_type _S_left(_Link_type __x) { return __x->_M_left; }
   _Link_type _S_parent(_Link_type __x) { return __x->_M_parent; }
   _Link_type _S_root() { return _S_parent(_M_header); }
-  _Link_type& _M_root() { return _M_header->parent; }
+  _Link_type& _M_root() { return _M_header->_M_parent; }
 
  public:
   typedef _Rb_tree_iterator<value_type> iterator;
@@ -347,7 +347,7 @@ class _Rb_tree {
     _M_node_count = src->_M_node_count;
   }
 
-  // insertのhelper*4
+  // insertのhelper4関数
 
   /*
              DUMMY(R): 0x7ffe5ab13d08
@@ -400,38 +400,61 @@ class _Rb_tree {
     if (root == NULL) return pt;
 
     /* Otherwise, recur down the tree */
-    if (pt->data < root->data) {
-      root->left = BSTInsert(root->left, pt);
-      root->left->parent = root;
-    } else if (pt->data > root->data) {
-      root->right = BSTInsert(root->right, pt);
-      root->right->parent = root;
+    if (_S_key(pt) < _S_key(root)) {
+      root->_M_left = BSTInsert(root->_M_left, pt);
+      root->_M_left->_M_parent = root;
+    } else if (_S_key(pt) > _S_key(root)) {
+      root->_M_right = BSTInsert(root->_M_right, pt);
+      root->_M_right->_M_parent = root;
     }
 
     /* return the (unchanged) node pointer */
     return root;
   }
 
+  /*
+  before                                        after
+  　　　　　　root                                    root
+              |                                       |
+             50(B) pt: grand_parent                  70(B) pt_right
+            /   \                                   /   \
+    uncle 20(B)  70(R) parent                  pt 50(R)  88(R)
+                /  \                             /   \
+            60(B)  88(R)                     20(B)  60(B)
+
+  祖父母の右を親の左に、
+  親を祖父母に、
+  祖父母を兄弟に回転し、
+  色を塗りなおす。
+  親が黒になるので、上は気にしないでよくなる。
+  */
   void rotateLeft(_Link_type root, _Link_type pt) {
-    _Link_type pt_right = pt->right;
+    // 70
+    _Link_type pt_right = pt->_M_right;
 
-    pt->right = pt_right->left;
+    // 50の右が、70の左(60)に
+    pt->_M_right = pt_right->_M_left;
 
-    if (pt->right != NULL) pt->right->parent = pt;
+    // もし60があるなら、60の親が50
+    if (pt->_M_right != NULL) pt->_M_right->_M_parent = pt;
 
-    pt_right->parent = pt->parent;
+    // 70の親をroot(仮)に
+    pt_right->_M_parent = pt->_M_parent;
 
-    if (pt->parent == NULL)
+    // 70の親がいないならroot
+    if (pt->_M_parent == NULL)
       root = pt_right;
-
-    else if (pt == pt->parent->left)
-      pt->parent->left = pt_right;
-
+    // 70が左の子ならrootの左に
+    else if (pt == pt->_M_parent->_M_left)
+      pt->_M_parent->_M_left = pt_right;
+    // 70が右の子ならrootの右に
     else
-      pt->parent->right = pt_right;
+      pt->_M_parent->_M_right = pt_right;
 
-    pt_right->left = pt;
-    pt->parent = pt_right;
+    // 70の左を50に
+    pt_right->_M_left = pt;
+    // 50の親を70に
+    pt->_M_parent = pt_right;
   }
 
   /*
@@ -441,49 +464,48 @@ class _Rb_tree {
              50(B) pt: grand_parent                  20(B) pt_left
             /   \                                   /  \
   Parent 20(R)   70(B) uncle                     16(R)  50(R) pt
-          /                                               \
-       16(R)                                               70(B)
+          /  \                                         /   \
+       16(R)  24(B)                                  24(B)  70(B)
 
-
+  祖父母の左を親の右に、
   親を祖父母に、
   祖父母を兄弟に回転し、
   色を塗りなおす。
   親が黒になるので、上は気にしないでよくなる。
   */
   void rotateRight(_Link_type root, _Link_type pt) {
-    _Link_type pt_left = pt->left; // parent
+    _Link_type pt_left = pt->_M_left; // parent
 
-    pt->left = pt_left->right;
-
-    if (pt->left != NULL) pt->left->parent = pt;
+    // 祖父母の左を、親の右に
+    pt->_M_left = pt_left->_M_right;
+    if (pt->_M_left != NULL) pt->_M_left->_M_parent = pt;
 
     // 親を祖父母に
-    pt_left->parent = pt->parent;
+    pt_left->_M_parent = pt->_M_parent;
 
-    // rootの子供を親に
-    if (pt->parent == NULL)
+    // 親の親からみて、子供を結ぶ。親の親がいないなら、自分がroot
+    if (pt->_M_parent == NULL)
       root = pt_left;
-
-    else if (pt == pt->parent->left)
-      pt->parent->left = pt_left;
-
+    else if (pt == pt->_M_parent->_M_left)
+      pt->_M_parent->_M_left = pt_left;
     else
-      pt->parent->right = pt_left;
+      pt->_M_parent->_M_right = pt_left;
+
     // 親の右が祖父母に
-    pt_left->right = pt;
+    pt_left->_M_right = pt;
     // 祖父母の親が親に。
-    pt->parent = pt_left;
+    pt->_M_parent = pt_left;
   }
 
   void fixViolation(_Link_type root, _Link_type pt) {
     _Link_type parent_pt = NULL;
     _Link_type grand_parent_pt = NULL;
 
-    while ((pt != root) && (pt->color != _S_black) &&
-           (pt->parent->color == _S_red))  // 根っこじゃない、かつ赤赤が続いてる
+    while ((pt != root) && (pt->_M_color != _S_black) &&
+           (pt->_M_parent->_M_color == _S_red))  // 根っこじゃない、かつ赤赤が続いてる
     {
-      parent_pt = pt->parent;
-      grand_parent_pt = pt->parent->parent;
+      parent_pt = pt->_M_parent;
+      grand_parent_pt = pt->_M_parent->_M_parent;
 
       /*
          Case : A
@@ -495,8 +517,8 @@ class _Rb_tree {
               |
               R
       */
-      if (parent_pt == grand_parent_pt->left) {
-        _Link_type uncle_pt = grand_parent_pt->right;
+      if (parent_pt == grand_parent_pt->_M_left) {
+        _Link_type uncle_pt = grand_parent_pt->_M_right;
 
         /* Case : 1
         The uncle of pt is also red
@@ -509,10 +531,10 @@ class _Rb_tree {
                |
                R
         */
-        if (uncle_pt != NULL && uncle_pt->color == _S_red) {
-          grand_parent_pt->color = _S_red;
-          parent_pt->color = _S_black;
-          uncle_pt->color = _S_black;
+        if (uncle_pt != NULL && uncle_pt->_M_color == _S_red) {
+          grand_parent_pt->_M_color = _S_red;
+          parent_pt->_M_color = _S_black;
+          uncle_pt->_M_color = _S_black;
           pt = grand_parent_pt;
         } else {
           /* Case : 2
@@ -525,10 +547,10 @@ class _Rb_tree {
                   \
                    R
           */
-          if (pt == parent_pt->right) {
+          if (pt == parent_pt->_M_right) {
             rotateLeft(root, parent_pt);
             pt = parent_pt;
-            parent_pt = pt->parent;
+            parent_pt = pt->_M_parent;
           }
 
           /* Case : 3
@@ -548,15 +570,16 @@ class _Rb_tree {
           Parent 20(R)   70(B) uncle                     16(R)  50(R) pt
                   /                                               \
                16(R)                                               70(B)
-        
-        
           親を祖父母に、
           祖父母を兄弟に回転し、
           色を塗りなおす。 swap(20(B) 50(R))
           親が黒になるので、上は気にしないでよくなる。
           */
           rotateRight(root, grand_parent_pt);
-          swap(parent_pt->color, grand_parent_pt->color);
+          // swap
+          _Rb_tree_color tmpc = parent_pt->_M_color;
+          parent_pt->_M_color = grand_parent_pt->_M_color;
+          grand_parent_pt->_M_color = tmpc;
           pt = parent_pt;
         }
       }
@@ -565,56 +588,57 @@ class _Rb_tree {
       Parent of pt is right child
       of Grand-parent of pt */
       else {
-        _Link_type uncle_pt = grand_parent_pt->left;
+        _Link_type uncle_pt = grand_parent_pt->_M_left;
 
         /* Case : 1
                 The uncle of pt is also red
                 Only Recoloring required */
-        if ((uncle_pt != NULL) && (uncle_pt->color == _S_red)) {
-          grand_parent_pt->color = _S_red;
-          parent_pt->color = _S_black;
-          uncle_pt->color = _S_black;
+        if ((uncle_pt != NULL) && (uncle_pt->_M_color == _S_red)) {
+          grand_parent_pt->_M_color = _S_red;
+          parent_pt->_M_color = _S_black;
+          uncle_pt->_M_color = _S_black;
           pt = grand_parent_pt;
         } else {
           /* Case : 2
           pt is left child of its parent
           Right-rotation required */
-          if (pt == parent_pt->left) {
+          if (pt == parent_pt->_M_left) {
             rotateRight(root, parent_pt);
             pt = parent_pt;
-            parent_pt = pt->parent;
+            parent_pt = pt->_M_parent;
           }
 
           /* Case : 3
           pt is right child of its parent
           Left-rotation required */
           rotateLeft(root, grand_parent_pt);
-          swap(parent_pt->color, grand_parent_pt->color);
+          // swap
+          _Rb_tree_color tmpc = parent_pt->_M_color;
+          parent_pt->_M_color = grand_parent_pt->_M_color;
+          grand_parent_pt->_M_color = tmpc;
           pt = parent_pt;
         }
       }
     }
 
-    root->color = _S_black;
+    root->_M_color = _S_black;
   }
 
  public:
   std::pair<iterator, bool> insert(const value_type& __x) {
     // keyが重複してないこと
     iterator it = lower_bound(_S_key(__x));
-    if (it != end() && !_M_key_compare(_S_key(__x), _S_key(it->_M_node)))
+    if (it != end() && !_M_key_compare(_S_key(__x), _S_key(it._M_node)))
       return {it, false};
     // node作る
     _Link_type pt = _M_create_node(__x);
     // insertする
-    _M_root() = BST_insert(_S_root(), pt);
+    _M_root() = BSTInsert(_S_root(), pt);
     // rebalanceする
     fixViolation(_S_root(), pt);
 
-    it->_M_node = pt;
-    return {it, true};
+    return {iterator(pt), true};
   }
-
 
   // helper ////
  protected:
@@ -626,11 +650,6 @@ class _Rb_tree {
   void _M_construct_node(_Link_type __node, const value_type& __x) {
     try {
       _M_node_alloc.construct(&__node->_M_value_type, __x);
-
-      std::cout << "[_N_get_node] val:{" << __x.first << " " << __x.second
-                << "}" << std::endl;
-      std::cout << __node->_M_value_type.first << " "
-                << __node->_M_value_type.second << std::endl;
     } catch (...) {
       _M_put_node(__node);
       //      throw; // __throw_exception_again;
@@ -651,7 +670,6 @@ class _Rb_tree {
   }
 
   /*
-     Lookup++
            DUMMY(R): 0x7ffe5ab13d08
              +       |     right: 7
              |       +     left: 1
@@ -672,27 +690,34 @@ class _Rb_tree {
                           left: 0             left: 0
 
   __xが探索。__yが1手前の状態。
-  __xの探索がnillに至ったら、__yが
+  __xの探索がnillに至ったら、return(__y)
   */
 
   iterator _M_lower_bound(_Link_type __x, _Link_type __y, const _Key& __k) {
     while (__x != 0)
       if (!_M_key_compare(_S_key(__x), __k))
-        __y = __x, __x = __x->_M_left;
+        __y = __x, __x = _S_left(__x);
       else
-        __x = __x->_M_right;
+        __x = _S_right(__x);
     return iterator(__y);
   }
 
-  //  const_iterator _M_lower_bound(_Const_Link_type __x, _Const_Link_type __y,
-  //                                const _Key& __k) const;
+  const_iterator _M_lower_bound(_Const_Link_type __x, _Const_Link_type __y,
+                                  const _Key& __k) const{
+    while (__x != 0)
+      if (!_M_key_compare(_S_key(__x), __k))
+        __y = __x, __x = _S_left(__x);
+      else
+        __x = _S_right(__x);
+    return const_iterator(__y);
+  }
 
   iterator _M_upper_bound(_Link_type __x, _Link_type __y, const _Key& __k) {
     while (__x != 0)
       if (_M_key_compare(__k, _S_key(__x)))
-        __y = __x, __x = __x->_M_left;
+        __y = __x, __x = _S_left(__x);
       else
-        __x = __x->_M_right;
+        __x = _S_right(__x);
     return iterator(__y);
   }
 
