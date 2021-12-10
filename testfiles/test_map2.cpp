@@ -7,9 +7,9 @@ void pout(T s) {
   cout << "--- [" << ++no << "]:" << s << " ---" << endl;
 }
 
-template <typename T>
-void mdebug(T &V) {
-	cout << "size:" << V.size() << endl;
+template <typename T, typename U>
+void mdebug(ft::map<T, U> const &M) {
+	cout << "size:" << M.size() << endl;
 	/*
   for (auto it = V.begin(); it != V.end(); ++it){
     cout << "M["(*it).first << "]:" << (*it).second << endl;
@@ -37,15 +37,39 @@ void map_insert_test(){
 	pout("map_insert_test");
 
 	ft::map<int, int> M;
-	rep(i, 3){
-		cout << "--- " << "M.insert({1, " << i+1 << "})" << " ---" << endl;
-		auto ret = M.insert({1, i+1});
+/*
+	rep(i, 20){
+		int key = 0-i;
+		int val = 0-i;
+		cout << "--- " << "M.insert({" << key << "," << val << "})" << " ---" << endl;
+		auto ret = M.insert({key, val});
 		cout << " size:" << M.size() << endl;
 		cout << " ret:" << ret.first->first << "," << ret.first->second << " " << ret.second << endl;
+	  cout << endl;
+	}
+*/
+}
+
+void map_insert_delete_hardtest(){
+	// 開始地点を20か所ずらして、連番で作成
+	ft::map<int, int> M;
+  int N=20;
+  rep(i, N){ // start
+    rep(j, N){
+      int k=(i+j)%N;
+  		M.insert({k, k});
+	  	M.debug2();
+    }
+  	rep(j, N+10){
+      int k=(i+j)%N;
+      M.erase(k);
+      M.debug2();
+  	}
 	}
 }
 
 void map2_test()
 {
+//	map_insert_delete_hardtest();
 	map_insert_test();
 }

@@ -986,6 +986,13 @@ class _Rb_tree {
     } while (1);
     return __sum;
   }
+
+
+
+ public:
+  void debug(){
+	  
+  }
 };
 
 template <typename _Key, typename _Val, typename _KeyOfValue, typename Compare,

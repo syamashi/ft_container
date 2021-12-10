@@ -105,7 +105,7 @@ class map {
     _M_t._M_insert_unique(__first, __last);
   }
 */
-
+  size_type erase( const key_type& key ) { return _M_t.erase(key); }
   /*
   ** Lookup
   */
@@ -120,7 +120,16 @@ class map {
   const_iterator upper_bound(const key_type& __x) const {
     return _M_t.upper_bound(__x);
   }
+
+ public:
+  void debug(){
+    _M_t.debug();
+  }
+  void debug2(){
+    _M_t.debug2();
+  }
   };
+
 
 }  // namespace ft
 

@@ -37,9 +37,15 @@ void map_insert_test(){
 	pout("map_insert_test");
 
 	ft::map<int, int> M;
-	rep(i, 5) M[i*2+1] = i*2+1;
-	rep(i, 3) M[i*2+2] = i*2+2;
-	rep(i, 10) M[i*2+2] = i*2+2;
+	rep(i, 8){
+		M[i+1] = i+1;
+		for(auto it=M.begin(); it != M.end(); ++it)
+		{
+      cout << it->first << "," << it->second << " ";
+      it.iterator_debug();
+		}
+    cout << endl;
+	}
 }
 void map2_test()
 {

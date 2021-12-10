@@ -5,6 +5,10 @@ the code provided by
 Dinesh Khandelwal in comments **/
 #include <bits/stdc++.h>
 using namespace std;
+using ll=long long;
+using pll=pair<ll, ll>;
+#define rep(i,n) for (ll i=0; i<n; ++i)
+#define all(c) begin(c),end(c)
 
 enum Color {RED, BLACK};
 
@@ -38,7 +42,22 @@ public:
 	void insert(const int &n);
 	void inorder();
 	void levelOrder();
+	void debug();
 };
+
+void dfs(Node *r, string path){
+	if(r->left) dfs(r->left, path+'l');
+	if(r->right) dfs(r->right, path+'r');
+	reverse(all(path));
+	cout << "M[" << r->data << "]:";
+	if(r->color) cout << "B";
+	else cout << "R";
+	cout << " " << path << endl;
+}
+
+void RBTree::debug(){
+	dfs(root, "");
+}
 
 // A recursive function to do inorder traversal
 void inorderHelper(Node *root)
@@ -55,6 +74,7 @@ void inorderHelper(Node *root)
 	a new node with given key
 
 
+/*
            DUMMY(R): 0x7ffe5ab13d08
              +       |     right: 7
              |       +     left: 1
@@ -358,13 +378,10 @@ int main()
 {
 	RBTree tree;
 
-	tree.insert(7);
-	tree.insert(6);
-	tree.insert(5);
-	tree.insert(3);
-	tree.insert(2);
-	tree.insert(1);
-	tree.insert(4);
+	rep(i, 7){
+		tree.insert(i+1);
+		tree.debug();
+	}
 
 	cout << "Inorder Traversal of Created Tree\n";
 	tree.inorder();
