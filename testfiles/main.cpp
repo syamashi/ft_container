@@ -4,6 +4,6 @@ int main() {
 //	vector_test();
 //	stack_test();
 //	map_test();
-	map2_test();
+	map_test();
 //	set_test();
 }

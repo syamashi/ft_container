@@ -35,7 +35,9 @@ bool is_pop(ll hash, ll d){ return (hash>>d)&1; }
 //   INT_MAX = 2147483647 (2.1*10^9)
 
 /*
-
+ cannot initialize a variable of type 
+ 'ft::_Rb_tree<int, std::pair<const int, int>, std::less<int>, std::allocator<std::pair<const int, int> > >::value_type *' (aka 'std::pair<const int, int> *') with an rvalue of type 
+ 'const ft::_Rb_tree<int, std::pair<const int, int>, std::less<int>, std::allocator<std::pair<const int, int> > >::value_type *' (aka 'const std::pair<const int, int> *')
 */
 
 int main(){
@@ -45,4 +47,14 @@ int main(){
   
   pair<const int, int> p = {2,3};
   P=&p;
+    std::pair<int, int> p;
+  std::map<int,char> c;
+  const std::map<int,char>::value_compare& comp = c.value_comp();
+
+  auto p1 = std::make_pair(1,'a');
+  auto p2 = std::make_pair(2,'b');
+  auto p3 = std::make_pair(3,'c');
+
+  std::cout << comp(p1, p2) << std::endl;
+  std::cout << comp(p3, p2) << std::endl;
 }

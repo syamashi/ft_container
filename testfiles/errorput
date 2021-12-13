@@ -1,0 +1,1129 @@
+In file included from main.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:63:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/allocated_ptr.h:48:32: error: no template named 'allocator_traits'; did you mean '::std::allocator_traits'?
+      using pointer = typename allocator_traits<_Alloc>::pointer;
+                               ^
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/alloc_traits.h:83:12: note: '::std::allocator_traits' declared here
+    struct allocator_traits : __allocator_traits_base
+           ^
+In file included from main.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:63:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/allocated_ptr.h:49:35: error: no template named 'allocator_traits'; did you mean '::std::allocator_traits'?
+      using value_type = typename allocator_traits<_Alloc>::value_type;
+                                  ^
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/alloc_traits.h:83:12: note: '::std::allocator_traits' declared here
+    struct allocator_traits : __allocator_traits_base
+           ^
+In file included from main.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:63:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/allocated_ptr.h:58:25: error: no template named '_Require'; did you mean '::std::_Require'?
+               typename _Req = _Require<is_same<_Ptr, value_type*>>>
+                               ^
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/type_traits:2160:5: note: '::std::_Require' declared here
+    using _Require = typename enable_if<__and_<_Cond...>::value>::type;
+    ^
+In file included from main.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:63:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/allocated_ptr.h:78:17: error: no type named 'nullptr_t' in namespace 'ft::std'; did you mean '::std::nullptr_t'?
+      operator=(std::nullptr_t) noexcept
+                ^~~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/x86_64-linux-gnu/c++/7.5.0/bits/c++config.h:235:29: note: '::std::nullptr_t' declared here
+  typedef decltype(nullptr)     nullptr_t;
+                                ^
+In file included from main.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:63:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/allocated_ptr.h:53:18: error: no member named '__addressof' in namespace 'ft::std'; did you mean '::std::__addressof'?
+      : _M_alloc(std::__addressof(__a)), _M_ptr(__ptr)
+                 ^~~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/move.h:47:5: note: '::std::__addressof' declared here
+    __addressof(_Tp& __r) _GLIBCXX_NOEXCEPT
+    ^
+In file included from main.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:63:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/allocated_ptr.h:60:18: error: no member named '__addressof' in namespace 'ft::std'; did you mean '::std::__addressof'?
+      : _M_alloc(std::__addressof(__a)),
+                 ^~~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/move.h:47:5: note: '::std::__addressof' declared here
+    __addressof(_Tp& __r) _GLIBCXX_NOEXCEPT
+    ^
+In file included from main.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:63:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/allocated_ptr.h:61:9: error: no template named 'pointer_traits'; did you mean '::std::pointer_traits'?
+        _M_ptr(pointer_traits<pointer>::pointer_to(*__ptr))
+               ^
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/ptr_traits.h:78:12: note: '::std::pointer_traits' declared here
+    struct pointer_traits
+           ^
+In file included from main.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:63:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/allocated_ptr.h:73:4: error: no template named 'allocator_traits' in namespace 'ft::std'; did you mean '::std::allocator_traits'?
+          std::allocator_traits<_Alloc>::deallocate(*_M_alloc, _M_ptr, 1);
+          ^~~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/alloc_traits.h:83:12: note: '::std::allocator_traits' declared here
+    struct allocator_traits : __allocator_traits_base
+           ^
+In file included from main.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:63:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/allocated_ptr.h:104:21: error: no template named 'allocator_traits' in namespace 'ft::std'; did you mean '::std::allocator_traits'?
+      return { __a, std::allocator_traits<_Alloc>::allocate(__a, 1) };
+                    ^~~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/alloc_traits.h:83:12: note: '::std::allocator_traits' declared here
+    struct allocator_traits : __allocator_traits_base
+           ^
+In file included from main.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:64:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/ext/aligned_buffer.h:59:24: error: no type named 'nullptr_t' in namespace 'ft::std'; did you mean '::std::nullptr_t'?
+      __aligned_membuf(std::nullptr_t) { }
+                       ^~~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/x86_64-linux-gnu/c++/7.5.0/bits/c++config.h:235:29: note: '::std::nullptr_t' declared here
+  typedef decltype(nullptr)     nullptr_t;
+                                ^
+In file included from main.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:64:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/ext/aligned_buffer.h:85:7: error: no template named 'aligned_storage' in namespace 'ft::std'; did you mean '::std::aligned_storage'?
+    : std::aligned_storage<sizeof(_Tp), std::alignment_of<_Tp>::value>
+      ^~~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/type_traits:2038:12: note: '::std::aligned_storage' declared here
+    struct aligned_storage
+           ^
+In file included from main.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:64:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/ext/aligned_buffer.h:85:41: error: no template named 'alignment_of' in namespace 'ft::std'; did you mean '::std::alignment_of'?
+    : std::aligned_storage<sizeof(_Tp), std::alignment_of<_Tp>::value>
+                                        ^~~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/type_traits:1463:12: note: '::std::alignment_of' declared here
+    struct alignment_of
+           ^
+In file included from main.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:64:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/ext/aligned_buffer.h:88:2: error: no template named 'aligned_storage' in namespace 'ft::std'; did you mean '::std::aligned_storage'?
+        std::aligned_storage<sizeof(_Tp), std::alignment_of<_Tp>::value>::type
+        ^~~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/type_traits:2038:12: note: '::std::aligned_storage' declared here
+    struct aligned_storage
+           ^
+In file included from main.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:64:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/ext/aligned_buffer.h:88:36: error: no template named 'alignment_of' in namespace 'ft::std'; did you mean '::std::alignment_of'?
+        std::aligned_storage<sizeof(_Tp), std::alignment_of<_Tp>::value>::type
+                                          ^~~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/type_traits:1463:12: note: '::std::alignment_of' declared here
+    struct alignment_of
+           ^
+In file included from main.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:64:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/ext/aligned_buffer.h:94:24: error: no type named 'nullptr_t' in namespace 'ft::std'; did you mean '::std::nullptr_t'?
+      __aligned_buffer(std::nullptr_t) { }
+                       ^~~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/x86_64-linux-gnu/c++/7.5.0/bits/c++config.h:235:29: note: '::std::nullptr_t' declared here
+  typedef decltype(nullptr)     nullptr_t;
+                                ^
+In file included from main.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:134:15: error: no type named 'bidirectional_iterator_tag' in namespace 'ft::std'; did you mean simply 'bidirectional_iterator_tag'?
+      typedef std::bidirectional_iterator_tag   iterator_category;
+              ^~~~~
+./../utils/iterator.hpp:15:8: note: 'bidirectional_iterator_tag' declared here
+struct bidirectional_iterator_tag : public forward_iterator_tag {};
+       ^
+In file included from main.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:214:15: error: no type named 'bidirectional_iterator_tag' in namespace 'ft::std'; did you mean simply 'bidirectional_iterator_tag'?
+      typedef std::bidirectional_iterator_tag   iterator_category;
+              ^~~~~
+./../utils/iterator.hpp:15:8: note: 'bidirectional_iterator_tag' declared here
+struct bidirectional_iterator_tag : public forward_iterator_tag {};
+       ^
+In file included from main.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:303:24: error: no template named '__alloc_traits' in namespace 'ft::__gnu_cxx'; did you mean '::__gnu_cxx::__alloc_traits'?
+      typedef typename __gnu_cxx::__alloc_traits<_Alloc>::template
+                       ^~~~~~~~~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/ext/alloc_traits.h:50:10: note: '::__gnu_cxx::__alloc_traits' declared here
+  struct __alloc_traits
+         ^
+In file included from main.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:305:15: error: no template named '__alloc_traits' in namespace 'ft::__gnu_cxx'; did you mean '::__gnu_cxx::__alloc_traits'?
+      typedef __gnu_cxx::__alloc_traits<_Tp_alloc_type> _Tp_alloc_traits;
+              ^~~~~~~~~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/ext/alloc_traits.h:50:10: note: '::__gnu_cxx::__alloc_traits' declared here
+  struct __alloc_traits
+         ^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+20 errors generated.
+In file included from test_map2.cpp:6:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:63:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/allocated_ptr.h:48:32: error: no template named 'allocator_traits'; did you mean '::std::allocator_traits'?
+      using pointer = typename allocator_traits<_Alloc>::pointer;
+                               ^
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/alloc_traits.h:83:12: note: '::std::allocator_traits' declared here
+    struct allocator_traits : __allocator_traits_base
+           ^
+In file included from test_map2.cpp:6:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:63:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/allocated_ptr.h:49:35: error: no template named 'allocator_traits'; did you mean '::std::allocator_traits'?
+      using value_type = typename allocator_traits<_Alloc>::value_type;
+                                  ^
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/alloc_traits.h:83:12: note: '::std::allocator_traits' declared here
+    struct allocator_traits : __allocator_traits_base
+           ^
+In file included from test_map2.cpp:6:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:63:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/allocated_ptr.h:58:25: error: no template named '_Require'; did you mean '::std::_Require'?
+               typename _Req = _Require<is_same<_Ptr, value_type*>>>
+                               ^
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/type_traits:2160:5: note: '::std::_Require' declared here
+    using _Require = typename enable_if<__and_<_Cond...>::value>::type;
+    ^
+In file included from test_map2.cpp:6:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:63:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/allocated_ptr.h:78:17: error: no type named 'nullptr_t' in namespace 'ft::std'; did you mean '::std::nullptr_t'?
+      operator=(std::nullptr_t) noexcept
+                ^~~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/x86_64-linux-gnu/c++/7.5.0/bits/c++config.h:235:29: note: '::std::nullptr_t' declared here
+  typedef decltype(nullptr)     nullptr_t;
+                                ^
+In file included from test_map2.cpp:6:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:63:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/allocated_ptr.h:53:18: error: no member named '__addressof' in namespace 'ft::std'; did you mean '::std::__addressof'?
+      : _M_alloc(std::__addressof(__a)), _M_ptr(__ptr)
+                 ^~~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/move.h:47:5: note: '::std::__addressof' declared here
+    __addressof(_Tp& __r) _GLIBCXX_NOEXCEPT
+    ^
+In file included from test_map2.cpp:6:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:63:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/allocated_ptr.h:60:18: error: no member named '__addressof' in namespace 'ft::std'; did you mean '::std::__addressof'?
+      : _M_alloc(std::__addressof(__a)),
+                 ^~~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/move.h:47:5: note: '::std::__addressof' declared here
+    __addressof(_Tp& __r) _GLIBCXX_NOEXCEPT
+    ^
+In file included from test_map2.cpp:6:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:63:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/allocated_ptr.h:61:9: error: no template named 'pointer_traits'; did you mean '::std::pointer_traits'?
+        _M_ptr(pointer_traits<pointer>::pointer_to(*__ptr))
+               ^
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/ptr_traits.h:78:12: note: '::std::pointer_traits' declared here
+    struct pointer_traits
+           ^
+In file included from test_map2.cpp:6:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:63:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/allocated_ptr.h:73:4: error: no template named 'allocator_traits' in namespace 'ft::std'; did you mean '::std::allocator_traits'?
+          std::allocator_traits<_Alloc>::deallocate(*_M_alloc, _M_ptr, 1);
+          ^~~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/alloc_traits.h:83:12: note: '::std::allocator_traits' declared here
+    struct allocator_traits : __allocator_traits_base
+           ^
+In file included from test_map2.cpp:6:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:63:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/allocated_ptr.h:104:21: error: no template named 'allocator_traits' in namespace 'ft::std'; did you mean '::std::allocator_traits'?
+      return { __a, std::allocator_traits<_Alloc>::allocate(__a, 1) };
+                    ^~~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/alloc_traits.h:83:12: note: '::std::allocator_traits' declared here
+    struct allocator_traits : __allocator_traits_base
+           ^
+In file included from test_map2.cpp:6:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:64:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/ext/aligned_buffer.h:59:24: error: no type named 'nullptr_t' in namespace 'ft::std'; did you mean '::std::nullptr_t'?
+      __aligned_membuf(std::nullptr_t) { }
+                       ^~~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/x86_64-linux-gnu/c++/7.5.0/bits/c++config.h:235:29: note: '::std::nullptr_t' declared here
+  typedef decltype(nullptr)     nullptr_t;
+                                ^
+In file included from test_map2.cpp:6:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:64:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/ext/aligned_buffer.h:85:7: error: no template named 'aligned_storage' in namespace 'ft::std'; did you mean '::std::aligned_storage'?
+    : std::aligned_storage<sizeof(_Tp), std::alignment_of<_Tp>::value>
+      ^~~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/type_traits:2038:12: note: '::std::aligned_storage' declared here
+    struct aligned_storage
+           ^
+In file included from test_map2.cpp:6:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:64:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/ext/aligned_buffer.h:85:41: error: no template named 'alignment_of' in namespace 'ft::std'; did you mean '::std::alignment_of'?
+    : std::aligned_storage<sizeof(_Tp), std::alignment_of<_Tp>::value>
+                                        ^~~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/type_traits:1463:12: note: '::std::alignment_of' declared here
+    struct alignment_of
+           ^
+In file included from test_map2.cpp:6:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:64:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/ext/aligned_buffer.h:88:2: error: no template named 'aligned_storage' in namespace 'ft::std'; did you mean '::std::aligned_storage'?
+        std::aligned_storage<sizeof(_Tp), std::alignment_of<_Tp>::value>::type
+        ^~~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/type_traits:2038:12: note: '::std::aligned_storage' declared here
+    struct aligned_storage
+           ^
+In file included from test_map2.cpp:6:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:64:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/ext/aligned_buffer.h:88:36: error: no template named 'alignment_of' in namespace 'ft::std'; did you mean '::std::alignment_of'?
+        std::aligned_storage<sizeof(_Tp), std::alignment_of<_Tp>::value>::type
+                                          ^~~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/type_traits:1463:12: note: '::std::alignment_of' declared here
+    struct alignment_of
+           ^
+In file included from test_map2.cpp:6:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:64:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/ext/aligned_buffer.h:94:24: error: no type named 'nullptr_t' in namespace 'ft::std'; did you mean '::std::nullptr_t'?
+      __aligned_buffer(std::nullptr_t) { }
+                       ^~~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/x86_64-linux-gnu/c++/7.5.0/bits/c++config.h:235:29: note: '::std::nullptr_t' declared here
+  typedef decltype(nullptr)     nullptr_t;
+                                ^
+In file included from test_map2.cpp:6:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:134:15: error: no type named 'bidirectional_iterator_tag' in namespace 'ft::std'; did you mean simply 'bidirectional_iterator_tag'?
+      typedef std::bidirectional_iterator_tag   iterator_category;
+              ^~~~~
+./../utils/iterator.hpp:15:8: note: 'bidirectional_iterator_tag' declared here
+struct bidirectional_iterator_tag : public forward_iterator_tag {};
+       ^
+In file included from test_map2.cpp:6:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:214:15: error: no type named 'bidirectional_iterator_tag' in namespace 'ft::std'; did you mean simply 'bidirectional_iterator_tag'?
+      typedef std::bidirectional_iterator_tag   iterator_category;
+              ^~~~~
+./../utils/iterator.hpp:15:8: note: 'bidirectional_iterator_tag' declared here
+struct bidirectional_iterator_tag : public forward_iterator_tag {};
+       ^
+In file included from test_map2.cpp:6:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:303:24: error: no template named '__alloc_traits' in namespace 'ft::__gnu_cxx'; did you mean '::__gnu_cxx::__alloc_traits'?
+      typedef typename __gnu_cxx::__alloc_traits<_Alloc>::template
+                       ^~~~~~~~~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/ext/alloc_traits.h:50:10: note: '::__gnu_cxx::__alloc_traits' declared here
+  struct __alloc_traits
+         ^
+In file included from test_map2.cpp:6:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:305:15: error: no template named '__alloc_traits' in namespace 'ft::__gnu_cxx'; did you mean '::__gnu_cxx::__alloc_traits'?
+      typedef __gnu_cxx::__alloc_traits<_Tp_alloc_type> _Tp_alloc_traits;
+              ^~~~~~~~~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/ext/alloc_traits.h:50:10: note: '::__gnu_cxx::__alloc_traits' declared here
+  struct __alloc_traits
+         ^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+20 errors generated.
+In file included from test_set.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:63:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/allocated_ptr.h:48:32: error: no template named 'allocator_traits'; did you mean '::std::allocator_traits'?
+      using pointer = typename allocator_traits<_Alloc>::pointer;
+                               ^
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/alloc_traits.h:83:12: note: '::std::allocator_traits' declared here
+    struct allocator_traits : __allocator_traits_base
+           ^
+In file included from test_set.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:63:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/allocated_ptr.h:49:35: error: no template named 'allocator_traits'; did you mean '::std::allocator_traits'?
+      using value_type = typename allocator_traits<_Alloc>::value_type;
+                                  ^
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/alloc_traits.h:83:12: note: '::std::allocator_traits' declared here
+    struct allocator_traits : __allocator_traits_base
+           ^
+In file included from test_set.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:63:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/allocated_ptr.h:58:25: error: no template named '_Require'; did you mean '::std::_Require'?
+               typename _Req = _Require<is_same<_Ptr, value_type*>>>
+                               ^
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/type_traits:2160:5: note: '::std::_Require' declared here
+    using _Require = typename enable_if<__and_<_Cond...>::value>::type;
+    ^
+In file included from test_set.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:63:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/allocated_ptr.h:78:17: error: no type named 'nullptr_t' in namespace 'ft::std'; did you mean '::std::nullptr_t'?
+      operator=(std::nullptr_t) noexcept
+                ^~~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/x86_64-linux-gnu/c++/7.5.0/bits/c++config.h:235:29: note: '::std::nullptr_t' declared here
+  typedef decltype(nullptr)     nullptr_t;
+                                ^
+In file included from test_set.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:63:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/allocated_ptr.h:53:18: error: no member named '__addressof' in namespace 'ft::std'; did you mean '::std::__addressof'?
+      : _M_alloc(std::__addressof(__a)), _M_ptr(__ptr)
+                 ^~~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/move.h:47:5: note: '::std::__addressof' declared here
+    __addressof(_Tp& __r) _GLIBCXX_NOEXCEPT
+    ^
+In file included from test_set.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:63:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/allocated_ptr.h:60:18: error: no member named '__addressof' in namespace 'ft::std'; did you mean '::std::__addressof'?
+      : _M_alloc(std::__addressof(__a)),
+                 ^~~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/move.h:47:5: note: '::std::__addressof' declared here
+    __addressof(_Tp& __r) _GLIBCXX_NOEXCEPT
+    ^
+In file included from test_set.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:63:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/allocated_ptr.h:61:9: error: no template named 'pointer_traits'; did you mean '::std::pointer_traits'?
+        _M_ptr(pointer_traits<pointer>::pointer_to(*__ptr))
+               ^
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/ptr_traits.h:78:12: note: '::std::pointer_traits' declared here
+    struct pointer_traits
+           ^
+In file included from test_set.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:63:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/allocated_ptr.h:73:4: error: no template named 'allocator_traits' in namespace 'ft::std'; did you mean '::std::allocator_traits'?
+          std::allocator_traits<_Alloc>::deallocate(*_M_alloc, _M_ptr, 1);
+          ^~~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/alloc_traits.h:83:12: note: '::std::allocator_traits' declared here
+    struct allocator_traits : __allocator_traits_base
+           ^
+In file included from test_set.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:63:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/allocated_ptr.h:104:21: error: no template named 'allocator_traits' in namespace 'ft::std'; did you mean '::std::allocator_traits'?
+      return { __a, std::allocator_traits<_Alloc>::allocate(__a, 1) };
+                    ^~~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/alloc_traits.h:83:12: note: '::std::allocator_traits' declared here
+    struct allocator_traits : __allocator_traits_base
+           ^
+In file included from test_set.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:64:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/ext/aligned_buffer.h:59:24: error: no type named 'nullptr_t' in namespace 'ft::std'; did you mean '::std::nullptr_t'?
+      __aligned_membuf(std::nullptr_t) { }
+                       ^~~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/x86_64-linux-gnu/c++/7.5.0/bits/c++config.h:235:29: note: '::std::nullptr_t' declared here
+  typedef decltype(nullptr)     nullptr_t;
+                                ^
+In file included from test_set.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:64:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/ext/aligned_buffer.h:85:7: error: no template named 'aligned_storage' in namespace 'ft::std'; did you mean '::std::aligned_storage'?
+    : std::aligned_storage<sizeof(_Tp), std::alignment_of<_Tp>::value>
+      ^~~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/type_traits:2038:12: note: '::std::aligned_storage' declared here
+    struct aligned_storage
+           ^
+In file included from test_set.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:64:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/ext/aligned_buffer.h:85:41: error: no template named 'alignment_of' in namespace 'ft::std'; did you mean '::std::alignment_of'?
+    : std::aligned_storage<sizeof(_Tp), std::alignment_of<_Tp>::value>
+                                        ^~~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/type_traits:1463:12: note: '::std::alignment_of' declared here
+    struct alignment_of
+           ^
+In file included from test_set.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:64:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/ext/aligned_buffer.h:88:2: error: no template named 'aligned_storage' in namespace 'ft::std'; did you mean '::std::aligned_storage'?
+        std::aligned_storage<sizeof(_Tp), std::alignment_of<_Tp>::value>::type
+        ^~~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/type_traits:2038:12: note: '::std::aligned_storage' declared here
+    struct aligned_storage
+           ^
+In file included from test_set.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:64:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/ext/aligned_buffer.h:88:36: error: no template named 'alignment_of' in namespace 'ft::std'; did you mean '::std::alignment_of'?
+        std::aligned_storage<sizeof(_Tp), std::alignment_of<_Tp>::value>::type
+                                          ^~~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/type_traits:1463:12: note: '::std::alignment_of' declared here
+    struct alignment_of
+           ^
+In file included from test_set.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:64:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/ext/aligned_buffer.h:94:24: error: no type named 'nullptr_t' in namespace 'ft::std'; did you mean '::std::nullptr_t'?
+      __aligned_buffer(std::nullptr_t) { }
+                       ^~~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/x86_64-linux-gnu/c++/7.5.0/bits/c++config.h:235:29: note: '::std::nullptr_t' declared here
+  typedef decltype(nullptr)     nullptr_t;
+                                ^
+In file included from test_set.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:134:15: error: no type named 'bidirectional_iterator_tag' in namespace 'ft::std'; did you mean simply 'bidirectional_iterator_tag'?
+      typedef std::bidirectional_iterator_tag   iterator_category;
+              ^~~~~
+./../utils/iterator.hpp:15:8: note: 'bidirectional_iterator_tag' declared here
+struct bidirectional_iterator_tag : public forward_iterator_tag {};
+       ^
+In file included from test_set.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:214:15: error: no type named 'bidirectional_iterator_tag' in namespace 'ft::std'; did you mean simply 'bidirectional_iterator_tag'?
+      typedef std::bidirectional_iterator_tag   iterator_category;
+              ^~~~~
+./../utils/iterator.hpp:15:8: note: 'bidirectional_iterator_tag' declared here
+struct bidirectional_iterator_tag : public forward_iterator_tag {};
+       ^
+In file included from test_set.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:303:24: error: no template named '__alloc_traits' in namespace 'ft::__gnu_cxx'; did you mean '::__gnu_cxx::__alloc_traits'?
+      typedef typename __gnu_cxx::__alloc_traits<_Alloc>::template
+                       ^~~~~~~~~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/ext/alloc_traits.h:50:10: note: '::__gnu_cxx::__alloc_traits' declared here
+  struct __alloc_traits
+         ^
+In file included from test_set.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:305:15: error: no template named '__alloc_traits' in namespace 'ft::__gnu_cxx'; did you mean '::__gnu_cxx::__alloc_traits'?
+      typedef __gnu_cxx::__alloc_traits<_Tp_alloc_type> _Tp_alloc_traits;
+              ^~~~~~~~~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/ext/alloc_traits.h:50:10: note: '::__gnu_cxx::__alloc_traits' declared here
+  struct __alloc_traits
+         ^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+20 errors generated.
+In file included from test_stack.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:63:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/allocated_ptr.h:48:32: error: no template named 'allocator_traits'; did you mean '::std::allocator_traits'?
+      using pointer = typename allocator_traits<_Alloc>::pointer;
+                               ^
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/alloc_traits.h:83:12: note: '::std::allocator_traits' declared here
+    struct allocator_traits : __allocator_traits_base
+           ^
+In file included from test_stack.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:63:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/allocated_ptr.h:49:35: error: no template named 'allocator_traits'; did you mean '::std::allocator_traits'?
+      using value_type = typename allocator_traits<_Alloc>::value_type;
+                                  ^
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/alloc_traits.h:83:12: note: '::std::allocator_traits' declared here
+    struct allocator_traits : __allocator_traits_base
+           ^
+In file included from test_stack.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:63:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/allocated_ptr.h:58:25: error: no template named '_Require'; did you mean '::std::_Require'?
+               typename _Req = _Require<is_same<_Ptr, value_type*>>>
+                               ^
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/type_traits:2160:5: note: '::std::_Require' declared here
+    using _Require = typename enable_if<__and_<_Cond...>::value>::type;
+    ^
+In file included from test_stack.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:63:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/allocated_ptr.h:78:17: error: no type named 'nullptr_t' in namespace 'ft::std'; did you mean '::std::nullptr_t'?
+      operator=(std::nullptr_t) noexcept
+                ^~~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/x86_64-linux-gnu/c++/7.5.0/bits/c++config.h:235:29: note: '::std::nullptr_t' declared here
+  typedef decltype(nullptr)     nullptr_t;
+                                ^
+In file included from test_stack.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:63:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/allocated_ptr.h:53:18: error: no member named '__addressof' in namespace 'ft::std'; did you mean '::std::__addressof'?
+      : _M_alloc(std::__addressof(__a)), _M_ptr(__ptr)
+                 ^~~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/move.h:47:5: note: '::std::__addressof' declared here
+    __addressof(_Tp& __r) _GLIBCXX_NOEXCEPT
+    ^
+In file included from test_stack.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:63:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/allocated_ptr.h:60:18: error: no member named '__addressof' in namespace 'ft::std'; did you mean '::std::__addressof'?
+      : _M_alloc(std::__addressof(__a)),
+                 ^~~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/move.h:47:5: note: '::std::__addressof' declared here
+    __addressof(_Tp& __r) _GLIBCXX_NOEXCEPT
+    ^
+In file included from test_stack.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:63:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/allocated_ptr.h:61:9: error: no template named 'pointer_traits'; did you mean '::std::pointer_traits'?
+        _M_ptr(pointer_traits<pointer>::pointer_to(*__ptr))
+               ^
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/ptr_traits.h:78:12: note: '::std::pointer_traits' declared here
+    struct pointer_traits
+           ^
+In file included from test_stack.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:63:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/allocated_ptr.h:73:4: error: no template named 'allocator_traits' in namespace 'ft::std'; did you mean '::std::allocator_traits'?
+          std::allocator_traits<_Alloc>::deallocate(*_M_alloc, _M_ptr, 1);
+          ^~~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/alloc_traits.h:83:12: note: '::std::allocator_traits' declared here
+    struct allocator_traits : __allocator_traits_base
+           ^
+In file included from test_stack.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:63:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/allocated_ptr.h:104:21: error: no template named 'allocator_traits' in namespace 'ft::std'; did you mean '::std::allocator_traits'?
+      return { __a, std::allocator_traits<_Alloc>::allocate(__a, 1) };
+                    ^~~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/alloc_traits.h:83:12: note: '::std::allocator_traits' declared here
+    struct allocator_traits : __allocator_traits_base
+           ^
+In file included from test_stack.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:64:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/ext/aligned_buffer.h:59:24: error: no type named 'nullptr_t' in namespace 'ft::std'; did you mean '::std::nullptr_t'?
+      __aligned_membuf(std::nullptr_t) { }
+                       ^~~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/x86_64-linux-gnu/c++/7.5.0/bits/c++config.h:235:29: note: '::std::nullptr_t' declared here
+  typedef decltype(nullptr)     nullptr_t;
+                                ^
+In file included from test_stack.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:64:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/ext/aligned_buffer.h:85:7: error: no template named 'aligned_storage' in namespace 'ft::std'; did you mean '::std::aligned_storage'?
+    : std::aligned_storage<sizeof(_Tp), std::alignment_of<_Tp>::value>
+      ^~~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/type_traits:2038:12: note: '::std::aligned_storage' declared here
+    struct aligned_storage
+           ^
+In file included from test_stack.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:64:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/ext/aligned_buffer.h:85:41: error: no template named 'alignment_of' in namespace 'ft::std'; did you mean '::std::alignment_of'?
+    : std::aligned_storage<sizeof(_Tp), std::alignment_of<_Tp>::value>
+                                        ^~~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/type_traits:1463:12: note: '::std::alignment_of' declared here
+    struct alignment_of
+           ^
+In file included from test_stack.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:64:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/ext/aligned_buffer.h:88:2: error: no template named 'aligned_storage' in namespace 'ft::std'; did you mean '::std::aligned_storage'?
+        std::aligned_storage<sizeof(_Tp), std::alignment_of<_Tp>::value>::type
+        ^~~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/type_traits:2038:12: note: '::std::aligned_storage' declared here
+    struct aligned_storage
+           ^
+In file included from test_stack.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:64:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/ext/aligned_buffer.h:88:36: error: no template named 'alignment_of' in namespace 'ft::std'; did you mean '::std::alignment_of'?
+        std::aligned_storage<sizeof(_Tp), std::alignment_of<_Tp>::value>::type
+                                          ^~~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/type_traits:1463:12: note: '::std::alignment_of' declared here
+    struct alignment_of
+           ^
+In file included from test_stack.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:64:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/ext/aligned_buffer.h:94:24: error: no type named 'nullptr_t' in namespace 'ft::std'; did you mean '::std::nullptr_t'?
+      __aligned_buffer(std::nullptr_t) { }
+                       ^~~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/x86_64-linux-gnu/c++/7.5.0/bits/c++config.h:235:29: note: '::std::nullptr_t' declared here
+  typedef decltype(nullptr)     nullptr_t;
+                                ^
+In file included from test_stack.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:134:15: error: no type named 'bidirectional_iterator_tag' in namespace 'ft::std'; did you mean simply 'bidirectional_iterator_tag'?
+      typedef std::bidirectional_iterator_tag   iterator_category;
+              ^~~~~
+./../utils/iterator.hpp:15:8: note: 'bidirectional_iterator_tag' declared here
+struct bidirectional_iterator_tag : public forward_iterator_tag {};
+       ^
+In file included from test_stack.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:214:15: error: no type named 'bidirectional_iterator_tag' in namespace 'ft::std'; did you mean simply 'bidirectional_iterator_tag'?
+      typedef std::bidirectional_iterator_tag   iterator_category;
+              ^~~~~
+./../utils/iterator.hpp:15:8: note: 'bidirectional_iterator_tag' declared here
+struct bidirectional_iterator_tag : public forward_iterator_tag {};
+       ^
+In file included from test_stack.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:303:24: error: no template named '__alloc_traits' in namespace 'ft::__gnu_cxx'; did you mean '::__gnu_cxx::__alloc_traits'?
+      typedef typename __gnu_cxx::__alloc_traits<_Alloc>::template
+                       ^~~~~~~~~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/ext/alloc_traits.h:50:10: note: '::__gnu_cxx::__alloc_traits' declared here
+  struct __alloc_traits
+         ^
+In file included from test_stack.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:305:15: error: no template named '__alloc_traits' in namespace 'ft::__gnu_cxx'; did you mean '::__gnu_cxx::__alloc_traits'?
+      typedef __gnu_cxx::__alloc_traits<_Tp_alloc_type> _Tp_alloc_traits;
+              ^~~~~~~~~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/ext/alloc_traits.h:50:10: note: '::__gnu_cxx::__alloc_traits' declared here
+  struct __alloc_traits
+         ^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+20 errors generated.
+In file included from test_vector.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:63:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/allocated_ptr.h:48:32: error: no template named 'allocator_traits'; did you mean '::std::allocator_traits'?
+      using pointer = typename allocator_traits<_Alloc>::pointer;
+                               ^
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/alloc_traits.h:83:12: note: '::std::allocator_traits' declared here
+    struct allocator_traits : __allocator_traits_base
+           ^
+In file included from test_vector.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:63:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/allocated_ptr.h:49:35: error: no template named 'allocator_traits'; did you mean '::std::allocator_traits'?
+      using value_type = typename allocator_traits<_Alloc>::value_type;
+                                  ^
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/alloc_traits.h:83:12: note: '::std::allocator_traits' declared here
+    struct allocator_traits : __allocator_traits_base
+           ^
+In file included from test_vector.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:63:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/allocated_ptr.h:58:25: error: no template named '_Require'; did you mean '::std::_Require'?
+               typename _Req = _Require<is_same<_Ptr, value_type*>>>
+                               ^
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/type_traits:2160:5: note: '::std::_Require' declared here
+    using _Require = typename enable_if<__and_<_Cond...>::value>::type;
+    ^
+In file included from test_vector.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:63:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/allocated_ptr.h:78:17: error: no type named 'nullptr_t' in namespace 'ft::std'; did you mean '::std::nullptr_t'?
+      operator=(std::nullptr_t) noexcept
+                ^~~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/x86_64-linux-gnu/c++/7.5.0/bits/c++config.h:235:29: note: '::std::nullptr_t' declared here
+  typedef decltype(nullptr)     nullptr_t;
+                                ^
+In file included from test_vector.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:63:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/allocated_ptr.h:53:18: error: no member named '__addressof' in namespace 'ft::std'; did you mean '::std::__addressof'?
+      : _M_alloc(std::__addressof(__a)), _M_ptr(__ptr)
+                 ^~~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/move.h:47:5: note: '::std::__addressof' declared here
+    __addressof(_Tp& __r) _GLIBCXX_NOEXCEPT
+    ^
+In file included from test_vector.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:63:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/allocated_ptr.h:60:18: error: no member named '__addressof' in namespace 'ft::std'; did you mean '::std::__addressof'?
+      : _M_alloc(std::__addressof(__a)),
+                 ^~~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/move.h:47:5: note: '::std::__addressof' declared here
+    __addressof(_Tp& __r) _GLIBCXX_NOEXCEPT
+    ^
+In file included from test_vector.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:63:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/allocated_ptr.h:61:9: error: no template named 'pointer_traits'; did you mean '::std::pointer_traits'?
+        _M_ptr(pointer_traits<pointer>::pointer_to(*__ptr))
+               ^
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/ptr_traits.h:78:12: note: '::std::pointer_traits' declared here
+    struct pointer_traits
+           ^
+In file included from test_vector.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:63:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/allocated_ptr.h:73:4: error: no template named 'allocator_traits' in namespace 'ft::std'; did you mean '::std::allocator_traits'?
+          std::allocator_traits<_Alloc>::deallocate(*_M_alloc, _M_ptr, 1);
+          ^~~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/alloc_traits.h:83:12: note: '::std::allocator_traits' declared here
+    struct allocator_traits : __allocator_traits_base
+           ^
+In file included from test_vector.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:63:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/allocated_ptr.h:104:21: error: no template named 'allocator_traits' in namespace 'ft::std'; did you mean '::std::allocator_traits'?
+      return { __a, std::allocator_traits<_Alloc>::allocate(__a, 1) };
+                    ^~~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/alloc_traits.h:83:12: note: '::std::allocator_traits' declared here
+    struct allocator_traits : __allocator_traits_base
+           ^
+In file included from test_vector.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:64:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/ext/aligned_buffer.h:59:24: error: no type named 'nullptr_t' in namespace 'ft::std'; did you mean '::std::nullptr_t'?
+      __aligned_membuf(std::nullptr_t) { }
+                       ^~~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/x86_64-linux-gnu/c++/7.5.0/bits/c++config.h:235:29: note: '::std::nullptr_t' declared here
+  typedef decltype(nullptr)     nullptr_t;
+                                ^
+In file included from test_vector.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:64:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/ext/aligned_buffer.h:85:7: error: no template named 'aligned_storage' in namespace 'ft::std'; did you mean '::std::aligned_storage'?
+    : std::aligned_storage<sizeof(_Tp), std::alignment_of<_Tp>::value>
+      ^~~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/type_traits:2038:12: note: '::std::aligned_storage' declared here
+    struct aligned_storage
+           ^
+In file included from test_vector.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:64:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/ext/aligned_buffer.h:85:41: error: no template named 'alignment_of' in namespace 'ft::std'; did you mean '::std::alignment_of'?
+    : std::aligned_storage<sizeof(_Tp), std::alignment_of<_Tp>::value>
+                                        ^~~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/type_traits:1463:12: note: '::std::alignment_of' declared here
+    struct alignment_of
+           ^
+In file included from test_vector.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:64:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/ext/aligned_buffer.h:88:2: error: no template named 'aligned_storage' in namespace 'ft::std'; did you mean '::std::aligned_storage'?
+        std::aligned_storage<sizeof(_Tp), std::alignment_of<_Tp>::value>::type
+        ^~~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/type_traits:2038:12: note: '::std::aligned_storage' declared here
+    struct aligned_storage
+           ^
+In file included from test_vector.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:64:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/ext/aligned_buffer.h:88:36: error: no template named 'alignment_of' in namespace 'ft::std'; did you mean '::std::alignment_of'?
+        std::aligned_storage<sizeof(_Tp), std::alignment_of<_Tp>::value>::type
+                                          ^~~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/type_traits:1463:12: note: '::std::alignment_of' declared here
+    struct alignment_of
+           ^
+In file included from test_vector.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:64:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/ext/aligned_buffer.h:94:24: error: no type named 'nullptr_t' in namespace 'ft::std'; did you mean '::std::nullptr_t'?
+      __aligned_buffer(std::nullptr_t) { }
+                       ^~~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/x86_64-linux-gnu/c++/7.5.0/bits/c++config.h:235:29: note: '::std::nullptr_t' declared here
+  typedef decltype(nullptr)     nullptr_t;
+                                ^
+In file included from test_vector.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:134:15: error: no type named 'bidirectional_iterator_tag' in namespace 'ft::std'; did you mean simply 'bidirectional_iterator_tag'?
+      typedef std::bidirectional_iterator_tag   iterator_category;
+              ^~~~~
+./../utils/iterator.hpp:15:8: note: 'bidirectional_iterator_tag' declared here
+struct bidirectional_iterator_tag : public forward_iterator_tag {};
+       ^
+In file included from test_vector.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:214:15: error: no type named 'bidirectional_iterator_tag' in namespace 'ft::std'; did you mean simply 'bidirectional_iterator_tag'?
+      typedef std::bidirectional_iterator_tag   iterator_category;
+              ^~~~~
+./../utils/iterator.hpp:15:8: note: 'bidirectional_iterator_tag' declared here
+struct bidirectional_iterator_tag : public forward_iterator_tag {};
+       ^
+In file included from test_vector.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:303:24: error: no template named '__alloc_traits' in namespace 'ft::__gnu_cxx'; did you mean '::__gnu_cxx::__alloc_traits'?
+      typedef typename __gnu_cxx::__alloc_traits<_Alloc>::template
+                       ^~~~~~~~~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/ext/alloc_traits.h:50:10: note: '::__gnu_cxx::__alloc_traits' declared here
+  struct __alloc_traits
+         ^
+In file included from test_vector.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:305:15: error: no template named '__alloc_traits' in namespace 'ft::__gnu_cxx'; did you mean '::__gnu_cxx::__alloc_traits'?
+      typedef __gnu_cxx::__alloc_traits<_Tp_alloc_type> _Tp_alloc_traits;
+              ^~~~~~~~~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/ext/alloc_traits.h:50:10: note: '::__gnu_cxx::__alloc_traits' declared here
+  struct __alloc_traits
+         ^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+20 errors generated.
+In file included from tester_utils.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:63:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/allocated_ptr.h:48:32: error: no template named 'allocator_traits'; did you mean '::std::allocator_traits'?
+      using pointer = typename allocator_traits<_Alloc>::pointer;
+                               ^
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/alloc_traits.h:83:12: note: '::std::allocator_traits' declared here
+    struct allocator_traits : __allocator_traits_base
+           ^
+In file included from tester_utils.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:63:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/allocated_ptr.h:49:35: error: no template named 'allocator_traits'; did you mean '::std::allocator_traits'?
+      using value_type = typename allocator_traits<_Alloc>::value_type;
+                                  ^
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/alloc_traits.h:83:12: note: '::std::allocator_traits' declared here
+    struct allocator_traits : __allocator_traits_base
+           ^
+In file included from tester_utils.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:63:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/allocated_ptr.h:58:25: error: no template named '_Require'; did you mean '::std::_Require'?
+               typename _Req = _Require<is_same<_Ptr, value_type*>>>
+                               ^
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/type_traits:2160:5: note: '::std::_Require' declared here
+    using _Require = typename enable_if<__and_<_Cond...>::value>::type;
+    ^
+In file included from tester_utils.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:63:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/allocated_ptr.h:78:17: error: no type named 'nullptr_t' in namespace 'ft::std'; did you mean '::std::nullptr_t'?
+      operator=(std::nullptr_t) noexcept
+                ^~~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/x86_64-linux-gnu/c++/7.5.0/bits/c++config.h:235:29: note: '::std::nullptr_t' declared here
+  typedef decltype(nullptr)     nullptr_t;
+                                ^
+In file included from tester_utils.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:63:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/allocated_ptr.h:53:18: error: no member named '__addressof' in namespace 'ft::std'; did you mean '::std::__addressof'?
+      : _M_alloc(std::__addressof(__a)), _M_ptr(__ptr)
+                 ^~~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/move.h:47:5: note: '::std::__addressof' declared here
+    __addressof(_Tp& __r) _GLIBCXX_NOEXCEPT
+    ^
+In file included from tester_utils.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:63:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/allocated_ptr.h:60:18: error: no member named '__addressof' in namespace 'ft::std'; did you mean '::std::__addressof'?
+      : _M_alloc(std::__addressof(__a)),
+                 ^~~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/move.h:47:5: note: '::std::__addressof' declared here
+    __addressof(_Tp& __r) _GLIBCXX_NOEXCEPT
+    ^
+In file included from tester_utils.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:63:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/allocated_ptr.h:61:9: error: no template named 'pointer_traits'; did you mean '::std::pointer_traits'?
+        _M_ptr(pointer_traits<pointer>::pointer_to(*__ptr))
+               ^
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/ptr_traits.h:78:12: note: '::std::pointer_traits' declared here
+    struct pointer_traits
+           ^
+In file included from tester_utils.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:63:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/allocated_ptr.h:73:4: error: no template named 'allocator_traits' in namespace 'ft::std'; did you mean '::std::allocator_traits'?
+          std::allocator_traits<_Alloc>::deallocate(*_M_alloc, _M_ptr, 1);
+          ^~~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/alloc_traits.h:83:12: note: '::std::allocator_traits' declared here
+    struct allocator_traits : __allocator_traits_base
+           ^
+In file included from tester_utils.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:63:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/allocated_ptr.h:104:21: error: no template named 'allocator_traits' in namespace 'ft::std'; did you mean '::std::allocator_traits'?
+      return { __a, std::allocator_traits<_Alloc>::allocate(__a, 1) };
+                    ^~~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/alloc_traits.h:83:12: note: '::std::allocator_traits' declared here
+    struct allocator_traits : __allocator_traits_base
+           ^
+In file included from tester_utils.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:64:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/ext/aligned_buffer.h:59:24: error: no type named 'nullptr_t' in namespace 'ft::std'; did you mean '::std::nullptr_t'?
+      __aligned_membuf(std::nullptr_t) { }
+                       ^~~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/x86_64-linux-gnu/c++/7.5.0/bits/c++config.h:235:29: note: '::std::nullptr_t' declared here
+  typedef decltype(nullptr)     nullptr_t;
+                                ^
+In file included from tester_utils.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:64:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/ext/aligned_buffer.h:85:7: error: no template named 'aligned_storage' in namespace 'ft::std'; did you mean '::std::aligned_storage'?
+    : std::aligned_storage<sizeof(_Tp), std::alignment_of<_Tp>::value>
+      ^~~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/type_traits:2038:12: note: '::std::aligned_storage' declared here
+    struct aligned_storage
+           ^
+In file included from tester_utils.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:64:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/ext/aligned_buffer.h:85:41: error: no template named 'alignment_of' in namespace 'ft::std'; did you mean '::std::alignment_of'?
+    : std::aligned_storage<sizeof(_Tp), std::alignment_of<_Tp>::value>
+                                        ^~~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/type_traits:1463:12: note: '::std::alignment_of' declared here
+    struct alignment_of
+           ^
+In file included from tester_utils.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:64:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/ext/aligned_buffer.h:88:2: error: no template named 'aligned_storage' in namespace 'ft::std'; did you mean '::std::aligned_storage'?
+        std::aligned_storage<sizeof(_Tp), std::alignment_of<_Tp>::value>::type
+        ^~~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/type_traits:2038:12: note: '::std::aligned_storage' declared here
+    struct aligned_storage
+           ^
+In file included from tester_utils.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:64:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/ext/aligned_buffer.h:88:36: error: no template named 'alignment_of' in namespace 'ft::std'; did you mean '::std::alignment_of'?
+        std::aligned_storage<sizeof(_Tp), std::alignment_of<_Tp>::value>::type
+                                          ^~~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/type_traits:1463:12: note: '::std::alignment_of' declared here
+    struct alignment_of
+           ^
+In file included from tester_utils.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:64:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/ext/aligned_buffer.h:94:24: error: no type named 'nullptr_t' in namespace 'ft::std'; did you mean '::std::nullptr_t'?
+      __aligned_buffer(std::nullptr_t) { }
+                       ^~~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/x86_64-linux-gnu/c++/7.5.0/bits/c++config.h:235:29: note: '::std::nullptr_t' declared here
+  typedef decltype(nullptr)     nullptr_t;
+                                ^
+In file included from tester_utils.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:134:15: error: no type named 'bidirectional_iterator_tag' in namespace 'ft::std'; did you mean simply 'bidirectional_iterator_tag'?
+      typedef std::bidirectional_iterator_tag   iterator_category;
+              ^~~~~
+./../utils/iterator.hpp:15:8: note: 'bidirectional_iterator_tag' declared here
+struct bidirectional_iterator_tag : public forward_iterator_tag {};
+       ^
+In file included from tester_utils.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:214:15: error: no type named 'bidirectional_iterator_tag' in namespace 'ft::std'; did you mean simply 'bidirectional_iterator_tag'?
+      typedef std::bidirectional_iterator_tag   iterator_category;
+              ^~~~~
+./../utils/iterator.hpp:15:8: note: 'bidirectional_iterator_tag' declared here
+struct bidirectional_iterator_tag : public forward_iterator_tag {};
+       ^
+In file included from tester_utils.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:303:24: error: no template named '__alloc_traits' in namespace 'ft::__gnu_cxx'; did you mean '::__gnu_cxx::__alloc_traits'?
+      typedef typename __gnu_cxx::__alloc_traits<_Alloc>::template
+                       ^~~~~~~~~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/ext/alloc_traits.h:50:10: note: '::__gnu_cxx::__alloc_traits' declared here
+  struct __alloc_traits
+         ^
+In file included from tester_utils.cpp:1:
+In file included from ./tester.hpp:24:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/list:63:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_list.h:305:15: error: no template named '__alloc_traits' in namespace 'ft::__gnu_cxx'; did you mean '::__gnu_cxx::__alloc_traits'?
+      typedef __gnu_cxx::__alloc_traits<_Tp_alloc_type> _Tp_alloc_traits;
+              ^~~~~~~~~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/ext/alloc_traits.h:50:10: note: '::__gnu_cxx::__alloc_traits' declared here
+  struct __alloc_traits
+         ^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+20 errors generated.
+make: *** [test0] Error 1
