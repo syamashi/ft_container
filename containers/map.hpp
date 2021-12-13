@@ -1,7 +1,6 @@
 #ifndef MAP_HPP
 #define MAP_HPP
 
-#include "../utils/alloc_traits.hpp"
 #include "../utils/rb_tree.hpp"
 
 namespace ft {
@@ -31,9 +30,6 @@ class map {
   };
 
  private:
-  typedef
-      typename ft::__alloc_traits<_Alloc>::template rebind<value_type>::other
-          _Pair_alloc_type;
   typedef _Rb_tree<key_type, value_type, key_compare, allocator_type> _Rep_type;
 
   /// The actual tree structure.

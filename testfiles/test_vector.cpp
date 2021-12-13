@@ -651,7 +651,7 @@ void   vector_begin_test()
     ft::vector<char> empty;
 
     // Print vector.
-    ft::for_each(nums.begin(), nums.end(), [](const int n) { cout << n << ' '; });
+    std::for_each(nums.begin(), nums.end(), [](const int n) { cout << n << ' '; });
     cout << '\n';
 
     // Sums all integers in the vector nums (if any), printing only the result.
@@ -682,7 +682,7 @@ void vector_rbegin_test()
     ft::vector<char> empty;
  
     // Print vector.
-    ft::for_each(nums.rbegin(), nums.rend(), [](const int n) { cout << n << ' '; });
+    std::for_each(nums.rbegin(), nums.rend(), [](const int n) { cout << n << ' '; });
     cout << '\n';
  
     // Sums all integers in the vector nums (if any), printing only the result.

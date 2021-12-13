@@ -1,6 +1,5 @@
 NAME = q.out
 SRCS = $(shell find *.cpp)
-# SRCS += $(shell find ../utils/*.cpp)
 OBJDIR = ./obj/
 OBJS = $(SRCS:%.cpp=$(OBJDIR)%.o)
 

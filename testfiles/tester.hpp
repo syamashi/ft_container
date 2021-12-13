@@ -7,7 +7,6 @@
 #include <map>
 #include <iterator>
 #include <type_traits>
-#include <algorithm> // std::copy
 namespace ft = std;
 #else
 #include "../containers/vector.hpp"
@@ -16,7 +15,6 @@ namespace ft = std;
 #include "../utils/iterator.hpp"
 #include "../utils/enable_if.hpp"
 #include "../utils/is_integral.hpp"
-#include "../utils/algorithm.hpp"
 #endif
 
 #define rep(i, n) for (int i = 0; i < n; ++i)
@@ -29,6 +27,7 @@ namespace ft = std;
 #include <typeinfo>  // typeid
 #include <cstddef> // size_t
 #include <numeric>
+#include <algorithm> // std::copy
 
 #define cout std::cout
 #define endl std::endl
@@ -40,7 +39,7 @@ namespace ft = std;
 
 void vector_test();
 void stack_test();
-void map2_test();
+void map_test();
 void set_test();
 
 #endif

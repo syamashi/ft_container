@@ -6,7 +6,6 @@
 #include "../utils/random_access_iterator.hpp"
 #include "../utils/is_integral.hpp"
 #include "../utils/enable_if.hpp"
-#include "../utils/algorithm.hpp"
 
 namespace ft
 {
@@ -72,11 +71,11 @@ namespace ft
 			vector & operator =( const vector & r ){
 				if ( this == &r ) return *this ;
 				if ( size() == r.size() ){
-					ft::copy( r.begin(), r.end(), begin() ) ;
+					std::copy( r.begin(), r.end(), begin() ) ;
 				}
 				else{
 					if (capacity() >= r.size()){
-						ft::copy( r.begin(), r.begin() + r.size(), begin() ) ;
+						std::copy( r.begin(), r.begin() + r.size(), begin() ) ;
 						for( const_iterator src_iter = r.begin() + r.size(), src_end = r.end(); src_iter != src_end; ++src_iter, ++_last ){
 							construct( _last, *src_iter ) ;
 						}
@@ -475,7 +474,7 @@ namespace ft
     	             const ft::vector<T,Alloc>& rhs )
 	{
 		return ( lhs.size() == rhs.size()
-			&& ft::equal( lhs.begin(), lhs.end(), rhs.begin() ) ) ;
+			&& std::equal( lhs.begin(), lhs.end(), rhs.begin() ) ) ;
 	}
 	template< class T, class Alloc >
 	bool operator!=( const ft::vector<T,Alloc>& lhs,
@@ -487,7 +486,7 @@ namespace ft
 	bool operator<( const ft::vector<T,Alloc>& lhs,
 	                const ft::vector<T,Alloc>& rhs )
 	{
-		return ( ft::lexicographical_compare( lhs.begin(), lhs.end(), rhs.begin(), rhs.end() ) ) ;
+		return ( std::lexicographical_compare( lhs.begin(), lhs.end(), rhs.begin(), rhs.end() ) ) ;
 	}
 	template< class T, class Alloc >
 	bool operator<=( const ft::vector<T,Alloc>& lhs,
