@@ -2,7 +2,6 @@
 #define SET_HPP
 
 #include "../utils/rb_tree.hpp"
-#include "../utils/util.hpp"
 
 namespace ft {
 template <typename _Key, typename _Compare = std::less<_Key>,
@@ -85,7 +84,7 @@ class set {
 
   void clear() { _M_t.clear(); }  // header以外削除
 
-  std::pair<iterator, bool> insert(const value_type& x) {
+  ft::pair<iterator, bool> insert(const value_type& x) {
     return _M_t.insert(x);
   }
 
@@ -146,11 +145,11 @@ class set {
     return _M_t.upper_bound(x);
   }
 
-  std::pair<iterator, iterator> equal_range(const key_type& x) {
+  ft::pair<iterator, iterator> equal_range(const key_type& x) {
     return _M_t.equal_range(x);
   }
 
-  std::pair<const_iterator, const_iterator> equal_range(
+  ft::pair<const_iterator, const_iterator> equal_range(
       const key_type& x) const {
     return _M_t.equal_range(x);
   }

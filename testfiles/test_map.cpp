@@ -1,8 +1,3 @@
-#include <algorithm>
-#include <cmath>
-#include <iomanip>
-#include <string>
-
 #include "tester.hpp"
 
 template <typename T>
@@ -42,7 +37,7 @@ void map_insert_test() {
     cout << "--- "
          << "M.insert({" << key << "," << val << "})"
          << " ---" << endl;
-    std::pair<ft::map<int, int>::iterator, bool> ret = M.insert({key, val});
+    ft::pair<ft::map<int, int>::iterator, bool> ret = M.insert({key, val});
     cout << " size:" << M.size() << endl;
     cout << " ret:" << ret.first->first << "," << ret.first->second << " "
          << ret.second << endl;
@@ -75,9 +70,9 @@ void map_value_compare_test() {
   ft::map<int, char> c;
   const ft::map<int, char>::value_compare& comp = c.value_comp();
 
-  std::pair<int, char> p1 = std::make_pair(1, 'a');
-  std::pair<int, char> p2 = std::make_pair(2, 'b');
-  std::pair<int, char> p3 = std::make_pair(3, 'c');
+  ft::pair<int, char> p1 = ft::make_pair(1, 'a');
+  ft::pair<int, char> p2 = ft::make_pair(2, 'b');
+  ft::pair<int, char> p3 = ft::make_pair(3, 'c');
 
   cout << comp(p1, p2) << endl;
   cout << comp(p3, p2) << endl;
@@ -132,8 +127,8 @@ void map_get_alloc_test() {
 
   ft::map<int, int> M;
   ft::map<int, int>::allocator_type al = M.get_allocator();
-  std::pair<const int, int>* p = al.allocate(1);
-  std::pair<const int, int> q = {1, 2};
+  ft::pair<const int, int>* p = al.allocate(1);
+  ft::pair<const int, int> q = {1, 2};
   al.construct(p, q);
   cout << p->first << endl;
   al.deallocate(p, 1);
@@ -160,7 +155,7 @@ void const_at_wrap_at_test(const Container& c, T v) {
 void map_at_test() {
   pout("map_at_test");
   ft::map<int, char> m;
-  m.insert(std::make_pair(1, 'a'));
+  m.insert(ft::make_pair(1, 'a'));
 
   at_wrap_at_test(m, 1);
   at_wrap_at_test(m, 2);
@@ -532,7 +527,7 @@ void map_equal_range_test_out(Con& m) {}
 template <class Con>
 void map_equal_range_test_const_out(const Con& m) {
   {
-    typename std::pair<typename Con::const_iterator,
+    typename ft::pair<typename Con::const_iterator,
                        typename Con::const_iterator>
         p = m.equal_range(1);
     for (typename Con::const_iterator& q = p.first; q != p.second; ++q) {
@@ -547,7 +542,7 @@ void map_equal_range_test_const_out(const Con& m) {
   }
 
   {
-    typename std::pair<typename Con::const_iterator,
+    typename ft::pair<typename Con::const_iterator,
                        typename Con::const_iterator>
         pp = m.equal_range(-1);
     if (pp.first == m.begin()) {
@@ -564,7 +559,7 @@ void map_equal_range_test_const_out(const Con& m) {
   }
 
   {
-    typename std::pair<typename Con::const_iterator,
+    typename ft::pair<typename Con::const_iterator,
                        typename Con::const_iterator>
         ppp = m.equal_range(3);
     if (ppp.first == m.end()) {
@@ -691,7 +686,7 @@ void map_value_comp_test() {
 
   for (ft::map<int, int, ModCmp_comp_test>::iterator it = cont.begin();
        it != cont.end(); ++it) {
-    const std::pair<int, int> key = *it;
+    const ft::pair<int, int> key = *it;
     bool before = comp_func(key, {100,100});
     bool after = comp_func({100,100}, key);
     if (!before && !after)
@@ -785,7 +780,7 @@ void map_constructs_test() {
   mag[{5, -12}] = 13;
   mag[{3, 4}] = 5;
   mag[{-8, -15}] = 17;
-  for (std::pair<const Point_constructs_test, double> p : mag)
+  for (ft::pair<const Point_constructs_test, double> p : mag)
     cout << "The magnitude of (" << p.first.x << ", " << p.first.y << ") is "
          << p.second << '\n';
 }

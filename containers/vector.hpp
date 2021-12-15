@@ -6,6 +6,7 @@
 #include "../utils/iterator.hpp"
 #include "../utils/random_access_iterator.hpp"
 #include "../utils/util.hpp"
+#include "../utils/algorithm.hpp"
 
 namespace ft {
 template <typename T, typename Allocator = std::allocator<T> >
@@ -207,8 +208,6 @@ class vector {
 
     for (pointer old_iter = old_first; old_iter != old_last;
          ++old_iter, ++_last) {
-      //					construct( _last,
-      //std::move(*old_iter) ) ; c++11
       construct(_last, *old_iter);
     }
 
@@ -409,15 +408,12 @@ class vector {
   pointer _reserved_last;
   allocator_type _alloc;
 
-  //			typedef std::allocator_traits<allocator_type> traits;
   pointer allocate(size_type n) { return _alloc.allocate(n); }
   void deallocate() { _alloc.deallocate(_first, capacity()); }
   void construct(pointer ptr) { _alloc.construct(ptr); }
   void construct(pointer ptr, const_reference value) {
     _alloc.construct(ptr, value);
   }
-  //			void construct( pointer ptr, value_type && value ) {
-  //traits::construct( _alloc, ptr, std::move(value) ) ; } c++11
   void destroy(pointer ptr) { _alloc.destroy(ptr); }
   void destroy_until(reverse_iterator rend) {
     for (reverse_iterator riter = rbegin(); riter != rend; ++riter, --_last) {
@@ -434,7 +430,7 @@ template <class T, class Alloc>
 bool operator==(const ft::vector<T, Alloc>& lhs,
                 const ft::vector<T, Alloc>& rhs) {
   return (lhs.size() == rhs.size() &&
-          std::equal(lhs.begin(), lhs.end(), rhs.begin()));
+          ft::equal(lhs.begin(), lhs.end(), rhs.begin()));
 }
 template <class T, class Alloc>
 bool operator!=(const ft::vector<T, Alloc>& lhs,
@@ -444,7 +440,7 @@ bool operator!=(const ft::vector<T, Alloc>& lhs,
 template <class T, class Alloc>
 bool operator<(const ft::vector<T, Alloc>& lhs,
                const ft::vector<T, Alloc>& rhs) {
-  return (std::lexicographical_compare(lhs.begin(), lhs.end(), rhs.begin(),
+  return (ft::lexicographical_compare(lhs.begin(), lhs.end(), rhs.begin(),
                                        rhs.end()));
 }
 template <class T, class Alloc>

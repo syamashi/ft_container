@@ -325,15 +325,6 @@ void rit_nonmember_op_plus() {
     ft::reverse_iterator<ft::vector<int>::iterator> ri2{2 + ri1};
     cout << *ri2 << ' ';  // 1
   }
-  /*    {
-          std::list l {5, 6, 7, 8};
-          ft::reverse_iterator<std::list<int>::iterator>
-              ri1{ ft::reverse_iterator{ l.rbegin() } };
-          cout << *ri1 << '\n'; // 8
-      //  auto ri2 { 2 + ri1 }; // error: the underlying iterator does
-                                // not model the random access iterator
-      }
-  */
 }
 
 void rit_nonmember_op_minus() {
@@ -346,23 +337,12 @@ void rit_nonmember_op_minus() {
     cout << (ri2 - ri1) << ' ';   // 4
     cout << (ri1 - ri2) << '\n';  // -4
   }
-  /*
-      {
-          std::list l {5, 6, 7, 8};
-          ft::reverse_iterator<std::list<int>::iterator>
-              ri1{ ft::reverse_iterator{ l.rbegin() } },
-              ri2{ std::reverse_iterator{ l.rend()   } };
-      //  auto n = (ri1 - ri2); // error: the underlying iterators do not
-                                // model the random access iterators
-      }
-  */
 }
 
 void reverse_iterator_test() {
   pout("reverse_iterator");
   ft::vector<int> V;
   rep(i, 6) V.push_back(i);
-  // std::reverse_iterator< std::vector<int>::iterator >
   ft::reverse_iterator<ft::vector<int>::iterator> first = V.rbegin();
   ft::reverse_iterator<ft::vector<int>::iterator> last = V.rend();
 
@@ -492,16 +472,6 @@ void vector_data_test_pointer_func(const int* p, std::size_t size) {
   cout << '\n';
 }
 
-/* c++20
-void vector_data_test_span_func(std::span<const int> data) // since C++20
-{
-    cout << "data = ";
-    for (const int e : data)
-        cout << e << ' ';
-    cout << '\n';
-}
-*/
-
 void vector_data_test() {
   pout("vector_data_test");
 
@@ -510,9 +480,6 @@ void vector_data_test() {
 
   // Prefer container.data() over &container[0]
   vector_data_test_pointer_func(container.data(), container.size());
-
-  // std::span (C++20) is a safer alternative to separated pointer/size.
-  //    vector_data_test_span_func({container.data(), container.size()});
 }
 
 void vector_begin_test() {
@@ -608,8 +575,6 @@ void vector_insert_test() {
   vec.insert(it, 2, 300);
   vdebug(vec);
 
-  //    vec.insert(it,-2,300); // std::length_error
-
   // "it" no longer valid, get a new one:
   it = vec.begin();
 
@@ -621,8 +586,6 @@ void vector_insert_test() {
   vec.insert(vec.begin(), arr, arr + 2);
   //    vec.insert(vec.end()+1, arr, arr+3); // Segmentation fault
   vdebug(vec);
-
-  //  vec.insert(vec.begin(), arr+1, arr); // 'std::length_error'
 }
 
 void vector_erase_test() {

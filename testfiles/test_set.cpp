@@ -34,7 +34,7 @@ void set_insert_test() {
   rep(i, 20) {
     int key = 0 - i;
     cout << "--- S.insert(" << key << ") ---" << endl;
-    std::pair<ft::set<int>::iterator, bool> ret = S.insert(key);
+    ft::pair<ft::set<int>::iterator, bool> ret = S.insert(key);
     cout << " size:" << S.size() << endl;
     cout << " ret:" << *ret.first << endl;
   }
@@ -429,7 +429,7 @@ void set_find_test() {
 
 template <class Con>
 void set_equal_range_test_out(Con& s) {
-    typename std::pair<typename Con::iterator,
+    typename ft::pair<typename Con::iterator,
                        typename Con::iterator>
         p = s.equal_range("one");
     for (typename Con::iterator& q = p.first; q != p.second; ++q) {
@@ -446,7 +446,7 @@ void set_equal_range_test_out(Con& s) {
 template <class Con>
 void set_equal_range_test_const_out(const Con& s) {
   {
-    typename std::pair<typename Con::const_iterator,
+    typename ft::pair<typename Con::const_iterator,
                        typename Con::const_iterator>
         p = s.equal_range("one");
     for (typename Con::const_iterator& q = p.first; q != p.second; ++q) {
@@ -461,7 +461,7 @@ void set_equal_range_test_const_out(const Con& s) {
   }
 
   {
-    typename std::pair<typename Con::const_iterator,
+    typename ft::pair<typename Con::const_iterator,
                        typename Con::const_iterator>
         pp = s.equal_range("a");
     if (pp.first == s.begin()) {
@@ -478,7 +478,7 @@ void set_equal_range_test_const_out(const Con& s) {
   }
 
   {
-    typename std::pair<typename Con::const_iterator,
+    typename ft::pair<typename Con::const_iterator,
                        typename Con::const_iterator>
         ppp = s.equal_range("three");
     if (ppp.first == s.end()) {

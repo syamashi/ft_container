@@ -6,10 +6,6 @@
 namespace ft {
 template <class T, class Container = ft::vector<T>>
 class stack {
-  /*
-  ** Member types
-  */
-
  public:
   typedef T value_type;
   typedef Container container_type;
@@ -46,9 +42,7 @@ class stack {
                          const ft::stack<T_, Container_>& rhs);
 };
 
-/*
-** Non-member function overloads
-*/
+//// Non-member function overloads
 
 template <class T, class Container>
 bool operator==(const ft::stack<T, Container>& lhs,

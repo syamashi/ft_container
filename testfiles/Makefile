@@ -1,4 +1,4 @@
-NAME = q.out
+NAME = a.out
 SRCS = $(shell find *.cpp)
 OBJDIR = ./obj/
 OBJS = $(SRCS:%.cpp=$(OBJDIR)%.o)

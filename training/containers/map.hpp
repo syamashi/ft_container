@@ -18,7 +18,7 @@ class map {
  public:
   class value_compare
       : public std::binary_function<value_type, value_type, bool> {
-    friend class map<_Key, _Tp, Compare, _Alloc>;
+    friend class map<_Key, _Tp, Compare, _Alloc>; // subjectにより、非メンバオーバーロード以外のfriendが禁止。protectedをpublicにするくらい？
 
    protected:
     Compare comp; // compはmapからもアクセスできるよ

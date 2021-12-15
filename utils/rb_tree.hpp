@@ -4,7 +4,9 @@
 #include <iostream>
 
 #include "../containers/stack.hpp"
+#include "./algorithm.hpp"
 #include "./iterator.hpp"
+#include "./pair.hpp"
 #include "./util.hpp"
 
 namespace ft {
@@ -427,8 +429,8 @@ class _Rb_tree {
  public:
   typedef _Rb_tree_iterator<value_type> iterator;
   typedef _Rb_tree_const_iterator<value_type> const_iterator;
-  typedef std::reverse_iterator<iterator> reverse_iterator;
-  typedef std::reverse_iterator<const_iterator> const_reverse_iterator;
+  typedef ft::reverse_iterator<iterator> reverse_iterator;
+  typedef ft::reverse_iterator<const_iterator> const_reverse_iterator;
 
  protected:
   key_type _S_key(_Link_type x) const {
@@ -1115,7 +1117,7 @@ class _Rb_tree {
   }
 
  public:
-  std::pair<iterator, bool> insert(const value_type& x) {
+  ft::pair<iterator, bool> insert(const value_type& x) {
     // keyが重複してないこと
     iterator it = lower_bound(_S_key(x));
     if (it != end() && !_M_key_compare(_S_key(x), _S_key(it)))
@@ -1384,7 +1386,7 @@ class _Rb_tree {
     return _M_upper_bound(_S_root(), _M_end(), k);
   }
 
-  std::pair<iterator, iterator> equal_range(const _Key& __k) {
+  ft::pair<iterator, iterator> equal_range(const _Key& __k) {
     _Link_type __x = _S_root();
     _Link_type __y = _M_end();
     while (__x != 0) {
@@ -1417,15 +1419,15 @@ class _Rb_tree {
         p.second = M.upper_bound(key);
 		を効率化してるだけ
         */
-        return std::pair<iterator, iterator>(_M_lower_bound(__x, __y, __k),
+        return ft::pair<iterator, iterator>(_M_lower_bound(__x, __y, __k),
                                              _M_upper_bound(__xu, __yu, __k));
       }
     }
     // 末端まで来た
-    return std::pair<iterator, iterator>(iterator(__y), iterator(__y));
+    return ft::pair<iterator, iterator>(iterator(__y), iterator(__y));
   }
 
-  std::pair<const_iterator, const_iterator> equal_range(
+  ft::pair<const_iterator, const_iterator> equal_range(
       const key_type& __k) const {
     _Const_Link_type __x = _S_root();
     _Const_Link_type __y = _M_end();
@@ -1445,12 +1447,12 @@ class _Rb_tree {
         p.second = M.upper_bound(key);
 		を効率化してるだけ
         */
-        return std::pair<const_iterator, const_iterator>(
+        return ft::pair<const_iterator, const_iterator>(
             _M_lower_bound(__x, __y, __k), _M_upper_bound(__xu, __yu, __k));
       }
     }
     // 末端まで来た
-    return std::pair<const_iterator, const_iterator>(const_iterator(__y),
+    return ft::pair<const_iterator, const_iterator>(const_iterator(__y),
                                                      const_iterator(__y));
   }
 
@@ -1550,14 +1552,14 @@ template <typename _Key, typename _Val, typename _KeyOfValue, typename Compare, 
 inline bool operator==(const ft::_Rb_tree<_Key, _Val, _KeyOfValue, Compare, _Alloc>& __x,
                        const ft::_Rb_tree<_Key, _Val, _KeyOfValue, Compare, _Alloc>& __y) {
   return __x.size() == __y.size() &&
-         std::equal(__x.begin(), __x.end(), __y.begin());
+         ft::equal(__x.begin(), __x.end(), __y.begin());
 }
 
 template <typename _Key, typename _Val, typename _KeyOfValue, typename Compare, typename _Alloc>
 
 inline bool operator<(const ft::_Rb_tree<_Key, _Val, _KeyOfValue, Compare, _Alloc>& __x,
                       const ft::_Rb_tree<_Key, _Val, _KeyOfValue, Compare, _Alloc>& __y) {
-  return std::lexicographical_compare(__x.begin(), __x.end(), __y.begin(),
+  return ft::lexicographical_compare(__x.begin(), __x.end(), __y.begin(),
                                       __y.end());
 }
 

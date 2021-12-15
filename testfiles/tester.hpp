@@ -14,8 +14,10 @@ namespace ft = std;
 #include "../containers/stack.hpp"
 #include "../containers/map.hpp"
 #include "../containers/set.hpp"
+#include "../utils/algorithm.hpp"
 #include "../utils/iterator.hpp"
 #include "../utils/util.hpp"
+#include "../utils/pair.hpp"
 #endif
 
 #define rep(i, n) for (int i = 0; i < n; ++i)
@@ -32,6 +34,8 @@ namespace ft = std;
 #include <cmath> // hypot set
 #include <iomanip>
 #include <string>
+#include <chrono>
+#include <ctime>
 
 #define cout std::cout
 #define endl std::endl

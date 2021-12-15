@@ -2,15 +2,15 @@
 #define MAP_HPP
 
 #include "../utils/rb_tree.hpp"
-
+#include "../utils/algorithm.hpp"
 namespace ft {
 template <typename _Key, typename _Tp, typename Compare = std::less<_Key>,
-          typename _Alloc = std::allocator<std::pair<const _Key, _Tp> > >
+          typename _Alloc = std::allocator<ft::pair<const _Key, _Tp> > >
 class map {
  public:
   typedef _Key key_type;
   typedef _Tp mapped_type;
-  typedef std::pair<const _Key, _Tp> value_type;
+  typedef ft::pair<const _Key, _Tp> value_type;
   typedef Compare key_compare;
   typedef _Alloc allocator_type;
 
@@ -123,7 +123,7 @@ class map {
   //// Modifiers
 
   void clear() { _M_t.clear(); }  // header以外削除
-  std::pair<iterator, bool> insert(const value_type& x) {
+  ft::pair<iterator, bool> insert(const value_type& x) {
     return _M_t.insert(x);
   }
 
@@ -184,11 +184,11 @@ class map {
     return _M_t.upper_bound(x);
   }
 
-  std::pair<iterator, iterator> equal_range(const key_type& x) {
+  ft::pair<iterator, iterator> equal_range(const key_type& x) {
     return _M_t.equal_range(x);
   }
 
-  std::pair<const_iterator, const_iterator> equal_range(
+  ft::pair<const_iterator, const_iterator> equal_range(
       const key_type& x) const {
     return _M_t.equal_range(x);
   }
