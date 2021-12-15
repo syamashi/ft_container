@@ -378,6 +378,13 @@ void map_erase_test() {
 
   ft::map<int, int> M;
   int N = 5;
+
+  rep(i, N) M[i] = i;
+  rep(i, N * 2) {
+    size_t ret = M.erase((i + 1) % N);
+    cout << "erase_key:" << i << " ret:" << ret << endl;
+  }
+
   rep(i, N) M[i] = i;
   for (ft::map<int, int>::iterator it = M.begin(); it != M.end();) {
     cout << "M.erase(" << it->first << ")" << endl;
@@ -415,7 +422,6 @@ void map_swap_test() {
   alice[3] = 'c';
 
   ft::map<int, char> blank;
-  blank[1] = 'z';
   cout << "alice.swap(blank)" << endl;
   alice.swap(blank);
   cout << "alice" << endl;
@@ -520,16 +526,16 @@ void map_find_test() {
   map_find_test_const_out(M);
 }
 
-template<class Con>
-void map_equal_range_test_out(Con &m) {
-  
-}
+template <class Con>
+void map_equal_range_test_out(Con& m) {}
 
-template<class Con>
-void map_equal_range_test_const_out(const Con &m) {
+template <class Con>
+void map_equal_range_test_const_out(const Con& m) {
   {
-    typename std::pair<typename Con::const_iterator, typename Con::const_iterator> p = m.equal_range(1);
-    for (typename Con::const_iterator &q = p.first; q != p.second; ++q) {
+    typename std::pair<typename Con::const_iterator,
+                       typename Con::const_iterator>
+        p = m.equal_range(1);
+    for (typename Con::const_iterator& q = p.first; q != p.second; ++q) {
       cout << "m[" << q->first << "] = " << q->second << '\n';
     }
 
@@ -541,7 +547,9 @@ void map_equal_range_test_const_out(const Con &m) {
   }
 
   {
-    typename std::pair<typename Con::const_iterator, typename Con::const_iterator> pp = m.equal_range(-1);
+    typename std::pair<typename Con::const_iterator,
+                       typename Con::const_iterator>
+        pp = m.equal_range(-1);
     if (pp.first == m.begin()) {
       cout << "pp.first is iterator to first not-less than -1\n";
     } else {
@@ -556,7 +564,9 @@ void map_equal_range_test_const_out(const Con &m) {
   }
 
   {
-    typename std::pair<typename Con::const_iterator, typename Con::const_iterator> ppp = m.equal_range(3);
+    typename std::pair<typename Con::const_iterator,
+                       typename Con::const_iterator>
+        ppp = m.equal_range(3);
     if (ppp.first == m.end()) {
       cout << "ppp.first is iterator to first not-less than 3\n";
     } else {
@@ -583,7 +593,7 @@ void map_equal_range_test() {
   map_equal_range_test_const_out(m);
 }
 
-void map_copy_construct_test(){
+void map_copy_construct_test() {
   pout("map_copy_construct_test");
 
   ft::map<int, const char*> m;
@@ -598,75 +608,186 @@ void map_copy_construct_test(){
   mdebug(mm);
 }
 
-void map_lower_bound_test(){
+void map_lower_bound_test() {
   ft::map<int, int> M;
-  int N=5;
-  int NN=10;
-  rep(i, N) M[i+3] = i+3;
+  int N = 5;
+  int NN = 10;
+  rep(i, N) M[i + 3] = i + 3;
 
-  rep(i, NN){
-    ft::map<int,int>::iterator it = M.lower_bound(i);
+  rep(i, NN) {
+    ft::map<int, int>::iterator it = M.lower_bound(i);
     cout << "M.lower_bound(" << i << "):";
-    if(it == M.end()) cout << "end()" << endl;
-    else cout << it->first << endl;
+    if (it == M.end())
+      cout << "end()" << endl;
+    else
+      cout << it->first << endl;
   }
-  rep(i, NN){
-    ft::map<int,int>::iterator it = M.upper_bound(i);
+  rep(i, NN) {
+    ft::map<int, int>::iterator it = M.upper_bound(i);
     cout << "M.upper_bound(" << i << "):";
-    if(it == M.end()) cout << "end()" << endl;
-    else cout << it->first << endl;
+    if (it == M.end())
+      cout << "end()" << endl;
+    else
+      cout << it->first << endl;
   }
 
   const ft::map<int, int> CM = M;
 
-  rep(i, NN){
-    ft::map<int,int>::const_iterator it = CM.lower_bound(i);
+  rep(i, NN) {
+    ft::map<int, int>::const_iterator it = CM.lower_bound(i);
     cout << "CM.lower_bound(" << i << "):";
-    if(it == CM.end()) cout << "end()" << endl;
-    else cout << it->first << endl;
+    if (it == CM.end())
+      cout << "end()" << endl;
+    else
+      cout << it->first << endl;
   }
-  rep(i, NN){
-    ft::map<int,int>::const_iterator it = CM.upper_bound(i);
+  rep(i, NN) {
+    ft::map<int, int>::const_iterator it = CM.upper_bound(i);
     cout << "CM.upper_bound(" << i << "):";
-    if(it == CM.end()) cout << "end()" << endl;
-    else cout << it->first << endl;
+    if (it == CM.end())
+      cout << "end()" << endl;
+    else
+      cout << it->first << endl;
   }
 }
 
-void map_non_member_operator_test(){
-    ft::map<int, char> alice;
-    alice[1]='a';
-    alice[2]='b';
-    alice[3]='c';
-    ft::map<int, char> bob;
-    bob[7]='Z';
-    bob[8]='Y';
-    bob[9]='X';
-    bob[10]='W';
-    ft::map<int, char> eve;
-    eve[1]='a';
-    eve[2]='b';
-    eve[3]='c';
- 
-    cout << std::boolalpha;
- 
-    // Compare non equal containers
-    cout << "alice == bob returns " << (alice == bob) << '\n';
-    cout << "alice != bob returns " << (alice != bob) << '\n';
-    cout << "alice <  bob returns " << (alice < bob) << '\n';
-    cout << "alice <= bob returns " << (alice <= bob) << '\n';
-    cout << "alice >  bob returns " << (alice > bob) << '\n';
-    cout << "alice >= bob returns " << (alice >= bob) << '\n';
- 
-    cout << '\n';
- 
-    // Compare equal containers
-    cout << "alice == eve returns " << (alice == eve) << '\n';
-    cout << "alice != eve returns " << (alice != eve) << '\n';
-    cout << "alice <  eve returns " << (alice < eve) << '\n';
-    cout << "alice <= eve returns " << (alice <= eve) << '\n';
-    cout << "alice >  eve returns " << (alice > eve) << '\n';
-    cout << "alice >= eve returns " << (alice >= eve) << '\n';  
+struct ModCmp_comp_test {
+  bool operator()(const int lhs, const int rhs) const {
+    return (lhs % 97) < (rhs % 97);
+  }
+};
+
+void map_key_comp_test() {
+  pout("map_key_comp_test");
+
+  ft::map<int, int, ModCmp_comp_test> cont;
+  int N = 5;
+  rep(i, N) cont[i + 1] = i + 1;
+
+  ModCmp_comp_test comp_func = cont.key_comp();
+
+  for (ft::map<int, int, ModCmp_comp_test>::iterator it = cont.begin();
+       it != cont.end(); ++it) {
+    int key = it->first;
+    bool before = comp_func(key, 100);
+    bool after = comp_func(100, key);
+    if (!before && !after)
+      cout << key << " equivalent to key 100\n";
+    else if (before)
+      cout << key << " goes before key 100\n";
+    else if (after)
+      cout << key << " goes after key 100\n";
+  }
+}
+
+void map_value_comp_test() {
+  pout("map_value_comp_test");
+
+  ft::map<int, int, ModCmp_comp_test> cont;
+  int N = 5;
+  rep(i, N) cont[i + 1] = i + 1;
+
+  ft::map<int, int, ModCmp_comp_test>::value_compare comp_func = cont.value_comp();
+
+  for (ft::map<int, int, ModCmp_comp_test>::iterator it = cont.begin();
+       it != cont.end(); ++it) {
+    const std::pair<int, int> key = *it;
+    bool before = comp_func(key, {100,100});
+    bool after = comp_func({100,100}, key);
+    if (!before && !after)
+      cout << key.first << " equivalent to key 100\n";
+    else if (before)
+      cout << key.first << " goes before key 100\n";
+    else if (after)
+      cout << key.first << " goes after key 100\n";
+  }
+}
+
+void map_non_member_operator_test() {
+  ft::map<int, char> alice;
+  alice[1] = 'a';
+  alice[2] = 'b';
+  alice[3] = 'c';
+  ft::map<int, char> bob;
+  bob[7] = 'Z';
+  bob[8] = 'Y';
+  bob[9] = 'X';
+  bob[10] = 'W';
+  ft::map<int, char> eve;
+  eve[1] = 'a';
+  eve[2] = 'b';
+  eve[3] = 'c';
+
+  cout << std::boolalpha;
+
+  // Compare non equal containers
+  cout << "alice == bob returns " << (alice == bob) << '\n';
+  cout << "alice != bob returns " << (alice != bob) << '\n';
+  cout << "alice <  bob returns " << (alice < bob) << '\n';
+  cout << "alice <= bob returns " << (alice <= bob) << '\n';
+  cout << "alice >  bob returns " << (alice > bob) << '\n';
+  cout << "alice >= bob returns " << (alice >= bob) << '\n';
+
+  cout << '\n';
+
+  // Compare equal containers
+  cout << "alice == eve returns " << (alice == eve) << '\n';
+  cout << "alice != eve returns " << (alice != eve) << '\n';
+  cout << "alice <  eve returns " << (alice < eve) << '\n';
+  cout << "alice <= eve returns " << (alice <= eve) << '\n';
+  cout << "alice >  eve returns " << (alice > eve) << '\n';
+  cout << "alice >= eve returns " << (alice >= eve) << '\n';
+}
+
+struct Point_constructs_test {
+  double x, y;
+};
+struct PointCmp_constructs_test {
+  bool operator()(const Point_constructs_test& lhs,
+                  const Point_constructs_test& rhs) const {
+    return lhs.x < rhs.x;  // NB. intentionally ignores y
+  }
+};
+
+void map_constructs_test() {
+  pout("map_constructs_test");
+  // (1) Default constructor
+  ft::map<std::string, int> map1;
+  map1["something"] = 69;
+  map1["anything"] = 199;
+  map1["that thing"] = 50;
+  cout << "map1 = ";
+  mdebug(map1);
+
+  // (2) Range constructor
+  ft::map<std::string, int> iter(map1.find("anything"), map1.end());
+  cout << "\niter = ";
+  mdebug(iter);
+  cout << "map1 = ";
+  mdebug(map1);
+
+  ft::map<std::string, int> iter2(map1.find("something"), map1.end());
+  cout << "\niter2 = ";
+  mdebug(iter2);
+  cout << "map1 = ";
+  mdebug(map1);
+
+  // (3) Copy constructor
+  ft::map<std::string, int> copied(map1);
+  cout << "\ncopied = ";
+  mdebug(copied);
+  cout << "map1 = ";
+  mdebug(map1);
+
+  // Custom Key class option 1:
+  // Use a comparison struct
+  ft::map<Point_constructs_test, double, PointCmp_constructs_test> mag;
+  mag[{5, -12}] = 13;
+  mag[{3, 4}] = 5;
+  mag[{-8, -15}] = 17;
+  for (std::pair<const Point_constructs_test, double> p : mag)
+    cout << "The magnitude of (" << p.first.x << ", " << p.first.y << ") is "
+         << p.second << '\n';
 }
 
 void map_test() {
@@ -691,5 +812,8 @@ void map_test() {
   map_equal_range_test();
   map_copy_construct_test();
   map_lower_bound_test();
+  map_key_comp_test();
+  map_value_comp_test();
   map_non_member_operator_test();
+  map_constructs_test();
 }

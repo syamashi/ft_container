@@ -21,16 +21,16 @@ class map {
 
    public:
     Compare comp;
-    value_compare(Compare __c) : comp(__c) {}
+    value_compare(Compare c) : comp(c) {}
 
    public:
-    bool operator()(const value_type& __x, const value_type& __y) const {
-      return comp(__x.first, __y.first);
+    bool operator()(const value_type& x, const value_type& y) const {
+      return comp(x.first, y.first);
     }
   };
 
  private:
-  typedef _Rb_tree<key_type, value_type, key_compare, allocator_type> _Rep_type;
+  typedef _Rb_tree<key_type, value_type, ft::_Select1st<value_type>, key_compare, allocator_type> _Rep_type;
 
   /// The actual tree structure.
   _Rep_type _M_t;
@@ -52,28 +52,45 @@ class map {
   //// Member functions
 
   map() : _M_t() {}
+  explicit map(const Compare& comp,
+               const allocator_type& a = allocator_type())
+      : _M_t(comp, a) {}
+
+  /*
+  insert(begin,end)をすればいい
+  */
+  template <typename InputIt>
+  map(InputIt first, InputIt last, const Compare& comp = Compare(),
+      const allocator_type& a = allocator_type(),
+      typename ft::enable_if<!ft::is_integral<InputIt>::value, InputIt>::type* =
+          nullptr)
+      : _M_t(comp, a) {
+    insert(first, last);
+  }
+
   virtual ~map() {}
-  map& operator=(const map& __x) {
-    if (this == &__x) return *this;
-    _M_t = __x._M_t;
+  map(const map& x) : _M_t(x._M_t) {}
+  map& operator=(const map& x) {
+    if (this == &x) return *this;
+    _M_t = x._M_t;
     return *this;
   }
   allocator_type get_allocator() const { return _M_t.get_allocator(); }
 
   //// Element access
 
-  mapped_type& at(const key_type& __k) {
-    iterator __i = lower_bound(__k);
-    if (__i == end() || key_comp()(__k, (*__i).first))
-      std::__throw_out_of_range(__N("map::at"));
-    return (*__i).second;
+  mapped_type& at(const key_type& k) {
+    iterator i = lower_bound(k);
+    if (i == end() || key_comp()(k, (*i).first))
+      std::__throw_out_of_range("map::at");
+    return (*i).second;
   }
 
-  const mapped_type& at(const key_type& __k) const {
-    const_iterator __i = lower_bound(__k);
-    if (__i == end() || key_comp()(__k, (*__i).first))
-      std::__throw_out_of_range(__N("map::at"));
-    return (*__i).second;
+  const mapped_type& at(const key_type& k) const {
+    const_iterator i = lower_bound(k);
+    if (i == end() || key_comp()(k, (*i).first))
+      std::__throw_out_of_range("map::at");
+    return (*i).second;
   }
 
   /*
@@ -81,9 +98,9 @@ class map {
   *values,
   **  which is then returned.
   */
-  mapped_type& operator[](const key_type& __k) {
-    iterator __i = insert(value_type(__k, mapped_type())).first;
-    return __i->second;
+  mapped_type& operator[](const key_type& k) {
+    iterator i = insert(value_type(k, mapped_type())).first;
+    return i->second;
   }
 
   //// Iterators
@@ -106,17 +123,17 @@ class map {
   //// Modifiers
 
   void clear() { _M_t.clear(); }  // header以外削除
-  std::pair<iterator, bool> insert(const value_type& __x) {
-    return _M_t.insert(__x);
+  std::pair<iterator, bool> insert(const value_type& x) {
+    return _M_t.insert(x);
   }
 
   /*
-  __positionの1個次に挿入される場合、償却時間処理になるのが正しいが、
+  positionの1個次に挿入される場合、償却時間処理になるのが正しいが、
   BSTinsertの開始位置をroot固定の実装なため適応スキップ。
   */
-  iterator insert(iterator __position, const value_type& __x) {
-    (void)__position;
-    return insert(__x).first;
+  iterator insert(iterator position, const value_type& x) {
+    (void)position;
+    return insert(x).first;
   }
 
   template <class InputIt>
@@ -140,40 +157,40 @@ class map {
         erase(first++);  // 消す前に次iteratorをとっておかないと動いちゃう
   }
 
-  void swap(map& __x) { _M_t.swap(__x._M_t); }
+  void swap(map& x) { _M_t.swap(x._M_t); }
 
   //// Lookup
 
-  size_type count(const key_type& __x) const {
-    if (_M_t.find(__x) == _M_t.end())
+  size_type count(const key_type& x) const {
+    if (_M_t.find(x) == _M_t.end())
       return 0;
     else
       return 1;
   }
 
-  iterator find(const key_type& __x) { return _M_t.find(__x); }
+  iterator find(const key_type& x) { return _M_t.find(x); }
 
-  const_iterator find(const key_type& __x) const { return _M_t.find(__x); }
+  const_iterator find(const key_type& x) const { return _M_t.find(x); }
 
-  iterator lower_bound(const key_type& __x) { return _M_t.lower_bound(__x); }
+  iterator lower_bound(const key_type& x) { return _M_t.lower_bound(x); }
 
-  const_iterator lower_bound(const key_type& __x) const {
-    return _M_t.lower_bound(__x);
+  const_iterator lower_bound(const key_type& x) const {
+    return _M_t.lower_bound(x);
   }
 
-  iterator upper_bound(const key_type& __x) { return _M_t.upper_bound(__x); }
+  iterator upper_bound(const key_type& x) { return _M_t.upper_bound(x); }
 
-  const_iterator upper_bound(const key_type& __x) const {
-    return _M_t.upper_bound(__x);
+  const_iterator upper_bound(const key_type& x) const {
+    return _M_t.upper_bound(x);
   }
 
-  std::pair<iterator, iterator> equal_range(const key_type& __x) {
-    return _M_t.equal_range(__x);
+  std::pair<iterator, iterator> equal_range(const key_type& x) {
+    return _M_t.equal_range(x);
   }
 
   std::pair<const_iterator, const_iterator> equal_range(
-      const key_type& __x) const {
-    return _M_t.equal_range(__x);
+      const key_type& x) const {
+    return _M_t.equal_range(x);
   }
 
   //// observers
@@ -198,43 +215,43 @@ class map {
 
 //// Non-member functions
 template <typename _Key, typename _Tp, typename Compare, typename _Alloc>
-inline bool operator==(const ft::map<_Key, _Tp, Compare, _Alloc>& __x,
-                       const ft::map<_Key, _Tp, Compare, _Alloc>& __y) {
-  return __x._M_t == __y._M_t;
+inline bool operator==(const ft::map<_Key, _Tp, Compare, _Alloc>& x,
+                       const ft::map<_Key, _Tp, Compare, _Alloc>& y) {
+  return x._M_t == y._M_t;
 }
 
 template <typename _Key, typename _Tp, typename Compare, typename _Alloc>
-inline bool operator<(const ft::map<_Key, _Tp, Compare, _Alloc>& __x,
-                      const ft::map<_Key, _Tp, Compare, _Alloc>& __y) {
-  return __x._M_t < __y._M_t;
+inline bool operator<(const ft::map<_Key, _Tp, Compare, _Alloc>& x,
+                      const ft::map<_Key, _Tp, Compare, _Alloc>& y) {
+  return x._M_t < y._M_t;
 }
 
 /// Based on operator==
 template <typename _Key, typename _Tp, typename Compare, typename _Alloc>
-inline bool operator!=(const ft::map<_Key, _Tp, Compare, _Alloc>& __x,
-                       const ft::map<_Key, _Tp, Compare, _Alloc>& __y) {
-  return !(__x == __y);
+inline bool operator!=(const ft::map<_Key, _Tp, Compare, _Alloc>& x,
+                       const ft::map<_Key, _Tp, Compare, _Alloc>& y) {
+  return !(x == y);
 }
 
 /// Based on operator<
 template <typename _Key, typename _Tp, typename Compare, typename _Alloc>
-inline bool operator>(const ft::map<_Key, _Tp, Compare, _Alloc>& __x,
-                      const ft::map<_Key, _Tp, Compare, _Alloc>& __y) {
-  return __y < __x;
+inline bool operator>(const ft::map<_Key, _Tp, Compare, _Alloc>& x,
+                      const ft::map<_Key, _Tp, Compare, _Alloc>& y) {
+  return y < x;
 }
 
 /// Based on operator<
 template <typename _Key, typename _Tp, typename Compare, typename _Alloc>
-inline bool operator<=(const ft::map<_Key, _Tp, Compare, _Alloc>& __x,
-                       const ft::map<_Key, _Tp, Compare, _Alloc>& __y) {
-  return !(__y < __x);
+inline bool operator<=(const ft::map<_Key, _Tp, Compare, _Alloc>& x,
+                       const ft::map<_Key, _Tp, Compare, _Alloc>& y) {
+  return !(y < x);
 }
 
 /// Based on operator<
 template <typename _Key, typename _Tp, typename Compare, typename _Alloc>
-inline bool operator>=(const ft::map<_Key, _Tp, Compare, _Alloc>& __x,
-                       const ft::map<_Key, _Tp, Compare, _Alloc>& __y) {
-  return !(__x < __y);
+inline bool operator>=(const ft::map<_Key, _Tp, Compare, _Alloc>& x,
+                       const ft::map<_Key, _Tp, Compare, _Alloc>& y) {
+  return !(x < y);
 }
 
 }  // namespace ft
@@ -242,9 +259,9 @@ inline bool operator>=(const ft::map<_Key, _Tp, Compare, _Alloc>& __x,
 /// See std::map::swap().
 namespace std {
 template <typename _Key, typename _Tp, typename Compare, typename _Alloc>
-void swap(ft::map<_Key, _Tp, Compare, _Alloc>& __x,
-          ft::map<_Key, _Tp, Compare, _Alloc>& __y) {
-  __x.swap(__y);
+void swap(ft::map<_Key, _Tp, Compare, _Alloc>& x,
+          ft::map<_Key, _Tp, Compare, _Alloc>& y) {
+  x.swap(y);
 }
 
 }  // namespace std

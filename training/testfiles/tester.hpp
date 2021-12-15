@@ -8,6 +8,7 @@
 #include <iterator>
 #include <type_traits>
 #include <algorithm> // std::copy
+#include <set>
 namespace ft = std;
 #else
 #include "../containers/vector.hpp"

@@ -41,6 +41,9 @@ bool is_pop(ll hash, ll d){ return (hash>>d)&1; }
 int main(){
   cincout();
   
-  map<ll, ll> M;
-  auto it = lower_bound(M.begin(), M.end(), 1);
+  pair<ll, ll> P;
+  ll L;
+  cout << is_same<int,int>::value ;
+  cout << is_same<int,pair<int,int>>::value ;
+
 }

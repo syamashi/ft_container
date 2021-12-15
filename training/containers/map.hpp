@@ -248,30 +248,14 @@ class map {
     return _M_t.equal_range(__x);
   }
 
-  //@}
-
-  //@{
   /**
-   *  @brief Finds a subsequence matching given key.
-   *  @param  __x  Key of (key, value) pairs to be located.
-   *  @return  Pair of read-only (constant) iterators that possibly points
-   *           to the subsequence matching given key.
-   *
-   *  This function is equivalent to
-   *  @code
    *    std::make_pair(c.lower_bound(val),
    *                   c.upper_bound(val))
-   *  @endcode
-   *  (but is faster than making the calls separately).
-   *
-   *  This function probably only makes sense for multimaps.
    */
   std::pair<const_iterator, const_iterator> equal_range(
       const key_type& __x) const {
     return _M_t.equal_range(__x);
   }
-
-  //@}
 
   template <typename _K1, typename _T1, typename _C1, typename _A1>
   friend bool operator==(const map<_K1, _T1, _C1, _A1>&,

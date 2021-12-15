@@ -46,7 +46,7 @@ namespace ft
 			vector( InputIt head, InputIt tail,
         	const Allocator& alloc = Allocator(),
 			typename ft::enable_if<!ft::is_integral<InputIt>::value, InputIt>::type* = nullptr) : vector( alloc ) {
-				difference_type sz = std::distance(head, tail);
+				difference_type sz = ft::distance(head, tail);
 				resize( sz );
 				pointer ptr = _first;
 				for (InputIt src = head; src != tail; ++src, ++ptr ){
@@ -486,7 +486,7 @@ namespace ft
 	bool operator<( const ft::vector<T,Alloc>& lhs,
 	                const ft::vector<T,Alloc>& rhs )
 	{
-		return ( ft::lexicographical_compare( lhs.begin(), lhs.end(), rhs.begin(), rhs.end() ) ) ;
+		return ( std::lexicographical_compare( lhs.begin(), lhs.end(), rhs.begin(), rhs.end() ) ) ;
 	}
 	template< class T, class Alloc >
 	bool operator<=( const ft::vector<T,Alloc>& lhs,

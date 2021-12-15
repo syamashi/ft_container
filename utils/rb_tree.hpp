@@ -4,7 +4,8 @@
 #include <iostream>
 
 #include "../containers/stack.hpp"
-#include "iterator.hpp"
+#include "./iterator.hpp"
+#include "./util.hpp"
 
 namespace ft {
 
@@ -393,7 +394,7 @@ inline bool operator!=(const _Rb_tree_iterator<_Val>& __x,
   return __x._M_node != __y._M_node;
 }
 
-template <typename _Key, typename _Val, typename Compare,
+template <typename _Key, typename _Val, typename _KeyOfValue, typename Compare,
           typename _Alloc = std::allocator<_Val>>
 class _Rb_tree {
   // _Allocの引数<_Val> を <Node<_Val>> に 置き換える
@@ -430,11 +431,21 @@ class _Rb_tree {
   typedef std::reverse_iterator<const_iterator> const_reverse_iterator;
 
  protected:
-  key_type _S_key(_Link_type x) const { return x->_M_value_type.first; }
-  key_type _S_key(_Const_Link_type x) const { return x->_M_value_type.first; }
-  key_type _S_key(value_type x) const { return x.first; }
-  key_type _S_key(iterator x) const { return x->first; }
-  key_type _S_key(const_iterator x) const { return x->first; }
+  key_type _S_key(_Link_type x) const {
+    return _KeyOfValue()(x->_M_value_type);
+  }
+  key_type _S_key(_Const_Link_type x) const {
+    return _KeyOfValue()(x->_M_value_type);
+  }
+  key_type _S_key(value_type x) const {
+    return _KeyOfValue()(x);
+  }
+  key_type _S_key(iterator x) const {
+    return _KeyOfValue()(*x);
+  }
+  key_type _S_key(const_iterator x) const {
+    return _KeyOfValue()(*x);
+  }
   _Link_type _M_end() { return _M_header; }
   _Const_Link_type _M_end() const { return _M_header; }
   _Link_type _S_root() { return _M_header->_M_parent; }
@@ -512,7 +523,7 @@ class _Rb_tree {
     _M_reset();
     _M_key_compare = src._M_key_compare;
     _M_node_alloc = src._M_node_alloc;
-    if (src._M_root() != 0){
+    if (src._M_root() != 0) {
       _M_root() = _M_copy(src._M_header->_M_parent, _M_header);
       _M_header->_M_left = _S_mostleft();
       _M_header->_M_right = _S_mostright();
@@ -1255,7 +1266,8 @@ class _Rb_tree {
     return iterator(y);
   }
 
-  const_iterator _M_upper_bound(_Const_Link_type x, _Const_Link_type y, const _Key& k) const {
+  const_iterator _M_upper_bound(_Const_Link_type x, _Const_Link_type y,
+                                const _Key& k) const {
     while (x != 0)
       if (_M_key_compare(k, _S_key(x)))
         y = x, x = x->_M_left;
@@ -1380,11 +1392,12 @@ class _Rb_tree {
         __x = __x->_M_right;
       else if (_M_key_compare(__k, _S_key(__x)))
         __y = __x, __x = __x->_M_left;
-      else { // __x が keyに合致。 __yは__x->_M_parent
+      else {  // __x が keyに合致。 __yは__x->_M_parent
         _Link_type __xu(__x);
         _Link_type __yu(__y);
-        __y = __x, __x = __x->_M_left; // __yはkeyに一致。 __xはkeyより小さいかNULL
-        __xu = __xu->_M_right; // __xuはkeyより大きいかNULL
+        __y = __x,
+        __x = __x->_M_left;  // __yはkeyに一致。 __xはkeyより小さいかNULL
+        __xu = __xu->_M_right;  // __xuはkeyより大きいかNULL
         /*
         __x : key->left
         __y : keyに一致
@@ -1400,14 +1413,11 @@ class _Rb_tree {
         __xuのできるだけ左を返す == keyの次
 
         つまり、
-        1. keyが存在するなら
         p.first = M.lower_bound(key);
         p.second = M.upper_bound(key);
-        2. 存在しないなら
-        p.first == p.second == M.upper_bound(key)
+		を効率化してるだけ
         */
-        return
-          std::pair<iterator, iterator>(_M_lower_bound(__x, __y, __k),
+        return std::pair<iterator, iterator>(_M_lower_bound(__x, __y, __k),
                                              _M_upper_bound(__xu, __yu, __k));
       }
     }
@@ -1415,7 +1425,8 @@ class _Rb_tree {
     return std::pair<iterator, iterator>(iterator(__y), iterator(__y));
   }
 
-  std::pair<const_iterator, const_iterator> equal_range( const key_type& __k) const{
+  std::pair<const_iterator, const_iterator> equal_range(
+      const key_type& __k) const {
     _Const_Link_type __x = _S_root();
     _Const_Link_type __y = _M_end();
     while (__x != 0) {
@@ -1423,188 +1434,158 @@ class _Rb_tree {
         __x = __x->_M_right;
       else if (_M_key_compare(__k, _S_key(__x)))
         __y = __x, __x = __x->_M_left;
-      else { // __x が keyに合致。 __yは__x->_M_parent
+      else {  // __x が keyに合致。 __yは__x->_M_parent
         _Const_Link_type __xu(__x);
         _Const_Link_type __yu(__y);
-        __y = __x, __x = __x->_M_left; // __yはkeyに一致。 __xはkeyより小さいかNULL
-        __xu = __xu->_M_right; // __xuはkeyより大きいかNULL
+        __y = __x,
+        __x = __x->_M_left;  // __yはkeyに一致。 __xはkeyより小さいかNULL
+        __xu = __xu->_M_right;  // __xuはkeyより大きいかNULL
         /*
-        1. keyが存在するなら
         p.first = M.lower_bound(key);
         p.second = M.upper_bound(key);
-        2. 存在しないなら
-        p.first == p.second == M.upper_bound(key)
+		を効率化してるだけ
         */
-        return
-          std::pair<const_iterator, const_iterator>(_M_lower_bound(__x, __y, __k),
-                                             _M_upper_bound(__xu, __yu, __k));
+        return std::pair<const_iterator, const_iterator>(
+            _M_lower_bound(__x, __y, __k), _M_upper_bound(__xu, __yu, __k));
       }
     }
     // 末端まで来た
-    return std::pair<const_iterator, const_iterator>(const_iterator(__y), const_iterator(__y));
+    return std::pair<const_iterator, const_iterator>(const_iterator(__y),
+                                                     const_iterator(__y));
   }
 
+  //// debug
 
-    /*
-    ** debug
-    */
+ public:
+  void link_debug(_Link_type x) {
+    _Link_type right = x->_M_right;
+    _Link_type parent = x->_M_parent;
+    _Link_type left = x->_M_left;
 
-   public:
-    void link_debug(_Link_type x) {
-      _Link_type right = x->_M_right;
-      _Link_type parent = x->_M_parent;
-      _Link_type left = x->_M_left;
+    std::cout << std::endl;
+    std::cout << "par:";
+    if (parent)
+      std::cout << _S_key(parent) << std::endl;
+    else
+      std::cout << "NULL" << std::endl;
 
-      std::cout << std::endl;
-      std::cout << "par:";
-      if (parent)
-        std::cout << parent->_M_value_type.first << std::endl;
-      else
-        std::cout << "NULL" << std::endl;
+    std::cout << "left:";
+    if (left)
+      std::cout << _S_key(left) << std::endl;
+    else
+      std::cout << "NULL" << std::endl;
 
-      std::cout << "left:";
-      if (left)
-        std::cout << left->_M_value_type.first << std::endl;
-      else
-        std::cout << "NULL" << std::endl;
+    std::cout << "right:";
+    if (right)
+      std::cout << _S_key(right) << std::endl;
+    else
+      std::cout << "NULL" << std::endl;
+  }
 
-      std::cout << "right:";
-      if (right)
-        std::cout << right->_M_value_type.first << std::endl;
-      else
-        std::cout << "NULL" << std::endl;
-    }
+  void debug() {
+    // 要素数
+    std::cout << "size:" << size() << std::endl;
 
-    void debug() {
-      // 要素数
-      std::cout << "size:" << size() << std::endl;
+    _Link_type root = _M_header->_M_parent;
+    _Link_type Hlef = _M_header->_M_left;
+    _Link_type Hrig = _M_header->_M_right;
 
-      _Link_type root = _M_header->_M_parent;
-      _Link_type Hlef = _M_header->_M_left;
-      _Link_type Hrig = _M_header->_M_right;
-
-      std::cout << "root ";
-      if (root) {
-        std::cout << "M[" << root->_M_value_type.first
-                  << "]:" << root->_M_value_type.second << std::endl;
-      } else
-        std::cout << "null" << std::endl;
-
-      std::cout << "hleft ";
-      std::cout << "M[" << Hlef->_M_value_type.first
-                << "]:" << Hlef->_M_value_type.second << std::endl;
-
-      std::cout << "hright ";
-      std::cout << "M[" << Hrig->_M_value_type.first
-                << "]:" << Hrig->_M_value_type.second << std::endl;
-
-      for (iterator it = begin(); it != end(); ++it) {
-        // M[key]:val LLRR
-        std::cout << "M[" << it->first << "]:" << it->second;
-        //      link_debug(it.get_link());
-        _Link_type root = _S_root();
-        std::string path;
-        while (root != NULL) {
-          if (_M_key_compare(_S_key(root), _S_key(it))) {
-            path += 'r';
-            root = root->_M_right;
-          } else if (_M_key_compare(_S_key(it), _S_key(root))) {
-            path += 'l';
-            root = root->_M_left;
-          } else
-            break;
-        }
-        if (it.get_color() == _S_red)
-          std::cout << " R ";
-        else if (it.get_color() == _S_black)
-          std::cout << " B ";
-
-        std::cout << path << std::endl;
+    for (iterator it = begin(); it != end(); ++it) {
+      // M[key]:val LLRR
+      std::cout << "M[" << _S_key(it) << "]:" << it->second;
+      //      link_debug(it.get_link());
+      _Link_type root = _S_root();
+      std::string path;
+      while (root != NULL) {
+        if (_M_key_compare(_S_key(root), _S_key(it))) {
+          path += 'r';
+          root = root->_M_right;
+        } else if (_M_key_compare(_S_key(it), _S_key(root))) {
+          path += 'l';
+          root = root->_M_left;
+        } else
+          break;
       }
+      if (it.get_color() == _S_red)
+        std::cout << " R ";
+      else if (it.get_color() == _S_black)
+        std::cout << " B ";
+
+      std::cout << path << std::endl;
     }
+  }
 
-    void debug2() {
-      // 要素数
-      std::cout << std::endl;
-      for (iterator it = begin(); it != end(); ++it) {
-        // M[key]:val LLRR
-        std::cout << "M[" << it->first << "]:";
-        //      link_debug(it.get_link());
-        _Link_type root = _S_root();
-        std::string path;
-        while (root != NULL) {
-          if (_M_key_compare(_S_key(root), _S_key(it))) {
-            path += 'r';
-            root = root->_M_right;
-          } else if (_M_key_compare(_S_key(it), _S_key(root))) {
-            path += 'l';
-            root = root->_M_left;
-          } else
-            break;
-        }
-        if (it.get_color() == _S_red)
-          std::cout << "R ";
-        else if (it.get_color() == _S_black)
-          std::cout << "B ";
-
-        std::cout << path << std::endl;
+  void debug2() {
+    // 要素数
+    std::cout << std::endl;
+    for (iterator it = begin(); it != end(); ++it) {
+      // M[key]:val LLRR
+      std::cout << "M[" << _S_key(it) << "]:";
+      //      link_debug(it.get_link());
+      _Link_type root = _S_root();
+      std::string path;
+      while (root != NULL) {
+        if (_M_key_compare(_S_key(root), _S_key(it))) {
+          path += 'r';
+          root = root->_M_right;
+        } else if (_M_key_compare(_S_key(it), _S_key(root))) {
+          path += 'l';
+          root = root->_M_left;
+        } else
+          break;
       }
+      if (it.get_color() == _S_red)
+        std::cout << "R ";
+      else if (it.get_color() == _S_black)
+        std::cout << "B ";
+
+      std::cout << path << std::endl;
     }
+  }
+};
 
+//// Non-member functions
 
-
-    
-  };
-
-  //// Non-member functions
-
-template <typename _Key, typename _Val, typename Compare,
-          typename _Alloc>
-inline bool operator==(
-    const ft::_Rb_tree<_Key, _Val, Compare, _Alloc>& __x,
-    const ft::_Rb_tree<_Key, _Val, Compare, _Alloc>& __y) {
+template <typename _Key, typename _Val, typename _KeyOfValue, typename Compare, typename _Alloc>
+inline bool operator==(const ft::_Rb_tree<_Key, _Val, _KeyOfValue, Compare, _Alloc>& __x,
+                       const ft::_Rb_tree<_Key, _Val, _KeyOfValue, Compare, _Alloc>& __y) {
   return __x.size() == __y.size() &&
          std::equal(__x.begin(), __x.end(), __y.begin());
 }
 
-template <typename _Key, typename _Val, typename Compare,
-          typename _Alloc>
-inline bool operator<(
-    const ft::_Rb_tree<_Key, _Val, Compare, _Alloc>& __x,
-    const ft::_Rb_tree<_Key, _Val, Compare, _Alloc>& __y) {
+template <typename _Key, typename _Val, typename _KeyOfValue, typename Compare, typename _Alloc>
+
+inline bool operator<(const ft::_Rb_tree<_Key, _Val, _KeyOfValue, Compare, _Alloc>& __x,
+                      const ft::_Rb_tree<_Key, _Val, _KeyOfValue, Compare, _Alloc>& __y) {
   return std::lexicographical_compare(__x.begin(), __x.end(), __y.begin(),
                                       __y.end());
 }
 
-template <typename _Key, typename _Val, typename Compare,
-          typename _Alloc>
-inline bool operator!=(
-    const ft::_Rb_tree<_Key, _Val, Compare, _Alloc>& __x,
-    const ft::_Rb_tree<_Key, _Val, Compare, _Alloc>& __y) {
+template <typename _Key, typename _Val, typename _KeyOfValue, typename Compare, typename _Alloc>
+
+inline bool operator!=(const ft::_Rb_tree<_Key, _Val, _KeyOfValue, Compare, _Alloc>& __x,
+                       const ft::_Rb_tree<_Key, _Val, _KeyOfValue, Compare, _Alloc>& __y) {
   return !(__x == __y);
 }
 
-template <typename _Key, typename _Val, typename Compare,
-          typename _Alloc>
-inline bool operator>(
-    const ft::_Rb_tree<_Key, _Val, Compare, _Alloc>& __x,
-    const ft::_Rb_tree<_Key, _Val, Compare, _Alloc>& __y) {
+template <typename _Key, typename _Val, typename _KeyOfValue, typename Compare, typename _Alloc>
+
+inline bool operator>(const ft::_Rb_tree<_Key, _Val, _KeyOfValue, Compare, _Alloc>& __x,
+                      const ft::_Rb_tree<_Key, _Val, _KeyOfValue, Compare, _Alloc>& __y) {
   return __y < __x;
 }
 
-template <typename _Key, typename _Val, typename Compare,
-          typename _Alloc>
-inline bool operator<=(
-    const ft::_Rb_tree<_Key, _Val, Compare, _Alloc>& __x,
-    const ft::_Rb_tree<_Key, _Val, Compare, _Alloc>& __y) {
+template <typename _Key, typename _Val, typename _KeyOfValue, typename Compare, typename _Alloc>
+
+inline bool operator<=(const ft::_Rb_tree<_Key, _Val, _KeyOfValue, Compare, _Alloc>& __x,
+                       const ft::_Rb_tree<_Key, _Val, _KeyOfValue, Compare, _Alloc>& __y) {
   return !(__y < __x);
 }
 
-template <typename _Key, typename _Val, typename Compare,
-          typename _Alloc>
-inline bool operator>=(
-    const ft::_Rb_tree<_Key, _Val, Compare, _Alloc>& __x,
-    const ft::_Rb_tree<_Key, _Val, Compare, _Alloc>& __y) {
+template <typename _Key, typename _Val, typename _KeyOfValue, typename Compare, typename _Alloc>
+
+inline bool operator>=(const ft::_Rb_tree<_Key, _Val, _KeyOfValue, Compare, _Alloc>& __x,
+                       const ft::_Rb_tree<_Key, _Val, _KeyOfValue, Compare, _Alloc>& __y) {
   return !(__x < __y);
 }
 }  // namespace ft

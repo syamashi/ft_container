@@ -5,9 +5,7 @@
 
 namespace ft {
 
-/*
-** TAGS
-*/
+//// Tags
 
 struct input_iterator_tag {};
 struct output_iterator_tag {};
@@ -15,13 +13,10 @@ struct forward_iterator_tag : public input_iterator_tag {};
 struct bidirectional_iterator_tag : public forward_iterator_tag {};
 struct random_access_iterator_tag : public bidirectional_iterator_tag {};
 
-/*
-** iterator_traits
-*/
+//// iterator_traits
 
 template <class Iterator>
-class iterator_traits {
- public:
+struct iterator_traits {
   typedef typename Iterator::iterator_category iterator_category;
   typedef typename Iterator::value_type value_type;
   typedef typename Iterator::difference_type difference_type;
@@ -29,10 +24,9 @@ class iterator_traits {
   typedef typename Iterator::reference reference;
 };
 
-  /// Partial specialization for pointer types.
+/// Partial specialization for pointer types.
 template <class T>
-class iterator_traits<T*> {
- public:
+struct iterator_traits<T*> {
   typedef ptrdiff_t difference_type;
   typedef T value_type;
   typedef T* pointer;
@@ -40,10 +34,9 @@ class iterator_traits<T*> {
   typedef ft::random_access_iterator_tag iterator_category;
 };
 
-  /// Partial specialization for pointer types.
+/// Partial specialization for pointer types.
 template <class T>
-class iterator_traits<const T*> {
- public:
+struct iterator_traits<const T*> {
   typedef ptrdiff_t difference_type;
   typedef T value_type;
   typedef const T* pointer;
@@ -51,9 +44,7 @@ class iterator_traits<const T*> {
   typedef ft::random_access_iterator_tag iterator_category;
 };
 
-/*
-** other iterators
-*/
+//// other iterators
 
 template <class Category, class T, class Distance = std::ptrdiff_t,
           class Pointer = T*, class Reference = T&>
@@ -84,9 +75,7 @@ class reverse_iterator
   typedef typename traits_type::pointer pointer;
   typedef typename traits_type::reference reference;
 
-  /*
-  ** Member functions
-  */
+  //// Member functions
 
   reverse_iterator() : _current() {}
   explicit reverse_iterator(iterator_type x) : _current(x) {}
@@ -95,10 +84,8 @@ class reverse_iterator
 
   template <class U>
   reverse_iterator& operator=(const ft::reverse_iterator<U>& other) {
-//	if (this == &other)
-//		return *this ;
     _current = other.base();
-	return *this ;
+    return *this;
   }
 
   virtual ~reverse_iterator() {}
@@ -110,9 +97,7 @@ class reverse_iterator
   }
   pointer operator->() const { return &(operator*()); }
 
-  reference operator[](difference_type n) const {
-    return *(*this + n);
-  }
+  reference operator[](difference_type n) const { return *(*this + n); }
 
   reverse_iterator& operator++() {
     --_current;
@@ -148,9 +133,7 @@ class reverse_iterator
   }
 };
 
-/*
-** reverse_iterator_nonmember_functions
-*/
+//// reverse_iterator_nonmember_functions
 
 template <class Iterator1, class Iterator2>
 bool operator==(const ft::reverse_iterator<Iterator1>& lhs,
@@ -198,9 +181,7 @@ typename ft::reverse_iterator<Iterator>::difference_type operator-(
   return rhs.base() - lhs.base();
 }
 
-/*
-** FUNCTIONS
-*/
+//// Functions
 
 template <class InputIterator, class Distance>
 void advance(InputIterator& it, Distance n) {
@@ -217,8 +198,7 @@ void advance(InputIterator& it, Distance n) {
 
 template <class InputIterator>
 typename ft::iterator_traits<InputIterator>::difference_type distance(
-    InputIterator first, InputIterator last)
-{
+    InputIterator first, InputIterator last) {
   typename ft::iterator_traits<InputIterator>::difference_type ret = 0;
   while (first != last) {
     ++first;
@@ -279,24 +259,21 @@ front_insert_iterator<Container> front_inserter(Container& x) {
 }
 
 template <typename Container>
-struct insert_iterator : public iterator<output_iterator_tag, void, void, void, void> {
-  protected:
+struct insert_iterator
+    : public iterator<output_iterator_tag, void, void, void, void> {
+ protected:
   Container* c;
   typename Container::iterator iter;
 
-  public:
+ public:
   typedef Container container_type;
-  insert_iterator( Container& c) : c(&c) {}
-  /*
-        insert_iterator(_Container& __x, typename _Container::iterator __i)
-      : container(std::__addressof(__x)), iter(__i) {}
-  */
-  insert_iterator( Container& c, typename Container::iterator i ) : c(&c), iter(i) {}
+  insert_iterator(Container& c) : c(&c) {}
+  insert_iterator(Container& c, typename Container::iterator i)
+      : c(&c), iter(i) {}
   insert_iterator& operator*() { return *this; }
   insert_iterator& operator++() { return *this; }
   insert_iterator operator++(int) { return *this; }
-  insert_iterator& operator=(const typename Container::value_type& value)
-  {
+  insert_iterator& operator=(const typename Container::value_type& value) {
     iter = c->insert(iter, value);
     ++iter;
     return *this;
@@ -305,7 +282,7 @@ struct insert_iterator : public iterator<output_iterator_tag, void, void, void, 
 
 template <class Container, class Iterator>
 insert_iterator<Container> inserter(Container& x, Iterator it) {
-  return insert_iterator<Container>(x, typename Container::iterator( it ));
+  return insert_iterator<Container>(x, typename Container::iterator(it));
 }
 };  // namespace ft
 
