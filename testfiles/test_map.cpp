@@ -11,20 +11,10 @@ template <typename T, typename U>
 void mdebug(ft::map<T, U> const& M) {
   cout << "size:" << M.size() << endl;
 
-  for (auto it = M.begin(); it != M.end(); ++it) {
+  for (typename ft::map<T, U>::const_iterator it = M.begin(); it != M.end(); ++it) {
     cout << "M[" << it->first << "]:" << it->second << endl;
   }
   cout << endl;
-}
-
-template <typename Iterator>
-void itdebug(Iterator first, Iterator last) {
-  cout << "{";
-  for (auto iter = first; iter != last; ++iter) {
-    if (iter != first) cout << " ";
-    cout << *iter;
-  }
-  cout << "}" << endl;
 }
 
 void map_insert_test() {

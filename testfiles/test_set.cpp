@@ -11,20 +11,10 @@ template <class Con>
 void sdebug(Con const& S) {
   cout << "size:" << S.size() << endl;
 
-  for (auto it = S.begin(); it != S.end(); ++it) {
+  for (typename Con::const_iterator it = S.begin(); it != S.end(); ++it) {
     cout << "S[" << *it << "]" << endl;
   }
   cout << endl;
-}
-
-template <typename Iterator>
-void itdebug(Iterator first, Iterator last) {
-  cout << "{";
-  for (auto iter = first; iter != last; ++iter) {
-    if (iter != first) cout << " ";
-    cout << *iter;
-  }
-  cout << "}" << endl;
 }
 
 void set_insert_test() {

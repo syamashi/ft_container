@@ -3,10 +3,10 @@
 
 #include <iostream>
 
+#include "../utils/algorithm.hpp"
 #include "../utils/iterator.hpp"
 #include "../utils/random_access_iterator.hpp"
 #include "../utils/util.hpp"
-#include "../utils/algorithm.hpp"
 
 namespace ft {
 template <typename T, typename Allocator = std::allocator<T> >
@@ -441,7 +441,7 @@ template <class T, class Alloc>
 bool operator<(const ft::vector<T, Alloc>& lhs,
                const ft::vector<T, Alloc>& rhs) {
   return (ft::lexicographical_compare(lhs.begin(), lhs.end(), rhs.begin(),
-                                       rhs.end()));
+                                      rhs.end()));
 }
 template <class T, class Alloc>
 bool operator<=(const ft::vector<T, Alloc>& lhs,
@@ -459,10 +459,13 @@ bool operator>=(const ft::vector<T, Alloc>& lhs,
   return !(lhs < rhs);
 }
 
+}  // namespace ft
+
+namespace std {
 template <class T, class Alloc>
 void swap(ft::vector<T, Alloc>& lhs, ft::vector<T, Alloc>& rhs) {
   lhs.swap(rhs);
 }
-}  // namespace ft
+}  // namespace std
 
 #endif

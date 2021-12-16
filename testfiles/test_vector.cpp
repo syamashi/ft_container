@@ -7,21 +7,11 @@ void pout(T s) {
   cout << "--- [" << ++no << "]:" << s << " ---" << endl;
 }
 
-template <typename T>
+template <class T>
 void vdebug(T& V) {
   cout << "size:" << V.size() << " capacity:" << V.capacity() << endl;
   cout << "{ ";
-  for (auto it = V.begin(); it != V.end(); ++it) cout << *it << " ";
-  cout << "}" << endl;
-}
-
-template <typename Iterator>
-void itdebug(Iterator first, Iterator last) {
-  cout << "{";
-  for (auto iter = first; iter != last; ++iter) {
-    if (iter != first) cout << " ";
-    cout << *iter;
-  }
+  for (typename T::iterator it = V.begin(); it != V.end(); ++it) cout << *it << " ";
   cout << "}" << endl;
 }
 
@@ -69,7 +59,7 @@ void vector_capacity_test() {
   int sz = 200;
   ft::vector<int> v1;
 
-  auto cap = v1.capacity();
+  size_t cap = v1.capacity();
   cout << "initial capacity=" << cap << '\n';
 
   for (int n = 0; n < sz; ++n) {
@@ -227,9 +217,9 @@ void rit_base() {
   ft::vector<int> v(6);
   rep(i, 6) v[i] = i;
 
-  using RevIt = ft::reverse_iterator<ft::vector<int>::iterator>;
+  typedef ft::reverse_iterator<ft::vector<int>::iterator> RevIt;
 
-  const auto it = v.begin() + 3;
+  const ft::vector<int>::iterator it = v.begin() + 3;
   RevIt r_it{it};
 
   cout << "*it == " << *it << '\n'
@@ -240,12 +230,12 @@ void rit_base() {
   RevIt r_end{v.begin()};
   RevIt r_begin{v.end()};
 
-  for (auto it = r_end.base(); it != r_begin.base(); ++it) {
-    cout << *it << ' ';
+  for (ft::vector<int>::iterator itt = r_end.base(); itt != r_begin.base(); ++itt) {
+    cout << *itt << ' ';
   }
   cout << '\n';
 
-  for (auto it = r_begin; it != r_end; ++it) {
+  for (RevIt it = r_begin; it != r_end; ++it) {
     cout << *it << ' ';
   }
   cout << '\n';
@@ -281,7 +271,7 @@ void rit_ops() {
   ft::vector<int> v;
   rep(i, 5) v.push_back(i);
 
-  auto rv = ft::reverse_iterator<ft::vector<int>::iterator>{v.rbegin()};
+  ft::vector<int>::reverse_iterator  rv = ft::reverse_iterator<ft::vector<int>::iterator>{v.rbegin()};
   cout << *(++rv) << ' ';    // 3
   cout << *(--rv) << ' ';    // 4
   cout << *(rv + 3) << ' ';  // 1
@@ -347,7 +337,9 @@ void reverse_iterator_test() {
   ft::reverse_iterator<ft::vector<int>::iterator> last = V.rend();
 
   // 54321
-  itdebug(first, last);
+  for(ft::reverse_iterator<ft::vector<int>::iterator> rit = first; rit != last; ++rit)
+    cout << *rit << " ";
+  cout << endl;
   pout("rit_operator=");
   rit_op_equal();
   pout("rit_base");
@@ -568,7 +560,7 @@ void vector_insert_test() {
   ft::vector<int> vec(3, 100);
   vdebug(vec);
 
-  auto it = vec.begin();
+  ft::vector<int>::iterator it = vec.begin();
   it = vec.insert(it, 200);
   vdebug(vec);
 
@@ -601,7 +593,7 @@ void vector_erase_test() {
   vdebug(c);
 
   // Erase all even numbers (C++11 and later)
-  for (auto it = c.begin(); it != c.end();) {
+  for (ft::vector<int>::iterator it = c.begin(); it != c.end();) {
     if (*it % 2 == 0) {
       it = c.erase(it);
     } else {
@@ -610,7 +602,7 @@ void vector_erase_test() {
   }
   vdebug(c);
 
-  auto it = c.begin();
+  ft::vector<int>::iterator it = c.begin();
   rep(i, 3) {
     c.erase(it);
     vdebug(c);
@@ -639,8 +631,8 @@ void vector_swap_test() {
   rep(i, 3) a1[i] = i + 1;
   rep(i, 2) a2[i] = i + 4;
 
-  auto it1 = a1.begin() + 1;
-  auto it2 = a2.begin() + 1;
+  ft::vector<int>::iterator it1 = a1.begin() + 1;
+  ft::vector<int>::iterator it2 = a2.begin() + 1;
 
   int& ref1 = a1.front();
   int& ref2 = a2.front();
@@ -712,8 +704,8 @@ void vector_nonmember_swap_test() {
   vdebug(bob);
   cout << '\n';
 
-  cout << "-- SWAP\n";
-  ft::swap(alice, bob);
+  cout << "-- alice.swap(bob)\n";
+  alice.swap(bob);
 
   // Print state after swap
   cout << "alice:";
@@ -722,6 +714,18 @@ void vector_nonmember_swap_test() {
           "bob  :";
   vdebug(bob);
   cout << '\n';
+
+  cout << "-- std::swap()\n";
+  std::swap(alice, bob);
+
+  // Print state after swap
+  cout << "alice:";
+  vdebug(alice);
+  cout << "\n"
+          "bob  :";
+  vdebug(bob);
+  cout << '\n';
+
 }
 
 void vector_const_iterator_test() {

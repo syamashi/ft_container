@@ -1,3 +1,5 @@
 # ft_container
 
-if you find bug, issue plzzz
+I'm always making bugs.
+
+welcome issue if you find bug.

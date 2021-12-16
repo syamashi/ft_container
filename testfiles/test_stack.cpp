@@ -7,41 +7,25 @@ void pout(T s) {
   cout << "--- [" << ++no << "]:" << s << " ---" << endl;
 }
 
-template <typename T>
+template <class T>
 void vdebug(T &V) {
 	cout << "size:" << V.size() << " capacity:" << V.capacity() << endl;
 	cout << "{ ";
-  for (auto it = V.begin(); it != V.end(); ++it) cout << *it << " ";
+  for (typename T::iterator it = V.begin(); it != V.end(); ++it) cout << *it << " ";
   cout << "}" << endl;
 }
-
-template < typename Iterator >
-void itdebug( Iterator first, Iterator last )
-{
-	cout << "{";
-    for ( auto iter = first ; iter != last ; ++iter ){
-		if(iter != first) cout << " ";
-        cout << *iter ;
-	}
-	cout << "}" << endl;
-}
-
-
 
 void stack_constructer_test()
 {
 	pout("stack_constructer_test");
-//  ft::deque<int> mydeque (3,100);          // deque with 3 elements
   ft::vector<int> myvector (2,200);        // vector with 2 elements
 
   ft::stack<int> first;                    // empty stack
-//  ft::stack<int> second (mydeque);         // stack initialized to copy of deque
 
   ft::stack<int,ft::vector<int> > third;  // empty stack using vector
   ft::stack<int,ft::vector<int> > fourth (myvector);
 
   cout << "size of first: " << first.size() << '\n';
-//  cout << "size of second: " << second.size() << '\n';
   cout << "size of third: " << third.size() << '\n';
   cout << "size of fourth: " << fourth.size() << '\n';
 }
