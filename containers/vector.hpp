@@ -402,7 +402,7 @@ class vector {
     this->_alloc = save_alloc;
   }
 
- private:
+ protected:
   pointer _first;
   pointer _last;
   pointer _reserved_last;

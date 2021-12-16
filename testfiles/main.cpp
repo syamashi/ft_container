@@ -11,5 +11,5 @@ int main() {
   review_test();
   clockend = std::chrono::system_clock::now();
   double time = std::chrono::duration_cast<std::chrono::microseconds>(clockend - clockstart).count();
-  cout << "time:" << time << endl;
+  cerr << "totaltime:" << time << endl;
 }

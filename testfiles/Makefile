@@ -28,20 +28,26 @@ re: fclean all
 
 test:
 	$(CXX) $(SRCS) -DTEST=0 -o $(NAME)
-	@./$(NAME) > out_ft
+	@./$(NAME) > out_ft 2>err_ft
 	$(CXX) $(SRCS) -DTEST=1 -o $(NAME)
-	@./$(NAME) > out_std
+	@./$(NAME) > out_std 2>err_std
 	diff out_ft out_std
+	@echo "---ft_err---"
+	@cat err_ft
+	@echo "---std_err---"
+	@cat err_std
 
 test0:
 	$(CXX) $(SRCS) -DTEST=0 -o $(NAME)
 	@./$(NAME) > out_ft 2>err_ft
 	@cat out_ft
+	@cat err_ft
 
 test1:
 	$(CXX) $(SRCS) -DTEST=1 -o $(NAME)
 	@./$(NAME) > out_std 2>err_std
 	@cat out_std
+	@cat err_std
 
 val0:
 	$(CXX) $(SRCS) -DTEST=0 -o $(NAME)

@@ -2,44 +2,44 @@
 #define TESTER_HPP
 
 #if TEST  // CREATE A REAL STL EXAMPLE
-#include <vector>
-#include <stack>
+#include <iterator>
 #include <map>
 #include <set>
-#include <iterator>
+#include <stack>
 #include <type_traits>
+#include <vector>
 namespace ft = std;
 #else
-#include "../containers/vector.hpp"
-#include "../containers/stack.hpp"
 #include "../containers/map.hpp"
 #include "../containers/set.hpp"
+#include "../containers/stack.hpp"
+#include "../containers/vector.hpp"
 #include "../utils/algorithm.hpp"
 #include "../utils/iterator.hpp"
-#include "../utils/util.hpp"
 #include "../utils/pair.hpp"
+#include "../utils/util.hpp"
 #endif
 
-#define rep(i, n) for (int i = 0; i < n; ++i)
-
-#include <list>         // std::list
-#include <deque>
 #include <stdlib.h>
+
+#include <algorithm>  // std::copy
+#include <chrono>
+#include <cmath>    // hypot set
+#include <cstddef>  // size_t
+#include <ctime>
+#include <deque>
+#include <iomanip>
 #include <iostream>  // cout
 #include <iterator>  // std::iterator_traits
-#include <typeinfo>  // typeid
-#include <cstddef> // size_t
+#include <list>      // std::list
 #include <numeric>
-#include <algorithm> // std::copy
-#include <cmath> // hypot set
-#include <iomanip>
 #include <string>
-#include <chrono>
-#include <ctime>
+#include <typeinfo>  // typeid
 
 #define cout std::cout
 #define endl std::endl
 #define cerr std::cerr
+#define rep(i, n) for (int i = 0; i < n; ++i)
 
 //// tester
 

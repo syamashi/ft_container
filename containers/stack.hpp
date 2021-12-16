@@ -10,8 +10,17 @@ class stack {
   typedef T value_type;
   typedef Container container_type;
   typedef size_t size_type;
+  typedef typename Container::reference reference;
+  typedef typename Container::const_reference const_reference;
 
   explicit stack(const container_type& ctnr = container_type()) : _c(ctnr) {}
+  stack(const stack& other) : _c(other._c) {}
+  ~stack() {}
+  stack& operator=(const stack& other) {
+    if (this == &other) return *this;
+    _c = other._c;
+    return *this;
+  }
   bool empty() const { return _c.empty(); }
   size_type size() const { return _c.size(); }
   value_type& top() { return _c.back(); }
