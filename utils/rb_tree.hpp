@@ -397,10 +397,10 @@ inline bool operator!=(const _Rb_tree_iterator<_Val>& __x,
 }
 
 template <typename _Key, typename _Val, typename _KeyOfValue, typename Compare,
-          typename _Alloc = std::allocator<_Val>>
+          typename _Alloc = std::allocator<_Val> >
 class _Rb_tree {
-  // _Allocの引数<_Val> を <Node<_Val>> に 置き換える
-  typedef typename _Alloc::template rebind<_Rb_tree_node<_Val>>::other
+  // _Allocの引数<_Val> を <Node<_Val> > に 置き換える
+  typedef typename _Alloc::template rebind<_Rb_tree_node<_Val> >::other
       _Node_allocator;
 
  protected:
@@ -1118,13 +1118,17 @@ class _Rb_tree {
 
  public:
   ft::pair<iterator, bool> insert(const value_type& x) {
+    ft::pair<iterator, bool> ret;
     // keyが重複してないこと
     iterator it = lower_bound(_S_key(x));
-    if (it != end() && !_M_key_compare(_S_key(x), _S_key(it)))
-      return {it, false};
+    if (it != end() && !_M_key_compare(_S_key(x), _S_key(it))){
+      ret.first = it;
+      ret.second = false;
+      return ret;
+    }
     // node作る
     _Link_type pt = _M_create_node(x);
-    _Link_type ret = pt;
+    _Link_type old = pt;
     // insert
     _M_root() = BSTInsert(_S_root(), pt);
 
@@ -1138,7 +1142,9 @@ class _Rb_tree {
     _M_header->_M_left = _S_mostleft();
     _M_header->_M_right = _S_mostright();
 
-    return {(iterator)ret, true};
+    ret.first = (iterator)old;
+    ret.second = true;
+    return ret;
   }
 
   // utility function that deletes the node with given value

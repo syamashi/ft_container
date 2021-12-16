@@ -7,21 +7,21 @@ namespace ft {
 /*
 type と value_type を宣言する必要がある。
 
-・constexpr operator value_type() const noexcept {
+・const operator value_type() const noexcept {
   ft::is_integral<int>() // 1
   ft::is_integral<int*>() // 0
 
-・constexpr value_type operator()() const noexcept {
+・const value_type operator()() const noexcept {
   ft::is_integral<int> F;
   int f = F(); // f==1
 */
 template <typename _Tp, _Tp __v>
 struct integral_constant {
-  static constexpr _Tp value = __v;
+  static const _Tp value = __v;
   typedef _Tp value_type;
   typedef integral_constant<_Tp, __v> type;
-  constexpr operator value_type() const noexcept { return value; }
-  constexpr value_type operator()() const noexcept { return value; }
+  const operator value_type() const noexcept { return value; }
+  const value_type operator()() const noexcept { return value; }
 };
 
 /// The type used as a compile-time boolean with true value.
@@ -111,11 +111,11 @@ struct __is_integral_helper<int> : public true_type {};
 /*
 template <>
 struct __is_integral_helper<int>{
-  static constexpr bool value = true;
+  static const bool value = true;
   typedef int value_type;
   typedef __is_integral_helper<int> type;
-  constexpr operator value_type() const noexcept { return value; }
-  constexpr value_type operator()() const noexcept { return value; }
+  const operator value_type() const noexcept { return value; }
+  const value_type operator()() const noexcept { return value; }
 };
 */
 
