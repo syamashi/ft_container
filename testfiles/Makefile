@@ -3,8 +3,8 @@ SRCS = $(shell find *.cpp)
 OBJDIR = ./obj/
 OBJS = $(SRCS:%.cpp=$(OBJDIR)%.o)
 
-CXX = clang++ -g -O0
-CFLAGS = -Wall -Werror -Wextra
+CXX = clang++
+CFLAGS = -Wall -Werror -Wextra -std=c++98
 
 all: $(OBJDIR) $(NAME)
 
