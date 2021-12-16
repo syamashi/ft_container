@@ -11,7 +11,8 @@ template <typename T, typename U>
 void mdebug(ft::map<T, U> const& M) {
   cout << "size:" << M.size() << endl;
 
-  for (typename ft::map<T, U>::const_iterator it = M.begin(); it != M.end(); ++it) {
+  for (typename ft::map<T, U>::const_iterator it = M.begin(); it != M.end();
+       ++it) {
     cout << "M[" << it->first << "]:" << it->second << endl;
   }
   cout << endl;
@@ -518,7 +519,7 @@ template <class Con>
 void map_equal_range_test_const_out(const Con& m) {
   {
     typename ft::pair<typename Con::const_iterator,
-                       typename Con::const_iterator>
+                      typename Con::const_iterator>
         p = m.equal_range(1);
     for (typename Con::const_iterator& q = p.first; q != p.second; ++q) {
       cout << "m[" << q->first << "] = " << q->second << '\n';
@@ -533,7 +534,7 @@ void map_equal_range_test_const_out(const Con& m) {
 
   {
     typename ft::pair<typename Con::const_iterator,
-                       typename Con::const_iterator>
+                      typename Con::const_iterator>
         pp = m.equal_range(-1);
     if (pp.first == m.begin()) {
       cout << "pp.first is iterator to first not-less than -1\n";
@@ -550,7 +551,7 @@ void map_equal_range_test_const_out(const Con& m) {
 
   {
     typename ft::pair<typename Con::const_iterator,
-                       typename Con::const_iterator>
+                      typename Con::const_iterator>
         ppp = m.equal_range(3);
     if (ppp.first == m.end()) {
       cout << "ppp.first is iterator to first not-less than 3\n";
@@ -672,13 +673,14 @@ void map_value_comp_test() {
   int N = 5;
   rep(i, N) cont[i + 1] = i + 1;
 
-  ft::map<int, int, ModCmp_comp_test>::value_compare comp_func = cont.value_comp();
+  ft::map<int, int, ModCmp_comp_test>::value_compare comp_func =
+      cont.value_comp();
 
   for (ft::map<int, int, ModCmp_comp_test>::iterator it = cont.begin();
        it != cont.end(); ++it) {
     const ft::pair<int, int> key = *it;
-    bool before = comp_func(key, {100,100});
-    bool after = comp_func({100,100}, key);
+    bool before = comp_func(key, {100, 100});
+    bool after = comp_func({100, 100}, key);
     if (!before && !after)
       cout << key.first << " equivalent to key 100\n";
     else if (before)

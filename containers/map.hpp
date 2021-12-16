@@ -36,8 +36,6 @@ class map {
   _Rep_type _M_t;
 
  public:
-  // many of these are specified differently in ISO, but the following are
-  // "functionally equivalent"
   typedef typename _Alloc::reference reference;
   typedef typename _Alloc::const_reference const_reference;
   typedef typename _Alloc::pointer pointer;

@@ -324,14 +324,23 @@ class vector {
   }
 
   iterator erase(iterator pos) {
+    // The iterator first does not need to be dereferenceable if first==last:
+    // erasing an empty range is a no-op.
+    if (_first == _last) return nullptr;
+
     difference_type offset = pos - begin();
 
-    for (iterator src = pos; src < end(); ++src) *src = *(src + 1);
+    for (iterator src = pos; src < end(); ++src){
+      *src = *(src + 1);
+      if (src == end()) break;
+    }
     destroy(--_last);
     return (begin() + offset);
   }
 
   iterator erase(iterator first, iterator last) {
+    if (_first == _last) return nullptr;
+
     difference_type head_offset = first - begin();
     difference_type tail_offset = last - first;
 

@@ -159,9 +159,7 @@ struct PointCmp_begin_test {
 template <class Con>
 void begin_test_out(Con& mag) {
   // Update and print the magnitude of each node
-  for (typename Con::iterator iter =
-           mag.begin();
-       iter != mag.end(); ++iter) {
+  for (typename Con::iterator iter = mag.begin(); iter != mag.end(); ++iter) {
     Point_begin_test* cur = *iter;
     double ret = std::hypot(cur->x, cur->y);  // hypot == sqrt(a,b)
     cout << "The magnitude of (" << cur->x << ", " << cur->y << ") is ";
@@ -172,11 +170,10 @@ void begin_test_out(Con& mag) {
 template <class Con>
 void begin_test_const_out(const Con& mag) {
   // Update and print the magnitude of each node
-  for (typename Con::const_iterator
-           iter = mag.begin();
-       iter != mag.end(); ++iter) {
+  for (typename Con::const_iterator iter = mag.begin(); iter != mag.end();
+       ++iter) {
     Point_begin_test* cur = *iter;
-    double ret = std::hypot(cur->x, cur->y); // hypot == sqrt(a,b)
+    double ret = std::hypot(cur->x, cur->y);  // hypot == sqrt(a,b)
     cout << "The magnitude of (" << cur->x << ", " << cur->y << ") is ";
     cout << ret << '\n';
   }
@@ -191,8 +188,8 @@ void set_begin_test() {
   // points[].first でsortされる
   ft::set<Point_begin_test*, PointCmp_begin_test> mag;
   mag.insert(points);
-  mag.insert(points+1);
-  mag.insert(points+2);
+  mag.insert(points + 1);
+  mag.insert(points + 2);
 
   begin_test_out(mag);
   begin_test_const_out(mag);
@@ -419,25 +416,24 @@ void set_find_test() {
 
 template <class Con>
 void set_equal_range_test_out(Con& s) {
-    typename ft::pair<typename Con::iterator,
-                       typename Con::iterator>
-        p = s.equal_range("one");
-    for (typename Con::iterator& q = p.first; q != p.second; ++q) {
-      cout << "s[" << *q << "] " << '\n';
-    }
+  typename ft::pair<typename Con::iterator, typename Con::iterator> p =
+      s.equal_range("one");
+  for (typename Con::iterator& q = p.first; q != p.second; ++q) {
+    cout << "s[" << *q << "] " << '\n';
+  }
 
-    if (p.second == s.find("two")) {
-      cout << "end of equal_range (p.second) is one-past p.first\n";
-    } else {
-      cout << "unexpected; p.second expected to be one-past p.first\n";
-    }
+  if (p.second == s.find("two")) {
+    cout << "end of equal_range (p.second) is one-past p.first\n";
+  } else {
+    cout << "unexpected; p.second expected to be one-past p.first\n";
+  }
 }
 
 template <class Con>
 void set_equal_range_test_const_out(const Con& s) {
   {
     typename ft::pair<typename Con::const_iterator,
-                       typename Con::const_iterator>
+                      typename Con::const_iterator>
         p = s.equal_range("one");
     for (typename Con::const_iterator& q = p.first; q != p.second; ++q) {
       cout << "s[" << *q << "] " << '\n';
@@ -452,7 +448,7 @@ void set_equal_range_test_const_out(const Con& s) {
 
   {
     typename ft::pair<typename Con::const_iterator,
-                       typename Con::const_iterator>
+                      typename Con::const_iterator>
         pp = s.equal_range("a");
     if (pp.first == s.begin()) {
       cout << "pp.first is iterator to first not-less than -1\n";
@@ -469,7 +465,7 @@ void set_equal_range_test_const_out(const Con& s) {
 
   {
     typename ft::pair<typename Con::const_iterator,
-                       typename Con::const_iterator>
+                      typename Con::const_iterator>
         ppp = s.equal_range("three");
     if (ppp.first == s.end()) {
       cout << "ppp.first is iterator to first not-less than 3\n";
@@ -672,22 +668,23 @@ void set_constructs_test() {
   z.insert({3, 4});
   z.insert({1, 1});
   z.insert({1, -1});  // this fails because the magnitude of 1,-1 equals 1,1
-  for (ft::set<Point_constructs_test, PointCmp_constructs_test>::iterator it = z.begin();
-       it != z.end(); ++it){
-         Point_constructs_test p = *it;
-         cout << '(' << p.x << ',' << p.y << ") ";
-       }
+  for (ft::set<Point_constructs_test, PointCmp_constructs_test>::iterator it =
+           z.begin();
+       it != z.end(); ++it) {
+    Point_constructs_test p = *it;
+    cout << '(' << p.x << ',' << p.y << ") ";
+  }
   cout << '\n';
 }
 
 void set_test() {
   //	set_insert_delete_hardtest();
   set_insert_test();
-//  map_value_compare_test();
+  //  map_value_compare_test();
   set_operator_equal_test();
   set_all_erase_test();
   set_get_alloc_test();
-//  set_at_test();
+  //  set_at_test();
   set_insert_iterator_test();
   set_insert_iterator_iterator_test();
   //  set_operator_kakko_test();

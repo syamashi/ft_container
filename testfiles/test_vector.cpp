@@ -11,7 +11,8 @@ template <class T>
 void vdebug(T& V) {
   cout << "size:" << V.size() << " capacity:" << V.capacity() << endl;
   cout << "{ ";
-  for (typename T::iterator it = V.begin(); it != V.end(); ++it) cout << *it << " ";
+  for (typename T::iterator it = V.begin(); it != V.end(); ++it)
+    cout << *it << " ";
   cout << "}" << endl;
 }
 
@@ -230,7 +231,8 @@ void rit_base() {
   RevIt r_end{v.begin()};
   RevIt r_begin{v.end()};
 
-  for (ft::vector<int>::iterator itt = r_end.base(); itt != r_begin.base(); ++itt) {
+  for (ft::vector<int>::iterator itt = r_end.base(); itt != r_begin.base();
+       ++itt) {
     cout << *itt << ' ';
   }
   cout << '\n';
@@ -271,7 +273,8 @@ void rit_ops() {
   ft::vector<int> v;
   rep(i, 5) v.push_back(i);
 
-  ft::vector<int>::reverse_iterator  rv = ft::reverse_iterator<ft::vector<int>::iterator>{v.rbegin()};
+  ft::vector<int>::reverse_iterator rv =
+      ft::reverse_iterator<ft::vector<int>::iterator>{v.rbegin()};
   cout << *(++rv) << ' ';    // 3
   cout << *(--rv) << ' ';    // 4
   cout << *(rv + 3) << ' ';  // 1
@@ -337,7 +340,8 @@ void reverse_iterator_test() {
   ft::reverse_iterator<ft::vector<int>::iterator> last = V.rend();
 
   // 54321
-  for(ft::reverse_iterator<ft::vector<int>::iterator> rit = first; rit != last; ++rit)
+  for (ft::reverse_iterator<ft::vector<int>::iterator> rit = first; rit != last;
+       ++rit)
     cout << *rit << " ";
   cout << endl;
   pout("rit_operator=");
@@ -582,6 +586,24 @@ void vector_insert_test() {
 
 void vector_erase_test() {
   pout("vector_erase_test");
+  ft::vector<int> V0;
+  //  V0.erase(V0.begin()); // segf
+  V0.push_back(0);
+  V0.erase(V0.begin());
+  vdebug(V0);
+
+  rep(i, 2) V0.push_back(i);
+  rep(i, 2) {
+    V0.erase(V0.begin() + 1 - i);
+    vdebug(V0);
+  }
+
+  rep(i, 5) V0.push_back(i);
+  rep(i, 3) {
+    V0.erase(V0.begin() + 2);
+    vdebug(V0);
+  }
+
   ft::vector<int> c(10);
   rep(i, 10) c[i] = i;
   vdebug(c);
@@ -725,7 +747,6 @@ void vector_nonmember_swap_test() {
           "bob  :";
   vdebug(bob);
   cout << '\n';
-
 }
 
 void vector_const_iterator_test() {

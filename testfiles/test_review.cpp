@@ -121,14 +121,6 @@ void review_vector_time() {
   out_time("vector", time);
 }
 
-void review_vector_test() {
-  review_vector_dynamic_array();
-  review_vector_comp_cit_it();
-  review_vector_swap();
-  review_vector_refer_elements();
-  review_vector_time();
-}
-
 void review_map_make_pair() {
   pout("review_map_make_pair");
   ft::map<int, char> M;
@@ -147,22 +139,22 @@ void review_map_make_pair() {
   mdebug(M);
 }
 
-void   review_map_insert_delete(){
+void review_map_insert_delete() {
   pout("review_map_insert_delete");
   ft::map<int, int> M;
-  int N=10;
+  int N = 10;
 
-  for(int i=0; i<N; ++i) M.insert({i, i});
+  for (int i = 0; i < N; ++i) M.insert({i, i});
   mdebug(M);
-  for(int i=0; i<N+3; ++i){
-    int j=(i+5)%N;
+  for (int i = 0; i < N + 3; ++i) {
+    int j = (i + 5) % N;
     M.erase(j);
     cout << "<erase>:" << j << endl;
     mdebug(M);
   }
 }
 
-void review_map_swap(){
+void review_map_swap() {
   pout("review_map_swap");
 
   ft::map<int, char> alice;
@@ -243,17 +235,25 @@ void review_map_time() {
   std::chrono::system_clock::time_point clockstart, clockend;
   clockstart = std::chrono::system_clock::now();
 
-  ft::map<int,int> M;
-  int N=100000;
+  ft::map<int, int> M;
+  int N = 100000;
 
-  for(int i=0; i<N; ++i) M[i] = i;
-  for(int i=0; i<N; ++i) M.erase(i);
+  for (int i = 0; i < N; ++i) M[i] = i;
+  for (int i = 0; i < N; ++i) M.erase(i);
 
   clockend = std::chrono::system_clock::now();
   double time = std::chrono::duration_cast<std::chrono::microseconds>(
                     clockend - clockstart)
                     .count();
   out_time("map", time);
+}
+
+void review_vector_test() {
+  review_vector_dynamic_array();
+  review_vector_comp_cit_it();
+  review_vector_swap();
+  review_vector_refer_elements();
+  review_vector_time();
 }
 
 void review_map_test() {
@@ -263,7 +263,23 @@ void review_map_test() {
   review_map_time();
 }
 
+void review_stack_test() {
+  pout("review_stack_test");
+
+  ft::stack<int, ft::vector<int>> SV;
+  SV.push(1);
+  ft::stack<int, std::deque<int>> SD;
+  SD.push(2);
+  ft::stack<int, std::list<int>> SL;
+  SL.push(3);
+
+  cout << SV.top() << SD.top() << SL.top() << endl;
+  SV.pop();
+  SD.pop();
+  SL.pop();
+}
 void review_test() {
   review_vector_test();
   review_map_test();
+  review_stack_test();
 }

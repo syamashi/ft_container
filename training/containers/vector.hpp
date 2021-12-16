@@ -221,7 +221,6 @@ namespace ft
 				_reserved_last = _first + sz ;
 
 				for ( pointer old_iter = old_first; old_iter != old_last; ++old_iter, ++_last ){
-//					construct( _last, std::move(*old_iter) ) ; c++11
 					construct( _last, *old_iter ) ;
 				}
 
