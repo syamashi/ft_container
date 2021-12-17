@@ -38,7 +38,7 @@ test:
 	@cat err_std
 
 test0:
-	$(CXX) $(SRCS) -DTEST=0 -o $(NAME)
+	$(CXX) $(CFLAGS) $(SRCS) -DTEST=0 -o $(NAME)
 	@./$(NAME) > out_ft 2>err_ft
 	@cat out_ft
 	@cat err_ft

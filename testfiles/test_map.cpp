@@ -28,7 +28,8 @@ void map_insert_test() {
     cout << "--- "
          << "M.insert({" << key << "," << val << "})"
          << " ---" << endl;
-    ft::pair<ft::map<int, int>::iterator, bool> ret = M.insert({key, val});
+    ft::pair<ft::map<int, int>::iterator, bool> ret =
+        M.insert(ft::make_pair(key, val));
     cout << " size:" << M.size() << endl;
     cout << " ret:" << ret.first->first << "," << ret.first->second << " "
          << ret.second << endl;
@@ -74,7 +75,7 @@ void map_operator_equal_test() {
 
   ft::map<int, int> nums1;
 
-  rep(i, 10) { nums1.insert({i, i}); }
+  rep(i, 10) { nums1.insert(ft::make_pair(i, i)); }
   ft::map<int, int> nums2;
 
   cout << "Initially:\n";
@@ -100,7 +101,7 @@ void map_all_erase_test() {
   rep(i, N) {  // start
     rep(j, N) {
       int k = (i + j) % N;
-      M.insert({k, k});
+      M.insert(ft::make_pair(k, k));
     }
     cout << "ins:" << i << endl;
     mdebug(M);
@@ -119,7 +120,7 @@ void map_get_alloc_test() {
   ft::map<int, int> M;
   ft::map<int, int>::allocator_type al = M.get_allocator();
   ft::pair<const int, int>* p = al.allocate(1);
-  ft::pair<const int, int> q = {1, 2};
+  ft::pair<const int, int> q = ft::make_pair(1, 2);
   al.construct(p, q);
   cout << p->first << endl;
   al.deallocate(p, 1);
@@ -161,20 +162,20 @@ void map_insert_iterator_test() {
   rep(i, 10) M[i * 2] = i * 2;
   ft::map<int, int>::iterator ret;
 
-  cout << "---M.insert(M.end(), {4,2})---" << endl;
-  ret = M.insert(M.end(), {4, 2});
+  cout << "---M.insert(M.end(), ft::make_pair(4,2))---" << endl;
+  ret = M.insert(M.end(), ft::make_pair(4, 2));
   cout << "ret[" << ret->first << "]:" << ret->second << endl;
   mdebug(M);
-  cout << "---M.insert(M.begin(), {4,2})---" << endl;
-  ret = M.insert(M.begin(), {4, 2});
+  cout << "---M.insert(M.begin(), ft::make_pair(4,2))---" << endl;
+  ret = M.insert(M.begin(), ft::make_pair(4, 2));
   cout << "ret[" << ret->first << "]:" << ret->second << endl;
   mdebug(M);
-  cout << "---M.insert(M.end(), {5,2})---" << endl;
-  ret = M.insert(M.end(), {5, 2});
+  cout << "---M.insert(M.end(), ft::make_pair(5,2))---" << endl;
+  ret = M.insert(M.end(), ft::make_pair(5, 2));
   cout << "ret[" << ret->first << "]:" << ret->second << endl;
   mdebug(M);
-  cout << "---M.insert(M.begin(), {7,2})---" << endl;
-  ret = M.insert(M.begin(), {7, 2});
+  cout << "---M.insert(M.begin(), ft::make_pair(7,2))---" << endl;
+  ret = M.insert(M.begin(), ft::make_pair(7, 2));
   cout << "ret[" << ret->first << "]:" << ret->second << endl;
   mdebug(M);
 }
@@ -266,9 +267,12 @@ void begin_test_const_out(const Con& mag) {
 
 void map_begin_test() {
   Point_begin_test points[3];
-  points[0] = {2, 0};
-  points[1] = {1, 0};
-  points[2] = {3, 0};
+  points[0].x = 2;
+  points[0].y = 2;
+  points[1].x = 1;
+  points[1].y = 0;
+  points[2].x = 3;
+  points[2].y = 0;
 
   // points[].first でsortされる
   ft::map<Point_begin_test*, double, PointCmp_begin_test> mag;
@@ -769,9 +773,16 @@ void map_constructs_test() {
   // Custom Key class option 1:
   // Use a comparison struct
   ft::map<Point_constructs_test, double, PointCmp_constructs_test> mag;
-  mag[{5, -12}] = 13;
-  mag[{3, 4}] = 5;
-  mag[{-8, -15}] = 17;
+  Point_constructs_test points[3];
+  points[0].x = 5;
+  points[0].y = -12;
+  points[1].x = 3;
+  points[1].y = 4;
+  points[2].x = -8;
+  points[2].y = -15;
+  mag[points[0]] = 13;
+  mag[points[1]] = 5;
+  mag[points[2]] = 17;
   for (ft::pair<const Point_constructs_test, double> p : mag)
     cout << "The magnitude of (" << p.first.x << ", " << p.first.y << ") is "
          << p.second << '\n';

@@ -13,12 +13,12 @@ void is_integral_test() {
   cout << ft::is_integral<int>::value << ":int is integral" << endl;
   cout << ft::is_same<ft::is_integral<int>::value_type, bool>::value << ":value_type == bool" << endl;
   cout << ft::is_same<ft::is_integral<int>::type, ft::true_type>::value << ":type == true_type" << endl;
-  cout << ft::is_integral<int>() << ":is_integral<int>() == true" << endl;
+//  cout << ft::is_integral<int>() << ":is_integral<int>() == true" << endl;
 
   cout << ft::is_integral<int*>::value << ":value == false, int* is not integral" << endl;
   cout << ft::is_same<ft::is_integral<int*>::value_type, bool>::value << ":value_type == bool" << endl;
   cout << ft::is_same<ft::is_integral<int*>::type, ft::false_type>::value << ":type == false_type" << endl;
-  cout << ft::is_integral<int*>() << ":is_integral<int*>() == false" << endl;
+//  cout << ft::is_integral<int*>() << ":is_integral<int*>() == false" << endl;
 
   cout << ft::is_integral<bool>::value << ":bool is integral" << endl;
   cout << ft::is_integral<char>::value << ":char is integral" << endl;

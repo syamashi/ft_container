@@ -1,0 +1,611 @@
+In file included from main.cpp:1:
+In file included from ./tester.hpp:13:
+In file included from ./../containers/map.hpp:4:
+In file included from ./../containers/../utils/rb_tree.hpp:6:
+In file included from ./../containers/../utils/../containers/stack.hpp:4:
+In file included from ./../containers/vector.hpp:8:
+./../containers/../utils/random_access_iterator.hpp:24:39: error: use of undeclared identifier 'nullptr'
+  random_access_iterator() : _current(nullptr) {}
+                                      ^
+In file included from main.cpp:1:
+In file included from ./tester.hpp:13:
+In file included from ./../containers/map.hpp:4:
+In file included from ./../containers/../utils/rb_tree.hpp:6:
+In file included from ./../containers/../utils/../containers/stack.hpp:4:
+In file included from ./../containers/vector.hpp:9:
+./../containers/../utils/util.hpp:27:38: error: expected ';' at end of declaration list
+  const value_type operator()() const noexcept { return value; }
+                                     ^
+                                     ;
+./../containers/../utils/util.hpp:100:29: error: use of undeclared identifier 'char16_t'
+struct __is_integral_helper<char16_t> : public true_type {};
+                            ^
+./../containers/../utils/util.hpp:103:29: error: use of undeclared identifier 'char32_t'
+struct __is_integral_helper<char32_t> : public true_type {};
+                            ^
+In file included from main.cpp:1:
+In file included from ./tester.hpp:13:
+In file included from ./../containers/map.hpp:4:
+In file included from ./../containers/../utils/rb_tree.hpp:6:
+In file included from ./../containers/../utils/../containers/stack.hpp:4:
+./../containers/vector.hpp:52:51: error: use of undeclared identifier 'nullptr'
+                                InputIt>::type* = nullptr)
+                                                  ^
+./../containers/vector.hpp:125:56: error: use of undeclared identifier 'nullptr'
+                                     InputIt>::type* = nullptr) {
+                                                       ^
+./../containers/vector.hpp:297:56: error: use of undeclared identifier 'nullptr'
+                                     InputIt>::type* = nullptr) {
+                                                       ^
+./../containers/vector.hpp:39:16: error: use of undeclared identifier 'nullptr'
+      : _first(nullptr),
+               ^
+./../containers/vector.hpp:40:15: error: use of undeclared identifier 'nullptr'
+        _last(nullptr),
+              ^
+./../containers/vector.hpp:41:24: error: use of undeclared identifier 'nullptr'
+        _reserved_last(nullptr),
+                       ^
+./../containers/vector.hpp:329:33: error: use of undeclared identifier 'nullptr'
+    if (_first == _last) return nullptr;
+                                ^
+./../containers/vector.hpp:342:33: error: use of undeclared identifier 'nullptr'
+    if (_first == _last) return nullptr;
+                                ^
+In file included from main.cpp:1:
+In file included from ./tester.hpp:13:
+./../containers/map.hpp:64:11: error: use of undeclared identifier 'nullptr'
+          nullptr)
+          ^
+./../containers/map.hpp:140:56: error: use of undeclared identifier 'nullptr'
+                                     InputIt>::type* = nullptr) {
+                                                       ^
+In file included from main.cpp:1:
+In file included from ./tester.hpp:14:
+./../containers/set.hpp:52:11: error: use of undeclared identifier 'nullptr'
+          nullptr)
+          ^
+./../containers/set.hpp:103:56: error: use of undeclared identifier 'nullptr'
+                                     InputIt>::type* = nullptr) {
+                                                       ^
+In file included from main.cpp:1:
+In file included from ./tester.hpp:26:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/chrono:35:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/c++0x_warning.h:32:2: error: This file requires compiler and library support for the ISO C++ 2011 standard. This support must be enabled with the -std=c++11 or -std=gnu++11 compiler options.
+#error This file requires compiler and library support \
+ ^
+main.cpp:4:8: error: no member named 'chrono' in namespace 'std'
+  std::chrono::system_clock::time_point  clockstart, clockend;
+  ~~~~~^
+main.cpp:5:21: error: no member named 'chrono' in namespace 'std'
+  clockstart = std::chrono::system_clock::now();
+               ~~~~~^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+20 errors generated.
+In file included from test_map.cpp:1:
+In file included from ./tester.hpp:13:
+In file included from ./../containers/map.hpp:4:
+In file included from ./../containers/../utils/rb_tree.hpp:6:
+In file included from ./../containers/../utils/../containers/stack.hpp:4:
+In file included from ./../containers/vector.hpp:8:
+./../containers/../utils/random_access_iterator.hpp:24:39: error: use of undeclared identifier 'nullptr'
+  random_access_iterator() : _current(nullptr) {}
+                                      ^
+In file included from test_map.cpp:1:
+In file included from ./tester.hpp:13:
+In file included from ./../containers/map.hpp:4:
+In file included from ./../containers/../utils/rb_tree.hpp:6:
+In file included from ./../containers/../utils/../containers/stack.hpp:4:
+In file included from ./../containers/vector.hpp:9:
+./../containers/../utils/util.hpp:27:38: error: expected ';' at end of declaration list
+  const value_type operator()() const noexcept { return value; }
+                                     ^
+                                     ;
+./../containers/../utils/util.hpp:100:29: error: use of undeclared identifier 'char16_t'
+struct __is_integral_helper<char16_t> : public true_type {};
+                            ^
+./../containers/../utils/util.hpp:103:29: error: use of undeclared identifier 'char32_t'
+struct __is_integral_helper<char32_t> : public true_type {};
+                            ^
+In file included from test_map.cpp:1:
+In file included from ./tester.hpp:13:
+In file included from ./../containers/map.hpp:4:
+In file included from ./../containers/../utils/rb_tree.hpp:6:
+In file included from ./../containers/../utils/../containers/stack.hpp:4:
+./../containers/vector.hpp:52:51: error: use of undeclared identifier 'nullptr'
+                                InputIt>::type* = nullptr)
+                                                  ^
+./../containers/vector.hpp:125:56: error: use of undeclared identifier 'nullptr'
+                                     InputIt>::type* = nullptr) {
+                                                       ^
+./../containers/vector.hpp:297:56: error: use of undeclared identifier 'nullptr'
+                                     InputIt>::type* = nullptr) {
+                                                       ^
+./../containers/vector.hpp:39:16: error: use of undeclared identifier 'nullptr'
+      : _first(nullptr),
+               ^
+./../containers/vector.hpp:40:15: error: use of undeclared identifier 'nullptr'
+        _last(nullptr),
+              ^
+./../containers/vector.hpp:41:24: error: use of undeclared identifier 'nullptr'
+        _reserved_last(nullptr),
+                       ^
+./../containers/vector.hpp:329:33: error: use of undeclared identifier 'nullptr'
+    if (_first == _last) return nullptr;
+                                ^
+./../containers/vector.hpp:342:33: error: use of undeclared identifier 'nullptr'
+    if (_first == _last) return nullptr;
+                                ^
+In file included from test_map.cpp:1:
+In file included from ./tester.hpp:13:
+./../containers/map.hpp:64:11: error: use of undeclared identifier 'nullptr'
+          nullptr)
+          ^
+./../containers/map.hpp:140:56: error: use of undeclared identifier 'nullptr'
+                                     InputIt>::type* = nullptr) {
+                                                       ^
+In file included from test_map.cpp:1:
+In file included from ./tester.hpp:14:
+./../containers/set.hpp:52:11: error: use of undeclared identifier 'nullptr'
+          nullptr)
+          ^
+./../containers/set.hpp:103:56: error: use of undeclared identifier 'nullptr'
+                                     InputIt>::type* = nullptr) {
+                                                       ^
+In file included from test_map.cpp:1:
+In file included from ./tester.hpp:26:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/chrono:35:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/c++0x_warning.h:32:2: error: This file requires compiler and library support for the ISO C++ 2011 standard. This support must be enabled with the -std=c++11 or -std=gnu++11 compiler options.
+#error This file requires compiler and library support \
+ ^
+test_map.cpp:227:16: error: no member named 'hypot' in namespace 'std'; did you mean simply 'hypot'?
+    mag[cur] = std::hypot(cur->x, cur->y);  // hypot == sqrt(a,b)
+               ^~~~~~~~~~
+               hypot
+/usr/include/x86_64-linux-gnu/bits/mathcalls.h:147:13: note: 'hypot' declared here
+__MATHCALL (hypot,, (_Mdouble_ __x, _Mdouble_ __y));
+            ^
+test_map.cpp:238:16: error: no member named 'hypot' in namespace 'std'; did you mean simply 'hypot'?
+    mag[cur] = std::hypot(cur->x, cur->y);
+               ^~~~~~~~~~
+               hypot
+/usr/include/x86_64-linux-gnu/bits/mathcalls.h:147:13: note: 'hypot' declared here
+__MATHCALL (hypot,, (_Mdouble_ __x, _Mdouble_ __y));
+            ^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+20 errors generated.
+In file included from test_review.cpp:1:
+In file included from ./tester.hpp:13:
+In file included from ./../containers/map.hpp:4:
+In file included from ./../containers/../utils/rb_tree.hpp:6:
+In file included from ./../containers/../utils/../containers/stack.hpp:4:
+In file included from ./../containers/vector.hpp:8:
+./../containers/../utils/random_access_iterator.hpp:24:39: error: use of undeclared identifier 'nullptr'
+  random_access_iterator() : _current(nullptr) {}
+                                      ^
+In file included from test_review.cpp:1:
+In file included from ./tester.hpp:13:
+In file included from ./../containers/map.hpp:4:
+In file included from ./../containers/../utils/rb_tree.hpp:6:
+In file included from ./../containers/../utils/../containers/stack.hpp:4:
+In file included from ./../containers/vector.hpp:9:
+./../containers/../utils/util.hpp:27:38: error: expected ';' at end of declaration list
+  const value_type operator()() const noexcept { return value; }
+                                     ^
+                                     ;
+./../containers/../utils/util.hpp:100:29: error: use of undeclared identifier 'char16_t'
+struct __is_integral_helper<char16_t> : public true_type {};
+                            ^
+./../containers/../utils/util.hpp:103:29: error: use of undeclared identifier 'char32_t'
+struct __is_integral_helper<char32_t> : public true_type {};
+                            ^
+In file included from test_review.cpp:1:
+In file included from ./tester.hpp:13:
+In file included from ./../containers/map.hpp:4:
+In file included from ./../containers/../utils/rb_tree.hpp:6:
+In file included from ./../containers/../utils/../containers/stack.hpp:4:
+./../containers/vector.hpp:52:51: error: use of undeclared identifier 'nullptr'
+                                InputIt>::type* = nullptr)
+                                                  ^
+./../containers/vector.hpp:125:56: error: use of undeclared identifier 'nullptr'
+                                     InputIt>::type* = nullptr) {
+                                                       ^
+./../containers/vector.hpp:297:56: error: use of undeclared identifier 'nullptr'
+                                     InputIt>::type* = nullptr) {
+                                                       ^
+./../containers/vector.hpp:39:16: error: use of undeclared identifier 'nullptr'
+      : _first(nullptr),
+               ^
+./../containers/vector.hpp:40:15: error: use of undeclared identifier 'nullptr'
+        _last(nullptr),
+              ^
+./../containers/vector.hpp:41:24: error: use of undeclared identifier 'nullptr'
+        _reserved_last(nullptr),
+                       ^
+./../containers/vector.hpp:329:33: error: use of undeclared identifier 'nullptr'
+    if (_first == _last) return nullptr;
+                                ^
+./../containers/vector.hpp:342:33: error: use of undeclared identifier 'nullptr'
+    if (_first == _last) return nullptr;
+                                ^
+In file included from test_review.cpp:1:
+In file included from ./tester.hpp:13:
+./../containers/map.hpp:64:11: error: use of undeclared identifier 'nullptr'
+          nullptr)
+          ^
+./../containers/map.hpp:140:56: error: use of undeclared identifier 'nullptr'
+                                     InputIt>::type* = nullptr) {
+                                                       ^
+In file included from test_review.cpp:1:
+In file included from ./tester.hpp:14:
+./../containers/set.hpp:52:11: error: use of undeclared identifier 'nullptr'
+          nullptr)
+          ^
+./../containers/set.hpp:103:56: error: use of undeclared identifier 'nullptr'
+                                     InputIt>::type* = nullptr) {
+                                                       ^
+In file included from test_review.cpp:1:
+In file included from ./tester.hpp:26:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/chrono:35:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/c++0x_warning.h:32:2: error: This file requires compiler and library support for the ISO C++ 2011 standard. This support must be enabled with the -std=c++11 or -std=gnu++11 compiler options.
+#error This file requires compiler and library support \
+ ^
+test_review.cpp:111:8: error: no member named 'chrono' in namespace 'std'
+  std::chrono::system_clock::time_point clockstart, clockend;
+  ~~~~~^
+test_review.cpp:112:21: error: no member named 'chrono' in namespace 'std'
+  clockstart = std::chrono::system_clock::now();
+               ~~~~~^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+20 errors generated.
+In file included from test_set.cpp:1:
+In file included from ./tester.hpp:13:
+In file included from ./../containers/map.hpp:4:
+In file included from ./../containers/../utils/rb_tree.hpp:6:
+In file included from ./../containers/../utils/../containers/stack.hpp:4:
+In file included from ./../containers/vector.hpp:8:
+./../containers/../utils/random_access_iterator.hpp:24:39: error: use of undeclared identifier 'nullptr'
+  random_access_iterator() : _current(nullptr) {}
+                                      ^
+In file included from test_set.cpp:1:
+In file included from ./tester.hpp:13:
+In file included from ./../containers/map.hpp:4:
+In file included from ./../containers/../utils/rb_tree.hpp:6:
+In file included from ./../containers/../utils/../containers/stack.hpp:4:
+In file included from ./../containers/vector.hpp:9:
+./../containers/../utils/util.hpp:27:38: error: expected ';' at end of declaration list
+  const value_type operator()() const noexcept { return value; }
+                                     ^
+                                     ;
+./../containers/../utils/util.hpp:100:29: error: use of undeclared identifier 'char16_t'
+struct __is_integral_helper<char16_t> : public true_type {};
+                            ^
+./../containers/../utils/util.hpp:103:29: error: use of undeclared identifier 'char32_t'
+struct __is_integral_helper<char32_t> : public true_type {};
+                            ^
+In file included from test_set.cpp:1:
+In file included from ./tester.hpp:13:
+In file included from ./../containers/map.hpp:4:
+In file included from ./../containers/../utils/rb_tree.hpp:6:
+In file included from ./../containers/../utils/../containers/stack.hpp:4:
+./../containers/vector.hpp:52:51: error: use of undeclared identifier 'nullptr'
+                                InputIt>::type* = nullptr)
+                                                  ^
+./../containers/vector.hpp:125:56: error: use of undeclared identifier 'nullptr'
+                                     InputIt>::type* = nullptr) {
+                                                       ^
+./../containers/vector.hpp:297:56: error: use of undeclared identifier 'nullptr'
+                                     InputIt>::type* = nullptr) {
+                                                       ^
+./../containers/vector.hpp:39:16: error: use of undeclared identifier 'nullptr'
+      : _first(nullptr),
+               ^
+./../containers/vector.hpp:40:15: error: use of undeclared identifier 'nullptr'
+        _last(nullptr),
+              ^
+./../containers/vector.hpp:41:24: error: use of undeclared identifier 'nullptr'
+        _reserved_last(nullptr),
+                       ^
+./../containers/vector.hpp:329:33: error: use of undeclared identifier 'nullptr'
+    if (_first == _last) return nullptr;
+                                ^
+./../containers/vector.hpp:342:33: error: use of undeclared identifier 'nullptr'
+    if (_first == _last) return nullptr;
+                                ^
+In file included from test_set.cpp:1:
+In file included from ./tester.hpp:13:
+./../containers/map.hpp:64:11: error: use of undeclared identifier 'nullptr'
+          nullptr)
+          ^
+./../containers/map.hpp:140:56: error: use of undeclared identifier 'nullptr'
+                                     InputIt>::type* = nullptr) {
+                                                       ^
+In file included from test_set.cpp:1:
+In file included from ./tester.hpp:14:
+./../containers/set.hpp:52:11: error: use of undeclared identifier 'nullptr'
+          nullptr)
+          ^
+./../containers/set.hpp:103:56: error: use of undeclared identifier 'nullptr'
+                                     InputIt>::type* = nullptr) {
+                                                       ^
+In file included from test_set.cpp:1:
+In file included from ./tester.hpp:26:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/chrono:35:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/c++0x_warning.h:32:2: error: This file requires compiler and library support for the ISO C++ 2011 standard. This support must be enabled with the -std=c++11 or -std=gnu++11 compiler options.
+#error This file requires compiler and library support \
+ ^
+test_set.cpp:164:18: error: no member named 'hypot' in namespace 'std'; did you mean simply 'hypot'?
+    double ret = std::hypot(cur->x, cur->y);  // hypot == sqrt(a,b)
+                 ^~~~~~~~~~
+                 hypot
+/usr/include/x86_64-linux-gnu/bits/mathcalls.h:147:13: note: 'hypot' declared here
+__MATHCALL (hypot,, (_Mdouble_ __x, _Mdouble_ __y));
+            ^
+test_set.cpp:176:18: error: no member named 'hypot' in namespace 'std'; did you mean simply 'hypot'?
+    double ret = std::hypot(cur->x, cur->y);  // hypot == sqrt(a,b)
+                 ^~~~~~~~~~
+                 hypot
+/usr/include/x86_64-linux-gnu/bits/mathcalls.h:147:13: note: 'hypot' declared here
+__MATHCALL (hypot,, (_Mdouble_ __x, _Mdouble_ __y));
+            ^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+20 errors generated.
+In file included from test_stack.cpp:1:
+In file included from ./tester.hpp:13:
+In file included from ./../containers/map.hpp:4:
+In file included from ./../containers/../utils/rb_tree.hpp:6:
+In file included from ./../containers/../utils/../containers/stack.hpp:4:
+In file included from ./../containers/vector.hpp:8:
+./../containers/../utils/random_access_iterator.hpp:24:39: error: use of undeclared identifier 'nullptr'
+  random_access_iterator() : _current(nullptr) {}
+                                      ^
+In file included from test_stack.cpp:1:
+In file included from ./tester.hpp:13:
+In file included from ./../containers/map.hpp:4:
+In file included from ./../containers/../utils/rb_tree.hpp:6:
+In file included from ./../containers/../utils/../containers/stack.hpp:4:
+In file included from ./../containers/vector.hpp:9:
+./../containers/../utils/util.hpp:27:38: error: expected ';' at end of declaration list
+  const value_type operator()() const noexcept { return value; }
+                                     ^
+                                     ;
+./../containers/../utils/util.hpp:100:29: error: use of undeclared identifier 'char16_t'
+struct __is_integral_helper<char16_t> : public true_type {};
+                            ^
+./../containers/../utils/util.hpp:103:29: error: use of undeclared identifier 'char32_t'
+struct __is_integral_helper<char32_t> : public true_type {};
+                            ^
+In file included from test_stack.cpp:1:
+In file included from ./tester.hpp:13:
+In file included from ./../containers/map.hpp:4:
+In file included from ./../containers/../utils/rb_tree.hpp:6:
+In file included from ./../containers/../utils/../containers/stack.hpp:4:
+./../containers/vector.hpp:52:51: error: use of undeclared identifier 'nullptr'
+                                InputIt>::type* = nullptr)
+                                                  ^
+./../containers/vector.hpp:125:56: error: use of undeclared identifier 'nullptr'
+                                     InputIt>::type* = nullptr) {
+                                                       ^
+./../containers/vector.hpp:297:56: error: use of undeclared identifier 'nullptr'
+                                     InputIt>::type* = nullptr) {
+                                                       ^
+./../containers/vector.hpp:39:16: error: use of undeclared identifier 'nullptr'
+      : _first(nullptr),
+               ^
+./../containers/vector.hpp:40:15: error: use of undeclared identifier 'nullptr'
+        _last(nullptr),
+              ^
+./../containers/vector.hpp:41:24: error: use of undeclared identifier 'nullptr'
+        _reserved_last(nullptr),
+                       ^
+./../containers/vector.hpp:329:33: error: use of undeclared identifier 'nullptr'
+    if (_first == _last) return nullptr;
+                                ^
+./../containers/vector.hpp:342:33: error: use of undeclared identifier 'nullptr'
+    if (_first == _last) return nullptr;
+                                ^
+In file included from test_stack.cpp:1:
+In file included from ./tester.hpp:13:
+./../containers/map.hpp:64:11: error: use of undeclared identifier 'nullptr'
+          nullptr)
+          ^
+./../containers/map.hpp:140:56: error: use of undeclared identifier 'nullptr'
+                                     InputIt>::type* = nullptr) {
+                                                       ^
+In file included from test_stack.cpp:1:
+In file included from ./tester.hpp:14:
+./../containers/set.hpp:52:11: error: use of undeclared identifier 'nullptr'
+          nullptr)
+          ^
+./../containers/set.hpp:103:56: error: use of undeclared identifier 'nullptr'
+                                     InputIt>::type* = nullptr) {
+                                                       ^
+In file included from test_stack.cpp:1:
+In file included from ./tester.hpp:26:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/chrono:35:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/c++0x_warning.h:32:2: error: This file requires compiler and library support for the ISO C++ 2011 standard. This support must be enabled with the -std=c++11 or -std=gnu++11 compiler options.
+#error This file requires compiler and library support \
+ ^
+In file included from test_stack.cpp:1:
+In file included from ./tester.hpp:13:
+In file included from ./../containers/map.hpp:4:
+In file included from ./../containers/../utils/rb_tree.hpp:6:
+In file included from ./../containers/stack.hpp:4:
+./../containers/vector.hpp:37:14: error: delegating constructors are permitted only in C++11
+  vector() : vector(allocator_type()) {}
+             ^~~~~~
+./../containers/stack.hpp:16:47: note: in instantiation of member function 'ft::vector<int, std::allocator<int> >::vector' requested here
+  explicit stack(const container_type& ctnr = container_type()) : _c(ctnr) {}
+                                              ^
+18 errors generated.
+In file included from test_util.cpp:1:
+In file included from ./tester.hpp:13:
+In file included from ./../containers/map.hpp:4:
+In file included from ./../containers/../utils/rb_tree.hpp:6:
+In file included from ./../containers/../utils/../containers/stack.hpp:4:
+In file included from ./../containers/vector.hpp:8:
+./../containers/../utils/random_access_iterator.hpp:24:39: error: use of undeclared identifier 'nullptr'
+  random_access_iterator() : _current(nullptr) {}
+                                      ^
+In file included from test_util.cpp:1:
+In file included from ./tester.hpp:13:
+In file included from ./../containers/map.hpp:4:
+In file included from ./../containers/../utils/rb_tree.hpp:6:
+In file included from ./../containers/../utils/../containers/stack.hpp:4:
+In file included from ./../containers/vector.hpp:9:
+./../containers/../utils/util.hpp:27:38: error: expected ';' at end of declaration list
+  const value_type operator()() const noexcept { return value; }
+                                     ^
+                                     ;
+./../containers/../utils/util.hpp:100:29: error: use of undeclared identifier 'char16_t'
+struct __is_integral_helper<char16_t> : public true_type {};
+                            ^
+./../containers/../utils/util.hpp:103:29: error: use of undeclared identifier 'char32_t'
+struct __is_integral_helper<char32_t> : public true_type {};
+                            ^
+In file included from test_util.cpp:1:
+In file included from ./tester.hpp:13:
+In file included from ./../containers/map.hpp:4:
+In file included from ./../containers/../utils/rb_tree.hpp:6:
+In file included from ./../containers/../utils/../containers/stack.hpp:4:
+./../containers/vector.hpp:52:51: error: use of undeclared identifier 'nullptr'
+                                InputIt>::type* = nullptr)
+                                                  ^
+./../containers/vector.hpp:125:56: error: use of undeclared identifier 'nullptr'
+                                     InputIt>::type* = nullptr) {
+                                                       ^
+./../containers/vector.hpp:297:56: error: use of undeclared identifier 'nullptr'
+                                     InputIt>::type* = nullptr) {
+                                                       ^
+./../containers/vector.hpp:39:16: error: use of undeclared identifier 'nullptr'
+      : _first(nullptr),
+               ^
+./../containers/vector.hpp:40:15: error: use of undeclared identifier 'nullptr'
+        _last(nullptr),
+              ^
+./../containers/vector.hpp:41:24: error: use of undeclared identifier 'nullptr'
+        _reserved_last(nullptr),
+                       ^
+./../containers/vector.hpp:329:33: error: use of undeclared identifier 'nullptr'
+    if (_first == _last) return nullptr;
+                                ^
+./../containers/vector.hpp:342:33: error: use of undeclared identifier 'nullptr'
+    if (_first == _last) return nullptr;
+                                ^
+In file included from test_util.cpp:1:
+In file included from ./tester.hpp:13:
+./../containers/map.hpp:64:11: error: use of undeclared identifier 'nullptr'
+          nullptr)
+          ^
+./../containers/map.hpp:140:56: error: use of undeclared identifier 'nullptr'
+                                     InputIt>::type* = nullptr) {
+                                                       ^
+In file included from test_util.cpp:1:
+In file included from ./tester.hpp:14:
+./../containers/set.hpp:52:11: error: use of undeclared identifier 'nullptr'
+          nullptr)
+          ^
+./../containers/set.hpp:103:56: error: use of undeclared identifier 'nullptr'
+                                     InputIt>::type* = nullptr) {
+                                                       ^
+In file included from test_util.cpp:1:
+In file included from ./tester.hpp:26:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/chrono:35:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/c++0x_warning.h:32:2: error: This file requires compiler and library support for the ISO C++ 2011 standard. This support must be enabled with the -std=c++11 or -std=gnu++11 compiler options.
+#error This file requires compiler and library support \
+ ^
+test_util.cpp:25:27: error: use of undeclared identifier 'char32_t'
+  cout << ft::is_integral<char32_t>::value << ":char32_t is integral" << endl;
+                          ^
+test_util.cpp:30:27: error: template argument uses local type 'my_enum' [-Werror,-Wlocal-type-template-args]
+  cout << ft::is_integral<my_enum>::value << ":my_enum is not integral" << endl;
+                          ^~~~~~~
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+20 errors generated.
+In file included from test_vector.cpp:1:
+In file included from ./tester.hpp:13:
+In file included from ./../containers/map.hpp:4:
+In file included from ./../containers/../utils/rb_tree.hpp:6:
+In file included from ./../containers/../utils/../containers/stack.hpp:4:
+In file included from ./../containers/vector.hpp:8:
+./../containers/../utils/random_access_iterator.hpp:24:39: error: use of undeclared identifier 'nullptr'
+  random_access_iterator() : _current(nullptr) {}
+                                      ^
+In file included from test_vector.cpp:1:
+In file included from ./tester.hpp:13:
+In file included from ./../containers/map.hpp:4:
+In file included from ./../containers/../utils/rb_tree.hpp:6:
+In file included from ./../containers/../utils/../containers/stack.hpp:4:
+In file included from ./../containers/vector.hpp:9:
+./../containers/../utils/util.hpp:27:38: error: expected ';' at end of declaration list
+  const value_type operator()() const noexcept { return value; }
+                                     ^
+                                     ;
+./../containers/../utils/util.hpp:100:29: error: use of undeclared identifier 'char16_t'
+struct __is_integral_helper<char16_t> : public true_type {};
+                            ^
+./../containers/../utils/util.hpp:103:29: error: use of undeclared identifier 'char32_t'
+struct __is_integral_helper<char32_t> : public true_type {};
+                            ^
+In file included from test_vector.cpp:1:
+In file included from ./tester.hpp:13:
+In file included from ./../containers/map.hpp:4:
+In file included from ./../containers/../utils/rb_tree.hpp:6:
+In file included from ./../containers/../utils/../containers/stack.hpp:4:
+./../containers/vector.hpp:52:51: error: use of undeclared identifier 'nullptr'
+                                InputIt>::type* = nullptr)
+                                                  ^
+./../containers/vector.hpp:125:56: error: use of undeclared identifier 'nullptr'
+                                     InputIt>::type* = nullptr) {
+                                                       ^
+./../containers/vector.hpp:297:56: error: use of undeclared identifier 'nullptr'
+                                     InputIt>::type* = nullptr) {
+                                                       ^
+./../containers/vector.hpp:39:16: error: use of undeclared identifier 'nullptr'
+      : _first(nullptr),
+               ^
+./../containers/vector.hpp:40:15: error: use of undeclared identifier 'nullptr'
+        _last(nullptr),
+              ^
+./../containers/vector.hpp:41:24: error: use of undeclared identifier 'nullptr'
+        _reserved_last(nullptr),
+                       ^
+./../containers/vector.hpp:329:33: error: use of undeclared identifier 'nullptr'
+    if (_first == _last) return nullptr;
+                                ^
+./../containers/vector.hpp:342:33: error: use of undeclared identifier 'nullptr'
+    if (_first == _last) return nullptr;
+                                ^
+In file included from test_vector.cpp:1:
+In file included from ./tester.hpp:13:
+./../containers/map.hpp:64:11: error: use of undeclared identifier 'nullptr'
+          nullptr)
+          ^
+./../containers/map.hpp:140:56: error: use of undeclared identifier 'nullptr'
+                                     InputIt>::type* = nullptr) {
+                                                       ^
+In file included from test_vector.cpp:1:
+In file included from ./tester.hpp:14:
+./../containers/set.hpp:52:11: error: use of undeclared identifier 'nullptr'
+          nullptr)
+          ^
+./../containers/set.hpp:103:56: error: use of undeclared identifier 'nullptr'
+                                     InputIt>::type* = nullptr) {
+                                                       ^
+In file included from test_vector.cpp:1:
+In file included from ./tester.hpp:26:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/chrono:35:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/c++0x_warning.h:32:2: error: This file requires compiler and library support for the ISO C++ 2011 standard. This support must be enabled with the -std=c++11 or -std=gnu++11 compiler options.
+#error This file requires compiler and library support \
+ ^
+test_vector.cpp:224:13: error: expected ';' at end of declaration
+  RevIt r_it{it};
+            ^
+            ;
+test_vector.cpp:231:14: error: expected ';' at end of declaration
+  RevIt r_end{v.begin()};
+             ^
+             ;
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+20 errors generated.
+make: *** [test0] Error 1
