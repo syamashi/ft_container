@@ -1,0 +1,1050 @@
+In file included from main.cpp:1:
+In file included from ./tester.hpp:13:
+In file included from ./../containers/map.hpp:4:
+In file included from ./../containers/../utils/rb_tree.hpp:6:
+In file included from ./../containers/../utils/../containers/stack.hpp:4:
+In file included from ./../containers/vector.hpp:9:
+./../containers/../utils/util.hpp:27:38: error: expected ';' at end of declaration list
+  const value_type operator()() const noexcept { return value; }
+                                     ^
+                                     ;
+1 error generated.
+In file included from test_map.cpp:1:
+In file included from ./tester.hpp:13:
+In file included from ./../containers/map.hpp:4:
+In file included from ./../containers/../utils/rb_tree.hpp:6:
+In file included from ./../containers/../utils/../containers/stack.hpp:4:
+In file included from ./../containers/vector.hpp:9:
+./../containers/../utils/util.hpp:27:38: error: expected ';' at end of declaration list
+  const value_type operator()() const noexcept { return value; }
+                                     ^
+                                     ;
+test_map.cpp:520:36: error: unused parameter 'm' [-Werror,-Wunused-parameter]
+void map_equal_range_test_out(Con& m) {}
+                                   ^
+test_map.cpp:686:34: error: expected expression
+    bool before = comp_func(key, {100, 100});
+                                 ^
+test_map.cpp:687:28: error: expected expression
+    bool after = comp_func({100, 100}, key);
+                           ^
+test_map.cpp:786:56: error: range-based for loop is a C++11 extension [-Werror,-Wc++11-extensions]
+  for (ft::pair<const Point_constructs_test, double> p : mag)
+                                                       ^
+In file included from test_map.cpp:1:
+In file included from ./tester.hpp:13:
+In file included from ./../containers/map.hpp:4:
+./../containers/../utils/rb_tree.hpp:516:16: error: delegating constructors are permitted only in C++11
+  _Rb_tree() : _Rb_tree(key_compare(), _Node_allocator()) {}
+               ^~~~~~~~
+./../containers/map.hpp:52:11: note: in instantiation of member function 'ft::_Rb_tree<int, ft::pair<const int, int>, ft::_Select1st<ft::pair<const int, int> >, std::__1::less<int>, std::__1::allocator<ft::pair<const int, int> > >::_Rb_tree' requested here
+  map() : _M_t() {}
+          ^
+test_map.cpp:24:21: note: in instantiation of member function 'ft::map<int, int, std::__1::less<int>, std::__1::allocator<ft::pair<const int, int> > >::map' requested here
+  ft::map<int, int> M;
+                    ^
+In file included from test_map.cpp:1:
+In file included from ./tester.hpp:13:
+In file included from ./../containers/map.hpp:4:
+./../containers/../utils/rb_tree.hpp:1209:21: error: no matching member function for call to 'construct'
+      _M_node_alloc.construct(
+      ~~~~~~~~~~~~~~^~~~~~~~~
+./../containers/../utils/rb_tree.hpp:1220:5: note: in instantiation of member function 'ft::_Rb_tree<int, ft::pair<const int, int>, ft::_Select1st<ft::pair<const int, int> >, std::__1::less<int>, std::__1::allocator<ft::pair<const int, int> > >::_M_construct_node' requested here
+    _M_construct_node(tmp, x);
+    ^
+./../containers/../utils/rb_tree.hpp:1130:21: note: in instantiation of member function 'ft::_Rb_tree<int, ft::pair<const int, int>, ft::_Select1st<ft::pair<const int, int> >, std::__1::less<int>, std::__1::allocator<ft::pair<const int, int> > >::_M_create_node' requested here
+    _Link_type pt = _M_create_node(x);
+                    ^
+./../containers/map.hpp:125:17: note: in instantiation of member function 'ft::_Rb_tree<int, ft::pair<const int, int>, ft::_Select1st<ft::pair<const int, int> >, std::__1::less<int>, std::__1::allocator<ft::pair<const int, int> > >::insert' requested here
+    return _M_t.insert(x);
+                ^
+test_map.cpp:32:11: note: in instantiation of member function 'ft::map<int, int, std::__1::less<int>, std::__1::allocator<ft::pair<const int, int> > >::insert' requested here
+        M.insert(ft::make_pair(key, val));
+          ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1840:9: note: candidate function template not viable: no known conversion from 'ft::pair<const int, int> *' to 'std::__1::allocator<ft::_Rb_tree_node<ft::pair<const int, int> > >::pointer' (aka 'ft::_Rb_tree_node<ft::pair<const int, int> > *') for 1st argument
+        construct(pointer __p, _A0& __a0)
+        ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1847:9: note: candidate function template not viable: no known conversion from 'ft::pair<const int, int> *' to 'std::__1::allocator<ft::_Rb_tree_node<ft::pair<const int, int> > >::pointer' (aka 'ft::_Rb_tree_node<ft::pair<const int, int> > *') for 1st argument
+        construct(pointer __p, const _A0& __a0)
+        ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1855:9: note: candidate function template not viable: requires 3 arguments, but 2 were provided
+        construct(pointer __p, _A0& __a0, _A1& __a1)
+        ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1862:9: note: candidate function template not viable: requires 3 arguments, but 2 were provided
+        construct(pointer __p, const _A0& __a0, _A1& __a1)
+        ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1869:9: note: candidate function template not viable: requires 3 arguments, but 2 were provided
+        construct(pointer __p, _A0& __a0, const _A1& __a1)
+        ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1876:9: note: candidate function template not viable: requires 3 arguments, but 2 were provided
+        construct(pointer __p, const _A0& __a0, const _A1& __a1)
+        ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1831:9: note: candidate function not viable: requires single argument '__p', but 2 arguments were provided
+        construct(pointer __p)
+        ^
+In file included from test_map.cpp:1:
+In file included from ./tester.hpp:13:
+In file included from ./../containers/map.hpp:4:
+./../containers/../utils/rb_tree.hpp:516:16: error: delegating constructors are permitted only in C++11
+  _Rb_tree() : _Rb_tree(key_compare(), _Node_allocator()) {}
+               ^~~~~~~~
+./../containers/map.hpp:52:11: note: in instantiation of member function 'ft::_Rb_tree<int, ft::pair<const int, char>, ft::_Select1st<ft::pair<const int, char> >, std::__1::less<int>, std::__1::allocator<ft::pair<const int, char> > >::_Rb_tree' requested here
+  map() : _M_t() {}
+          ^
+test_map.cpp:62:22: note: in instantiation of member function 'ft::map<int, char, std::__1::less<int>, std::__1::allocator<ft::pair<const int, char> > >::map' requested here
+  ft::map<int, char> c;
+                     ^
+In file included from test_map.cpp:1:
+In file included from ./tester.hpp:13:
+In file included from ./../containers/map.hpp:4:
+./../containers/../utils/rb_tree.hpp:1209:21: error: no matching member function for call to 'construct'
+      _M_node_alloc.construct(
+      ~~~~~~~~~~~~~~^~~~~~~~~
+./../containers/../utils/rb_tree.hpp:1220:5: note: in instantiation of member function 'ft::_Rb_tree<int, ft::pair<const int, char>, ft::_Select1st<ft::pair<const int, char> >, std::__1::less<int>, std::__1::allocator<ft::pair<const int, char> > >::_M_construct_node' requested here
+    _M_construct_node(tmp, x);
+    ^
+./../containers/../utils/rb_tree.hpp:1130:21: note: in instantiation of member function 'ft::_Rb_tree<int, ft::pair<const int, char>, ft::_Select1st<ft::pair<const int, char> >, std::__1::less<int>, std::__1::allocator<ft::pair<const int, char> > >::_M_create_node' requested here
+    _Link_type pt = _M_create_node(x);
+                    ^
+./../containers/map.hpp:125:17: note: in instantiation of member function 'ft::_Rb_tree<int, ft::pair<const int, char>, ft::_Select1st<ft::pair<const int, char> >, std::__1::less<int>, std::__1::allocator<ft::pair<const int, char> > >::insert' requested here
+    return _M_t.insert(x);
+                ^
+test_map.cpp:150:5: note: in instantiation of member function 'ft::map<int, char, std::__1::less<int>, std::__1::allocator<ft::pair<const int, char> > >::insert' requested here
+  m.insert(ft::make_pair(1, 'a'));
+    ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1840:9: note: candidate function template not viable: no known conversion from 'ft::pair<const int, char> *' to 'std::__1::allocator<ft::_Rb_tree_node<ft::pair<const int, char> > >::pointer' (aka 'ft::_Rb_tree_node<ft::pair<const int, char> > *') for 1st argument
+        construct(pointer __p, _A0& __a0)
+        ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1847:9: note: candidate function template not viable: no known conversion from 'ft::pair<const int, char> *' to 'std::__1::allocator<ft::_Rb_tree_node<ft::pair<const int, char> > >::pointer' (aka 'ft::_Rb_tree_node<ft::pair<const int, char> > *') for 1st argument
+        construct(pointer __p, const _A0& __a0)
+        ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1855:9: note: candidate function template not viable: requires 3 arguments, but 2 were provided
+        construct(pointer __p, _A0& __a0, _A1& __a1)
+        ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1862:9: note: candidate function template not viable: requires 3 arguments, but 2 were provided
+        construct(pointer __p, const _A0& __a0, _A1& __a1)
+        ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1869:9: note: candidate function template not viable: requires 3 arguments, but 2 were provided
+        construct(pointer __p, _A0& __a0, const _A1& __a1)
+        ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1876:9: note: candidate function template not viable: requires 3 arguments, but 2 were provided
+        construct(pointer __p, const _A0& __a0, const _A1& __a1)
+        ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1831:9: note: candidate function not viable: requires single argument '__p', but 2 arguments were provided
+        construct(pointer __p)
+        ^
+In file included from test_map.cpp:1:
+In file included from ./tester.hpp:13:
+In file included from ./../containers/map.hpp:4:
+./../containers/../utils/rb_tree.hpp:516:16: error: delegating constructors are permitted only in C++11
+  _Rb_tree() : _Rb_tree(key_compare(), _Node_allocator()) {}
+               ^~~~~~~~
+./../containers/map.hpp:52:11: note: in instantiation of member function 'ft::_Rb_tree<Point_begin_test *, ft::pair<Point_begin_test *const, double>, ft::_Select1st<ft::pair<Point_begin_test *const, double> >, PointCmp_begin_test, std::__1::allocator<ft::pair<Point_begin_test *const, double> > >::_Rb_tree' requested here
+  map() : _M_t() {}
+          ^
+test_map.cpp:278:59: note: in instantiation of member function 'ft::map<Point_begin_test *, double, PointCmp_begin_test, std::__1::allocator<ft::pair<Point_begin_test *const, double> > >::map' requested here
+  ft::map<Point_begin_test*, double, PointCmp_begin_test> mag;
+                                                          ^
+In file included from test_map.cpp:1:
+In file included from ./tester.hpp:13:
+In file included from ./../containers/map.hpp:4:
+./../containers/../utils/rb_tree.hpp:1209:21: error: no matching member function for call to 'construct'
+      _M_node_alloc.construct(
+      ~~~~~~~~~~~~~~^~~~~~~~~
+./../containers/../utils/rb_tree.hpp:1220:5: note: in instantiation of member function 'ft::_Rb_tree<Point_begin_test *, ft::pair<Point_begin_test *const, double>, ft::_Select1st<ft::pair<Point_begin_test *const, double> >, PointCmp_begin_test, std::__1::allocator<ft::pair<Point_begin_test *const, double> > >::_M_construct_node' requested here
+    _M_construct_node(tmp, x);
+    ^
+./../containers/../utils/rb_tree.hpp:1130:21: note: in instantiation of member function 'ft::_Rb_tree<Point_begin_test *, ft::pair<Point_begin_test *const, double>, ft::_Select1st<ft::pair<Point_begin_test *const, double> >, PointCmp_begin_test, std::__1::allocator<ft::pair<Point_begin_test *const, double> > >::_M_create_node' requested here
+    _Link_type pt = _M_create_node(x);
+                    ^
+./../containers/map.hpp:125:17: note: in instantiation of member function 'ft::_Rb_tree<Point_begin_test *, ft::pair<Point_begin_test *const, double>, ft::_Select1st<ft::pair<Point_begin_test *const, double> >, PointCmp_begin_test, std::__1::allocator<ft::pair<Point_begin_test *const, double> > >::insert' requested here
+    return _M_t.insert(x);
+                ^
+./../containers/map.hpp:100:18: note: in instantiation of member function 'ft::map<Point_begin_test *, double, PointCmp_begin_test, std::__1::allocator<ft::pair<Point_begin_test *const, double> > >::insert' requested here
+    iterator i = insert(value_type(k, mapped_type())).first;
+                 ^
+test_map.cpp:279:6: note: in instantiation of member function 'ft::map<Point_begin_test *, double, PointCmp_begin_test, std::__1::allocator<ft::pair<Point_begin_test *const, double> > >::operator[]' requested here
+  mag[points] = 2;
+     ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1840:9: note: candidate function template not viable: no known conversion from 'ft::pair<Point_begin_test *const, double> *' to 'std::__1::allocator<ft::_Rb_tree_node<ft::pair<Point_begin_test *const, double> > >::pointer' (aka 'ft::_Rb_tree_node<ft::pair<Point_begin_test *const, double> > *') for 1st argument
+        construct(pointer __p, _A0& __a0)
+        ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1847:9: note: candidate function template not viable: no known conversion from 'ft::pair<Point_begin_test *const, double> *' to 'std::__1::allocator<ft::_Rb_tree_node<ft::pair<Point_begin_test *const, double> > >::pointer' (aka 'ft::_Rb_tree_node<ft::pair<Point_begin_test *const, double> > *') for 1st argument
+        construct(pointer __p, const _A0& __a0)
+        ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1855:9: note: candidate function template not viable: requires 3 arguments, but 2 were provided
+        construct(pointer __p, _A0& __a0, _A1& __a1)
+        ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1862:9: note: candidate function template not viable: requires 3 arguments, but 2 were provided
+        construct(pointer __p, const _A0& __a0, _A1& __a1)
+        ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1869:9: note: candidate function template not viable: requires 3 arguments, but 2 were provided
+        construct(pointer __p, _A0& __a0, const _A1& __a1)
+        ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1876:9: note: candidate function template not viable: requires 3 arguments, but 2 were provided
+        construct(pointer __p, const _A0& __a0, const _A1& __a1)
+        ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1831:9: note: candidate function not viable: requires single argument '__p', but 2 arguments were provided
+        construct(pointer __p)
+        ^
+In file included from test_map.cpp:1:
+In file included from ./tester.hpp:13:
+In file included from ./../containers/map.hpp:4:
+./../containers/../utils/rb_tree.hpp:516:16: error: delegating constructors are permitted only in C++11
+  _Rb_tree() : _Rb_tree(key_compare(), _Node_allocator()) {}
+               ^~~~~~~~
+./../containers/map.hpp:52:11: note: in instantiation of member function 'ft::_Rb_tree<int, ft::pair<const int, std::__1::basic_string<char> >, ft::_Select1st<ft::pair<const int, std::__1::basic_string<char> > >, std::__1::less<int>, std::__1::allocator<ft::pair<const int, std::__1::basic_string<char> > > >::_Rb_tree' requested here
+  map() : _M_t() {}
+          ^
+test_map.cpp:314:29: note: in instantiation of member function 'ft::map<int, std::__1::basic_string<char>, std::__1::less<int>, std::__1::allocator<ft::pair<const int, std::__1::basic_string<char> > > >::map' requested here
+  ft::map<int, std::string> coins;
+                            ^
+In file included from test_map.cpp:1:
+In file included from ./tester.hpp:13:
+In file included from ./../containers/map.hpp:4:
+./../containers/../utils/rb_tree.hpp:1209:21: error: no matching member function for call to 'construct'
+      _M_node_alloc.construct(
+      ~~~~~~~~~~~~~~^~~~~~~~~
+./../containers/../utils/rb_tree.hpp:1220:5: note: in instantiation of member function 'ft::_Rb_tree<int, ft::pair<const int, std::__1::basic_string<char> >, ft::_Select1st<ft::pair<const int, std::__1::basic_string<char> > >, std::__1::less<int>, std::__1::allocator<ft::pair<const int, std::__1::basic_string<char> > > >::_M_construct_node' requested here
+    _M_construct_node(tmp, x);
+    ^
+./../containers/../utils/rb_tree.hpp:1130:21: note: in instantiation of member function 'ft::_Rb_tree<int, ft::pair<const int, std::__1::basic_string<char> >, ft::_Select1st<ft::pair<const int, std::__1::basic_string<char> > >, std::__1::less<int>, std::__1::allocator<ft::pair<const int, std::__1::basic_string<char> > > >::_M_create_node' requested here
+    _Link_type pt = _M_create_node(x);
+                    ^
+./../containers/map.hpp:125:17: note: in instantiation of member function 'ft::_Rb_tree<int, ft::pair<const int, std::__1::basic_string<char> >, ft::_Select1st<ft::pair<const int, std::__1::basic_string<char> > >, std::__1::less<int>, std::__1::allocator<ft::pair<const int, std::__1::basic_string<char> > > >::insert' requested here
+    return _M_t.insert(x);
+                ^
+./../containers/map.hpp:100:18: note: in instantiation of member function 'ft::map<int, std::__1::basic_string<char>, std::__1::less<int>, std::__1::allocator<ft::pair<const int, std::__1::basic_string<char> > > >::insert' requested here
+    iterator i = insert(value_type(k, mapped_type())).first;
+                 ^
+test_map.cpp:315:8: note: in instantiation of member function 'ft::map<int, std::__1::basic_string<char>, std::__1::less<int>, std::__1::allocator<ft::pair<const int, std::__1::basic_string<char> > > >::operator[]' requested here
+  coins[10] = "dime";
+       ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1840:9: note: candidate function template not viable: no known conversion from 'ft::pair<const int, std::__1::basic_string<char> > *' to 'std::__1::allocator<ft::_Rb_tree_node<ft::pair<const int, std::__1::basic_string<char> > > >::pointer' (aka 'ft::_Rb_tree_node<ft::pair<const int, std::__1::basic_string<char> > > *') for 1st argument
+        construct(pointer __p, _A0& __a0)
+        ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1847:9: note: candidate function template not viable: no known conversion from 'ft::pair<const int, std::__1::basic_string<char> > *' to 'std::__1::allocator<ft::_Rb_tree_node<ft::pair<const int, std::__1::basic_string<char> > > >::pointer' (aka 'ft::_Rb_tree_node<ft::pair<const int, std::__1::basic_string<char> > > *') for 1st argument
+        construct(pointer __p, const _A0& __a0)
+        ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1855:9: note: candidate function template not viable: requires 3 arguments, but 2 were provided
+        construct(pointer __p, _A0& __a0, _A1& __a1)
+        ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1862:9: note: candidate function template not viable: requires 3 arguments, but 2 were provided
+        construct(pointer __p, const _A0& __a0, _A1& __a1)
+        ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1869:9: note: candidate function template not viable: requires 3 arguments, but 2 were provided
+        construct(pointer __p, _A0& __a0, const _A1& __a1)
+        ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1876:9: note: candidate function template not viable: requires 3 arguments, but 2 were provided
+        construct(pointer __p, const _A0& __a0, const _A1& __a1)
+        ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1831:9: note: candidate function not viable: requires single argument '__p', but 2 arguments were provided
+        construct(pointer __p)
+        ^
+In file included from test_map.cpp:1:
+In file included from ./tester.hpp:13:
+In file included from ./../containers/map.hpp:4:
+./../containers/../utils/rb_tree.hpp:516:16: error: delegating constructors are permitted only in C++11
+  _Rb_tree() : _Rb_tree(key_compare(), _Node_allocator()) {}
+               ^~~~~~~~
+./../containers/map.hpp:52:11: note: in instantiation of member function 'ft::_Rb_tree<char, ft::pair<const char, char>, ft::_Select1st<ft::pair<const char, char> >, std::__1::less<char>, std::__1::allocator<ft::pair<const char, char> > >::_Rb_tree' requested here
+  map() : _M_t() {}
+          ^
+test_map.cpp:344:23: note: in instantiation of member function 'ft::map<char, char, std::__1::less<char>, std::__1::allocator<ft::pair<const char, char> > >::map' requested here
+  ft::map<char, char> MCC;
+                      ^
+In file included from test_map.cpp:1:
+In file included from ./tester.hpp:13:
+In file included from ./../containers/map.hpp:4:
+./../containers/../utils/rb_tree.hpp:516:16: error: delegating constructors are permitted only in C++11
+  _Rb_tree() : _Rb_tree(key_compare(), _Node_allocator()) {}
+               ^~~~~~~~
+./../containers/map.hpp:52:11: note: in instantiation of member function 'ft::_Rb_tree<int, ft::pair<const int, const char *>, ft::_Select1st<ft::pair<const int, const char *> >, std::__1::less<int>, std::__1::allocator<ft::pair<const int, const char *> > >::_Rb_tree' requested here
+  map() : _M_t() {}
+          ^
+test_map.cpp:577:29: note: in instantiation of member function 'ft::map<int, const char *, std::__1::less<int>, std::__1::allocator<ft::pair<const int, const char *> > >::map' requested here
+  ft::map<int, const char*> m;
+                            ^
+In file included from test_map.cpp:1:
+In file included from ./tester.hpp:13:
+In file included from ./../containers/map.hpp:4:
+./../containers/../utils/rb_tree.hpp:1209:21: error: no matching member function for call to 'construct'
+      _M_node_alloc.construct(
+      ~~~~~~~~~~~~~~^~~~~~~~~
+./../containers/../utils/rb_tree.hpp:1220:5: note: in instantiation of member function 'ft::_Rb_tree<int, ft::pair<const int, const char *>, ft::_Select1st<ft::pair<const int, const char *> >, std::__1::less<int>, std::__1::allocator<ft::pair<const int, const char *> > >::_M_construct_node' requested here
+    _M_construct_node(tmp, x);
+    ^
+./../containers/../utils/rb_tree.hpp:1130:21: note: in instantiation of member function 'ft::_Rb_tree<int, ft::pair<const int, const char *>, ft::_Select1st<ft::pair<const int, const char *> >, std::__1::less<int>, std::__1::allocator<ft::pair<const int, const char *> > >::_M_create_node' requested here
+    _Link_type pt = _M_create_node(x);
+                    ^
+./../containers/map.hpp:125:17: note: in instantiation of member function 'ft::_Rb_tree<int, ft::pair<const int, const char *>, ft::_Select1st<ft::pair<const int, const char *> >, std::__1::less<int>, std::__1::allocator<ft::pair<const int, const char *> > >::insert' requested here
+    return _M_t.insert(x);
+                ^
+./../containers/map.hpp:100:18: note: in instantiation of member function 'ft::map<int, const char *, std::__1::less<int>, std::__1::allocator<ft::pair<const int, const char *> > >::insert' requested here
+    iterator i = insert(value_type(k, mapped_type())).first;
+                 ^
+test_map.cpp:578:4: note: in instantiation of member function 'ft::map<int, const char *, std::__1::less<int>, std::__1::allocator<ft::pair<const int, const char *> > >::operator[]' requested here
+  m[0] = "zero";
+   ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1840:9: note: candidate function template not viable: no known conversion from 'ft::pair<const int, const char *> *' to 'std::__1::allocator<ft::_Rb_tree_node<ft::pair<const int, const char *> > >::pointer' (aka 'ft::_Rb_tree_node<ft::pair<const int, const char *> > *') for 1st argument
+        construct(pointer __p, _A0& __a0)
+        ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1847:9: note: candidate function template not viable: no known conversion from 'ft::pair<const int, const char *> *' to 'std::__1::allocator<ft::_Rb_tree_node<ft::pair<const int, const char *> > >::pointer' (aka 'ft::_Rb_tree_node<ft::pair<const int, const char *> > *') for 1st argument
+        construct(pointer __p, const _A0& __a0)
+        ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1855:9: note: candidate function template not viable: requires 3 arguments, but 2 were provided
+        construct(pointer __p, _A0& __a0, _A1& __a1)
+        ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1862:9: note: candidate function template not viable: requires 3 arguments, but 2 were provided
+        construct(pointer __p, const _A0& __a0, _A1& __a1)
+        ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1869:9: note: candidate function template not viable: requires 3 arguments, but 2 were provided
+        construct(pointer __p, _A0& __a0, const _A1& __a1)
+        ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1876:9: note: candidate function template not viable: requires 3 arguments, but 2 were provided
+        construct(pointer __p, const _A0& __a0, const _A1& __a1)
+        ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1831:9: note: candidate function not viable: requires single argument '__p', but 2 arguments were provided
+        construct(pointer __p)
+        ^
+In file included from test_map.cpp:1:
+In file included from ./tester.hpp:13:
+In file included from ./../containers/map.hpp:4:
+./../containers/../utils/rb_tree.hpp:516:16: error: delegating constructors are permitted only in C++11
+  _Rb_tree() : _Rb_tree(key_compare(), _Node_allocator()) {}
+               ^~~~~~~~
+./../containers/map.hpp:52:11: note: in instantiation of member function 'ft::_Rb_tree<int, ft::pair<const int, int>, ft::_Select1st<ft::pair<const int, int> >, ModCmp_comp_test, std::__1::allocator<ft::pair<const int, int> > >::_Rb_tree' requested here
+  map() : _M_t() {}
+          ^
+test_map.cpp:653:39: note: in instantiation of member function 'ft::map<int, int, ModCmp_comp_test, std::__1::allocator<ft::pair<const int, int> > >::map' requested here
+  ft::map<int, int, ModCmp_comp_test> cont;
+                                      ^
+In file included from test_map.cpp:1:
+In file included from ./tester.hpp:13:
+In file included from ./../containers/map.hpp:4:
+./../containers/../utils/rb_tree.hpp:1209:21: error: no matching member function for call to 'construct'
+      _M_node_alloc.construct(
+      ~~~~~~~~~~~~~~^~~~~~~~~
+./../containers/../utils/rb_tree.hpp:1220:5: note: in instantiation of member function 'ft::_Rb_tree<int, ft::pair<const int, int>, ft::_Select1st<ft::pair<const int, int> >, ModCmp_comp_test, std::__1::allocator<ft::pair<const int, int> > >::_M_construct_node' requested here
+    _M_construct_node(tmp, x);
+    ^
+./../containers/../utils/rb_tree.hpp:1130:21: note: in instantiation of member function 'ft::_Rb_tree<int, ft::pair<const int, int>, ft::_Select1st<ft::pair<const int, int> >, ModCmp_comp_test, std::__1::allocator<ft::pair<const int, int> > >::_M_create_node' requested here
+    _Link_type pt = _M_create_node(x);
+                    ^
+./../containers/map.hpp:125:17: note: in instantiation of member function 'ft::_Rb_tree<int, ft::pair<const int, int>, ft::_Select1st<ft::pair<const int, int> >, ModCmp_comp_test, std::__1::allocator<ft::pair<const int, int> > >::insert' requested here
+    return _M_t.insert(x);
+                ^
+./../containers/map.hpp:100:18: note: in instantiation of member function 'ft::map<int, int, ModCmp_comp_test, std::__1::allocator<ft::pair<const int, int> > >::insert' requested here
+    iterator i = insert(value_type(k, mapped_type())).first;
+                 ^
+test_map.cpp:655:17: note: in instantiation of member function 'ft::map<int, int, ModCmp_comp_test, std::__1::allocator<ft::pair<const int, int> > >::operator[]' requested here
+  rep(i, N) cont[i + 1] = i + 1;
+                ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1840:9: note: candidate function template not viable: no known conversion from 'ft::pair<const int, int> *' to 'std::__1::allocator<ft::_Rb_tree_node<ft::pair<const int, int> > >::pointer' (aka 'ft::_Rb_tree_node<ft::pair<const int, int> > *') for 1st argument
+        construct(pointer __p, _A0& __a0)
+        ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1847:9: note: candidate function template not viable: no known conversion from 'ft::pair<const int, int> *' to 'std::__1::allocator<ft::_Rb_tree_node<ft::pair<const int, int> > >::pointer' (aka 'ft::_Rb_tree_node<ft::pair<const int, int> > *') for 1st argument
+        construct(pointer __p, const _A0& __a0)
+        ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1855:9: note: candidate function template not viable: requires 3 arguments, but 2 were provided
+        construct(pointer __p, _A0& __a0, _A1& __a1)
+        ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1862:9: note: candidate function template not viable: requires 3 arguments, but 2 were provided
+        construct(pointer __p, const _A0& __a0, _A1& __a1)
+        ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1869:9: note: candidate function template not viable: requires 3 arguments, but 2 were provided
+        construct(pointer __p, _A0& __a0, const _A1& __a1)
+        ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1876:9: note: candidate function template not viable: requires 3 arguments, but 2 were provided
+        construct(pointer __p, const _A0& __a0, const _A1& __a1)
+        ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1831:9: note: candidate function not viable: requires single argument '__p', but 2 arguments were provided
+        construct(pointer __p)
+        ^
+In file included from test_map.cpp:1:
+In file included from ./tester.hpp:13:
+In file included from ./../containers/map.hpp:4:
+./../containers/../utils/rb_tree.hpp:516:16: error: delegating constructors are permitted only in C++11
+  _Rb_tree() : _Rb_tree(key_compare(), _Node_allocator()) {}
+               ^~~~~~~~
+./../containers/map.hpp:52:11: note: in instantiation of member function 'ft::_Rb_tree<std::__1::basic_string<char>, ft::pair<const std::__1::basic_string<char>, int>, ft::_Select1st<ft::pair<const std::__1::basic_string<char>, int> >, std::__1::less<std::__1::basic_string<char> >, std::__1::allocator<ft::pair<const std::__1::basic_string<char>, int> > >::_Rb_tree' requested here
+  map() : _M_t() {}
+          ^
+test_map.cpp:746:29: note: in instantiation of member function 'ft::map<std::__1::basic_string<char>, int, std::__1::less<std::__1::basic_string<char> >, std::__1::allocator<ft::pair<const std::__1::basic_string<char>, int> > >::map' requested here
+  ft::map<std::string, int> map1;
+                            ^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+20 errors generated.
+In file included from test_review.cpp:1:
+In file included from ./tester.hpp:13:
+In file included from ./../containers/map.hpp:4:
+In file included from ./../containers/../utils/rb_tree.hpp:6:
+In file included from ./../containers/../utils/../containers/stack.hpp:4:
+In file included from ./../containers/vector.hpp:9:
+./../containers/../utils/util.hpp:27:38: error: expected ';' at end of declaration list
+  const value_type operator()() const noexcept { return value; }
+                                     ^
+                                     ;
+test_review.cpp:147:40: error: expected expression
+  for (int i = 0; i < N; ++i) M.insert({i, i});
+                                       ^
+test_review.cpp:269:32: error: a space is required between consecutive right angle brackets (use '> >')
+  ft::stack<int, ft::vector<int>> SV;
+                               ^~
+                               > >
+test_review.cpp:271:32: error: a space is required between consecutive right angle brackets (use '> >')
+  ft::stack<int, std::deque<int>> SD;
+                               ^~
+                               > >
+test_review.cpp:273:31: error: a space is required between consecutive right angle brackets (use '> >')
+  ft::stack<int, std::list<int>> SL;
+                              ^~
+                              > >
+In file included from test_review.cpp:1:
+In file included from ./tester.hpp:13:
+In file included from ./../containers/map.hpp:4:
+In file included from ./../containers/../utils/rb_tree.hpp:6:
+In file included from ./../containers/stack.hpp:4:
+./../containers/vector.hpp:37:14: error: delegating constructors are permitted only in C++11
+  vector() : vector(allocator_type()) {}
+             ^~~~~~
+test_review.cpp:38:19: note: in instantiation of member function 'ft::vector<int, std::__1::allocator<int> >::vector' requested here
+  ft::vector<int> V;
+                  ^
+In file included from test_review.cpp:1:
+In file included from ./tester.hpp:13:
+In file included from ./../containers/map.hpp:4:
+./../containers/../utils/rb_tree.hpp:516:16: error: delegating constructors are permitted only in C++11
+  _Rb_tree() : _Rb_tree(key_compare(), _Node_allocator()) {}
+               ^~~~~~~~
+./../containers/map.hpp:52:11: note: in instantiation of member function 'ft::_Rb_tree<int, ft::pair<const int, char>, ft::_Select1st<ft::pair<const int, char> >, std::__1::less<int>, std::__1::allocator<ft::pair<const int, char> > >::_Rb_tree' requested here
+  map() : _M_t() {}
+          ^
+test_review.cpp:126:22: note: in instantiation of member function 'ft::map<int, char, std::__1::less<int>, std::__1::allocator<ft::pair<const int, char> > >::map' requested here
+  ft::map<int, char> M;
+                     ^
+In file included from test_review.cpp:1:
+In file included from ./tester.hpp:13:
+In file included from ./../containers/map.hpp:4:
+./../containers/../utils/rb_tree.hpp:1209:21: error: no matching member function for call to 'construct'
+      _M_node_alloc.construct(
+      ~~~~~~~~~~~~~~^~~~~~~~~
+./../containers/../utils/rb_tree.hpp:1220:5: note: in instantiation of member function 'ft::_Rb_tree<int, ft::pair<const int, char>, ft::_Select1st<ft::pair<const int, char> >, std::__1::less<int>, std::__1::allocator<ft::pair<const int, char> > >::_M_construct_node' requested here
+    _M_construct_node(tmp, x);
+    ^
+./../containers/../utils/rb_tree.hpp:1130:21: note: in instantiation of member function 'ft::_Rb_tree<int, ft::pair<const int, char>, ft::_Select1st<ft::pair<const int, char> >, std::__1::less<int>, std::__1::allocator<ft::pair<const int, char> > >::_M_create_node' requested here
+    _Link_type pt = _M_create_node(x);
+                    ^
+./../containers/map.hpp:125:17: note: in instantiation of member function 'ft::_Rb_tree<int, ft::pair<const int, char>, ft::_Select1st<ft::pair<const int, char> >, std::__1::less<int>, std::__1::allocator<ft::pair<const int, char> > >::insert' requested here
+    return _M_t.insert(x);
+                ^
+test_review.cpp:127:5: note: in instantiation of member function 'ft::map<int, char, std::__1::less<int>, std::__1::allocator<ft::pair<const int, char> > >::insert' requested here
+  M.insert(ft::make_pair(100, 'a'));
+    ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1840:9: note: candidate function template not viable: no known conversion from 'ft::pair<const int, char> *' to 'std::__1::allocator<ft::_Rb_tree_node<ft::pair<const int, char> > >::pointer' (aka 'ft::_Rb_tree_node<ft::pair<const int, char> > *') for 1st argument
+        construct(pointer __p, _A0& __a0)
+        ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1847:9: note: candidate function template not viable: no known conversion from 'ft::pair<const int, char> *' to 'std::__1::allocator<ft::_Rb_tree_node<ft::pair<const int, char> > >::pointer' (aka 'ft::_Rb_tree_node<ft::pair<const int, char> > *') for 1st argument
+        construct(pointer __p, const _A0& __a0)
+        ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1855:9: note: candidate function template not viable: requires 3 arguments, but 2 were provided
+        construct(pointer __p, _A0& __a0, _A1& __a1)
+        ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1862:9: note: candidate function template not viable: requires 3 arguments, but 2 were provided
+        construct(pointer __p, const _A0& __a0, _A1& __a1)
+        ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1869:9: note: candidate function template not viable: requires 3 arguments, but 2 were provided
+        construct(pointer __p, _A0& __a0, const _A1& __a1)
+        ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1876:9: note: candidate function template not viable: requires 3 arguments, but 2 were provided
+        construct(pointer __p, const _A0& __a0, const _A1& __a1)
+        ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1831:9: note: candidate function not viable: requires single argument '__p', but 2 arguments were provided
+        construct(pointer __p)
+        ^
+In file included from test_review.cpp:1:
+In file included from ./tester.hpp:13:
+In file included from ./../containers/map.hpp:4:
+./../containers/../utils/rb_tree.hpp:516:16: error: delegating constructors are permitted only in C++11
+  _Rb_tree() : _Rb_tree(key_compare(), _Node_allocator()) {}
+               ^~~~~~~~
+./../containers/map.hpp:52:11: note: in instantiation of member function 'ft::_Rb_tree<int, ft::pair<const int, int>, ft::_Select1st<ft::pair<const int, int> >, std::__1::less<int>, std::__1::allocator<ft::pair<const int, int> > >::_Rb_tree' requested here
+  map() : _M_t() {}
+          ^
+test_review.cpp:144:21: note: in instantiation of member function 'ft::map<int, int, std::__1::less<int>, std::__1::allocator<ft::pair<const int, int> > >::map' requested here
+  ft::map<int, int> M;
+                    ^
+In file included from test_review.cpp:1:
+In file included from ./tester.hpp:13:
+In file included from ./../containers/map.hpp:4:
+./../containers/../utils/rb_tree.hpp:1209:21: error: no matching member function for call to 'construct'
+      _M_node_alloc.construct(
+      ~~~~~~~~~~~~~~^~~~~~~~~
+./../containers/../utils/rb_tree.hpp:1220:5: note: in instantiation of member function 'ft::_Rb_tree<int, ft::pair<const int, int>, ft::_Select1st<ft::pair<const int, int> >, std::__1::less<int>, std::__1::allocator<ft::pair<const int, int> > >::_M_construct_node' requested here
+    _M_construct_node(tmp, x);
+    ^
+./../containers/../utils/rb_tree.hpp:1130:21: note: in instantiation of member function 'ft::_Rb_tree<int, ft::pair<const int, int>, ft::_Select1st<ft::pair<const int, int> >, std::__1::less<int>, std::__1::allocator<ft::pair<const int, int> > >::_M_create_node' requested here
+    _Link_type pt = _M_create_node(x);
+                    ^
+./../containers/map.hpp:125:17: note: in instantiation of member function 'ft::_Rb_tree<int, ft::pair<const int, int>, ft::_Select1st<ft::pair<const int, int> >, std::__1::less<int>, std::__1::allocator<ft::pair<const int, int> > >::insert' requested here
+    return _M_t.insert(x);
+                ^
+./../containers/map.hpp:100:18: note: in instantiation of member function 'ft::map<int, int, std::__1::less<int>, std::__1::allocator<ft::pair<const int, int> > >::insert' requested here
+    iterator i = insert(value_type(k, mapped_type())).first;
+                 ^
+test_review.cpp:241:32: note: in instantiation of member function 'ft::map<int, int, std::__1::less<int>, std::__1::allocator<ft::pair<const int, int> > >::operator[]' requested here
+  for (int i = 0; i < N; ++i) M[i] = i;
+                               ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1840:9: note: candidate function template not viable: no known conversion from 'ft::pair<const int, int> *' to 'std::__1::allocator<ft::_Rb_tree_node<ft::pair<const int, int> > >::pointer' (aka 'ft::_Rb_tree_node<ft::pair<const int, int> > *') for 1st argument
+        construct(pointer __p, _A0& __a0)
+        ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1847:9: note: candidate function template not viable: no known conversion from 'ft::pair<const int, int> *' to 'std::__1::allocator<ft::_Rb_tree_node<ft::pair<const int, int> > >::pointer' (aka 'ft::_Rb_tree_node<ft::pair<const int, int> > *') for 1st argument
+        construct(pointer __p, const _A0& __a0)
+        ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1855:9: note: candidate function template not viable: requires 3 arguments, but 2 were provided
+        construct(pointer __p, _A0& __a0, _A1& __a1)
+        ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1862:9: note: candidate function template not viable: requires 3 arguments, but 2 were provided
+        construct(pointer __p, const _A0& __a0, _A1& __a1)
+        ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1869:9: note: candidate function template not viable: requires 3 arguments, but 2 were provided
+        construct(pointer __p, _A0& __a0, const _A1& __a1)
+        ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1876:9: note: candidate function template not viable: requires 3 arguments, but 2 were provided
+        construct(pointer __p, const _A0& __a0, const _A1& __a1)
+        ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1831:9: note: candidate function not viable: requires single argument '__p', but 2 arguments were provided
+        construct(pointer __p)
+        ^
+In file included from test_review.cpp:1:
+In file included from ./tester.hpp:13:
+In file included from ./../containers/map.hpp:4:
+In file included from ./../containers/../utils/rb_tree.hpp:6:
+In file included from ./../containers/stack.hpp:4:
+./../containers/vector.hpp:62:33: error: delegating constructors are permitted only in C++11
+  vector(const vector& other) : vector(other._alloc) {
+                                ^~~~~~
+./../containers/stack.hpp:16:67: note: in instantiation of member function 'ft::vector<int, std::__1::allocator<int> >::vector' requested here
+  explicit stack(const container_type& ctnr = container_type()) : _c(ctnr) {}
+                                                                  ^
+test_review.cpp:269:35: note: in instantiation of member function 'ft::stack<int, ft::vector<int, std::__1::allocator<int> > >::stack' requested here
+  ft::stack<int, ft::vector<int>> SV;
+                                  ^
+11 errors generated.
+In file included from test_set.cpp:1:
+In file included from ./tester.hpp:13:
+In file included from ./../containers/map.hpp:4:
+In file included from ./../containers/../utils/rb_tree.hpp:6:
+In file included from ./../containers/../utils/../containers/stack.hpp:4:
+In file included from ./../containers/vector.hpp:9:
+./../containers/../utils/util.hpp:27:38: error: expected ';' at end of declaration list
+  const value_type operator()() const noexcept { return value; }
+                                     ^
+                                     ;
+test_set.cpp:184:15: error: expected expression
+  points[0] = {2, 0};
+              ^
+test_set.cpp:185:15: error: expected expression
+  points[1] = {1, 0};
+              ^
+test_set.cpp:186:15: error: expected expression
+  points[2] = {3, 0};
+              ^
+test_set.cpp:667:12: error: expected expression
+  z.insert({2, 5});
+           ^
+test_set.cpp:668:12: error: expected expression
+  z.insert({3, 4});
+           ^
+test_set.cpp:669:12: error: expected expression
+  z.insert({1, 1});
+           ^
+test_set.cpp:670:12: error: expected expression
+  z.insert({1, -1});  // this fails because the magnitude of 1,-1 equals 1,1
+           ^
+In file included from test_set.cpp:1:
+In file included from ./tester.hpp:13:
+In file included from ./../containers/map.hpp:4:
+./../containers/../utils/rb_tree.hpp:516:16: error: delegating constructors are permitted only in C++11
+  _Rb_tree() : _Rb_tree(key_compare(), _Node_allocator()) {}
+               ^~~~~~~~
+./../containers/set.hpp:41:11: note: in instantiation of member function 'ft::_Rb_tree<int, int, ft::_Identity<int>, std::__1::less<int>, std::__1::allocator<int> >::_Rb_tree' requested here
+  set() : _M_t() {}
+          ^
+test_set.cpp:23:16: note: in instantiation of member function 'ft::set<int, std::__1::less<int>, std::__1::allocator<int> >::set' requested here
+  ft::set<int> S;
+               ^
+In file included from test_set.cpp:1:
+In file included from ./tester.hpp:13:
+In file included from ./../containers/map.hpp:4:
+./../containers/../utils/rb_tree.hpp:1209:21: error: no matching member function for call to 'construct'
+      _M_node_alloc.construct(
+      ~~~~~~~~~~~~~~^~~~~~~~~
+./../containers/../utils/rb_tree.hpp:1220:5: note: in instantiation of member function 'ft::_Rb_tree<int, int, ft::_Identity<int>, std::__1::less<int>, std::__1::allocator<int> >::_M_construct_node' requested here
+    _M_construct_node(tmp, x);
+    ^
+./../containers/../utils/rb_tree.hpp:1130:21: note: in instantiation of member function 'ft::_Rb_tree<int, int, ft::_Identity<int>, std::__1::less<int>, std::__1::allocator<int> >::_M_create_node' requested here
+    _Link_type pt = _M_create_node(x);
+                    ^
+./../containers/set.hpp:88:17: note: in instantiation of member function 'ft::_Rb_tree<int, int, ft::_Identity<int>, std::__1::less<int>, std::__1::allocator<int> >::insert' requested here
+    return _M_t.insert(x);
+                ^
+test_set.cpp:27:52: note: in instantiation of member function 'ft::set<int, std::__1::less<int>, std::__1::allocator<int> >::insert' requested here
+    ft::pair<ft::set<int>::iterator, bool> ret = S.insert(key);
+                                                   ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1840:9: note: candidate function template not viable: no known conversion from 'int *' to 'std::__1::allocator<ft::_Rb_tree_node<int> >::pointer' (aka 'ft::_Rb_tree_node<int> *') for 1st argument
+        construct(pointer __p, _A0& __a0)
+        ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1847:9: note: candidate function template not viable: no known conversion from 'int *' to 'std::__1::allocator<ft::_Rb_tree_node<int> >::pointer' (aka 'ft::_Rb_tree_node<int> *') for 1st argument
+        construct(pointer __p, const _A0& __a0)
+        ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1855:9: note: candidate function template not viable: requires 3 arguments, but 2 were provided
+        construct(pointer __p, _A0& __a0, _A1& __a1)
+        ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1862:9: note: candidate function template not viable: requires 3 arguments, but 2 were provided
+        construct(pointer __p, const _A0& __a0, _A1& __a1)
+        ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1869:9: note: candidate function template not viable: requires 3 arguments, but 2 were provided
+        construct(pointer __p, _A0& __a0, const _A1& __a1)
+        ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1876:9: note: candidate function template not viable: requires 3 arguments, but 2 were provided
+        construct(pointer __p, const _A0& __a0, const _A1& __a1)
+        ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1831:9: note: candidate function not viable: requires single argument '__p', but 2 arguments were provided
+        construct(pointer __p)
+        ^
+In file included from test_set.cpp:1:
+In file included from ./tester.hpp:13:
+In file included from ./../containers/map.hpp:4:
+./../containers/../utils/rb_tree.hpp:516:16: error: delegating constructors are permitted only in C++11
+  _Rb_tree() : _Rb_tree(key_compare(), _Node_allocator()) {}
+               ^~~~~~~~
+./../containers/set.hpp:41:11: note: in instantiation of member function 'ft::_Rb_tree<Point_begin_test *, Point_begin_test *, ft::_Identity<Point_begin_test *>, PointCmp_begin_test, std::__1::allocator<Point_begin_test *> >::_Rb_tree' requested here
+  set() : _M_t() {}
+          ^
+test_set.cpp:189:51: note: in instantiation of member function 'ft::set<Point_begin_test *, PointCmp_begin_test, std::__1::allocator<Point_begin_test *> >::set' requested here
+  ft::set<Point_begin_test*, PointCmp_begin_test> mag;
+                                                  ^
+In file included from test_set.cpp:1:
+In file included from ./tester.hpp:13:
+In file included from ./../containers/map.hpp:4:
+./../containers/../utils/rb_tree.hpp:1209:21: error: no matching member function for call to 'construct'
+      _M_node_alloc.construct(
+      ~~~~~~~~~~~~~~^~~~~~~~~
+./../containers/../utils/rb_tree.hpp:1220:5: note: in instantiation of member function 'ft::_Rb_tree<Point_begin_test *, Point_begin_test *, ft::_Identity<Point_begin_test *>, PointCmp_begin_test, std::__1::allocator<Point_begin_test *> >::_M_construct_node' requested here
+    _M_construct_node(tmp, x);
+    ^
+./../containers/../utils/rb_tree.hpp:1130:21: note: in instantiation of member function 'ft::_Rb_tree<Point_begin_test *, Point_begin_test *, ft::_Identity<Point_begin_test *>, PointCmp_begin_test, std::__1::allocator<Point_begin_test *> >::_M_create_node' requested here
+    _Link_type pt = _M_create_node(x);
+                    ^
+./../containers/set.hpp:88:17: note: in instantiation of member function 'ft::_Rb_tree<Point_begin_test *, Point_begin_test *, ft::_Identity<Point_begin_test *>, PointCmp_begin_test, std::__1::allocator<Point_begin_test *> >::insert' requested here
+    return _M_t.insert(x);
+                ^
+test_set.cpp:190:7: note: in instantiation of member function 'ft::set<Point_begin_test *, PointCmp_begin_test, std::__1::allocator<Point_begin_test *> >::insert' requested here
+  mag.insert(points);
+      ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1840:9: note: candidate function template not viable: no known conversion from 'Point_begin_test **' to 'std::__1::allocator<ft::_Rb_tree_node<Point_begin_test *> >::pointer' (aka 'ft::_Rb_tree_node<Point_begin_test *> *') for 1st argument
+        construct(pointer __p, _A0& __a0)
+        ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1847:9: note: candidate function template not viable: no known conversion from 'Point_begin_test **' to 'std::__1::allocator<ft::_Rb_tree_node<Point_begin_test *> >::pointer' (aka 'ft::_Rb_tree_node<Point_begin_test *> *') for 1st argument
+        construct(pointer __p, const _A0& __a0)
+        ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1855:9: note: candidate function template not viable: requires 3 arguments, but 2 were provided
+        construct(pointer __p, _A0& __a0, _A1& __a1)
+        ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1862:9: note: candidate function template not viable: requires 3 arguments, but 2 were provided
+        construct(pointer __p, const _A0& __a0, _A1& __a1)
+        ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1869:9: note: candidate function template not viable: requires 3 arguments, but 2 were provided
+        construct(pointer __p, _A0& __a0, const _A1& __a1)
+        ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1876:9: note: candidate function template not viable: requires 3 arguments, but 2 were provided
+        construct(pointer __p, const _A0& __a0, const _A1& __a1)
+        ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1831:9: note: candidate function not viable: requires single argument '__p', but 2 arguments were provided
+        construct(pointer __p)
+        ^
+In file included from test_set.cpp:1:
+In file included from ./tester.hpp:13:
+In file included from ./../containers/map.hpp:4:
+./../containers/../utils/rb_tree.hpp:516:16: error: delegating constructors are permitted only in C++11
+  _Rb_tree() : _Rb_tree(key_compare(), _Node_allocator()) {}
+               ^~~~~~~~
+./../containers/set.hpp:41:11: note: in instantiation of member function 'ft::_Rb_tree<char, char, ft::_Identity<char>, std::__1::less<char>, std::__1::allocator<char> >::_Rb_tree' requested here
+  set() : _M_t() {}
+          ^
+test_set.cpp:247:17: note: in instantiation of member function 'ft::set<char, std::__1::less<char>, std::__1::allocator<char> >::set' requested here
+  ft::set<char> SCC;
+                ^
+In file included from test_set.cpp:1:
+In file included from ./tester.hpp:13:
+In file included from ./../containers/map.hpp:4:
+./../containers/../utils/rb_tree.hpp:1209:21: error: no matching member function for call to 'construct'
+      _M_node_alloc.construct(
+      ~~~~~~~~~~~~~~^~~~~~~~~
+./../containers/../utils/rb_tree.hpp:1220:5: note: in instantiation of member function 'ft::_Rb_tree<char, char, ft::_Identity<char>, std::__1::less<char>, std::__1::allocator<char> >::_M_construct_node' requested here
+    _M_construct_node(tmp, x);
+    ^
+./../containers/../utils/rb_tree.hpp:1130:21: note: in instantiation of member function 'ft::_Rb_tree<char, char, ft::_Identity<char>, std::__1::less<char>, std::__1::allocator<char> >::_M_create_node' requested here
+    _Link_type pt = _M_create_node(x);
+                    ^
+./../containers/set.hpp:88:17: note: in instantiation of member function 'ft::_Rb_tree<char, char, ft::_Identity<char>, std::__1::less<char>, std::__1::allocator<char> >::insert' requested here
+    return _M_t.insert(x);
+                ^
+test_set.cpp:313:19: note: in instantiation of member function 'ft::set<char, std::__1::less<char>, std::__1::allocator<char> >::insert' requested here
+  rep(i, 3) alice.insert('a' + i);
+                  ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1840:9: note: candidate function template not viable: no known conversion from 'char *' to 'std::__1::allocator<ft::_Rb_tree_node<char> >::pointer' (aka 'ft::_Rb_tree_node<char> *') for 1st argument
+        construct(pointer __p, _A0& __a0)
+        ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1847:9: note: candidate function template not viable: no known conversion from 'char *' to 'std::__1::allocator<ft::_Rb_tree_node<char> >::pointer' (aka 'ft::_Rb_tree_node<char> *') for 1st argument
+        construct(pointer __p, const _A0& __a0)
+        ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1855:9: note: candidate function template not viable: requires 3 arguments, but 2 were provided
+        construct(pointer __p, _A0& __a0, _A1& __a1)
+        ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1862:9: note: candidate function template not viable: requires 3 arguments, but 2 were provided
+        construct(pointer __p, const _A0& __a0, _A1& __a1)
+        ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1869:9: note: candidate function template not viable: requires 3 arguments, but 2 were provided
+        construct(pointer __p, _A0& __a0, const _A1& __a1)
+        ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1876:9: note: candidate function template not viable: requires 3 arguments, but 2 were provided
+        construct(pointer __p, const _A0& __a0, const _A1& __a1)
+        ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1831:9: note: candidate function not viable: requires single argument '__p', but 2 arguments were provided
+        construct(pointer __p)
+        ^
+In file included from test_set.cpp:1:
+In file included from ./tester.hpp:13:
+In file included from ./../containers/map.hpp:4:
+./../containers/../utils/rb_tree.hpp:516:16: error: delegating constructors are permitted only in C++11
+  _Rb_tree() : _Rb_tree(key_compare(), _Node_allocator()) {}
+               ^~~~~~~~
+./../containers/set.hpp:41:11: note: in instantiation of member function 'ft::_Rb_tree<const char *, const char *, ft::_Identity<const char *>, std::__1::less<const char *>, std::__1::allocator<const char *> >::_Rb_tree' requested here
+  set() : _M_t() {}
+          ^
+test_set.cpp:487:24: note: in instantiation of member function 'ft::set<const char *, std::__1::less<const char *>, std::__1::allocator<const char *> >::set' requested here
+  ft::set<const char*> s;
+                       ^
+In file included from test_set.cpp:1:
+In file included from ./tester.hpp:13:
+In file included from ./../containers/map.hpp:4:
+./../containers/../utils/rb_tree.hpp:1209:21: error: no matching member function for call to 'construct'
+      _M_node_alloc.construct(
+      ~~~~~~~~~~~~~~^~~~~~~~~
+./../containers/../utils/rb_tree.hpp:1220:5: note: in instantiation of member function 'ft::_Rb_tree<const char *, const char *, ft::_Identity<const char *>, std::__1::less<const char *>, std::__1::allocator<const char *> >::_M_construct_node' requested here
+    _M_construct_node(tmp, x);
+    ^
+./../containers/../utils/rb_tree.hpp:1130:21: note: in instantiation of member function 'ft::_Rb_tree<const char *, const char *, ft::_Identity<const char *>, std::__1::less<const char *>, std::__1::allocator<const char *> >::_M_create_node' requested here
+    _Link_type pt = _M_create_node(x);
+                    ^
+./../containers/set.hpp:88:17: note: in instantiation of member function 'ft::_Rb_tree<const char *, const char *, ft::_Identity<const char *>, std::__1::less<const char *>, std::__1::allocator<const char *> >::insert' requested here
+    return _M_t.insert(x);
+                ^
+test_set.cpp:488:5: note: in instantiation of member function 'ft::set<const char *, std::__1::less<const char *>, std::__1::allocator<const char *> >::insert' requested here
+  s.insert("zero");
+    ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1840:9: note: candidate function template not viable: no known conversion from 'const char **' to 'std::__1::allocator<ft::_Rb_tree_node<const char *> >::pointer' (aka 'ft::_Rb_tree_node<const char *> *') for 1st argument
+        construct(pointer __p, _A0& __a0)
+        ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1847:9: note: candidate function template not viable: no known conversion from 'const char **' to 'std::__1::allocator<ft::_Rb_tree_node<const char *> >::pointer' (aka 'ft::_Rb_tree_node<const char *> *') for 1st argument
+        construct(pointer __p, const _A0& __a0)
+        ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1855:9: note: candidate function template not viable: requires 3 arguments, but 2 were provided
+        construct(pointer __p, _A0& __a0, _A1& __a1)
+        ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1862:9: note: candidate function template not viable: requires 3 arguments, but 2 were provided
+        construct(pointer __p, const _A0& __a0, _A1& __a1)
+        ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1869:9: note: candidate function template not viable: requires 3 arguments, but 2 were provided
+        construct(pointer __p, _A0& __a0, const _A1& __a1)
+        ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1876:9: note: candidate function template not viable: requires 3 arguments, but 2 were provided
+        construct(pointer __p, const _A0& __a0, const _A1& __a1)
+        ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1831:9: note: candidate function not viable: requires single argument '__p', but 2 arguments were provided
+        construct(pointer __p)
+        ^
+In file included from test_set.cpp:1:
+In file included from ./tester.hpp:13:
+In file included from ./../containers/map.hpp:4:
+./../containers/../utils/rb_tree.hpp:516:16: error: delegating constructors are permitted only in C++11
+  _Rb_tree() : _Rb_tree(key_compare(), _Node_allocator()) {}
+               ^~~~~~~~
+./../containers/set.hpp:41:11: note: in instantiation of member function 'ft::_Rb_tree<int, int, ft::_Identity<int>, ModCmp_comp_test, std::__1::allocator<int> >::_Rb_tree' requested here
+  set() : _M_t() {}
+          ^
+test_set.cpp:563:34: note: in instantiation of member function 'ft::set<int, ModCmp_comp_test, std::__1::allocator<int> >::set' requested here
+  ft::set<int, ModCmp_comp_test> cont;
+                                 ^
+In file included from test_set.cpp:1:
+In file included from ./tester.hpp:13:
+In file included from ./../containers/map.hpp:4:
+./../containers/../utils/rb_tree.hpp:1209:21: error: no matching member function for call to 'construct'
+      _M_node_alloc.construct(
+      ~~~~~~~~~~~~~~^~~~~~~~~
+./../containers/../utils/rb_tree.hpp:1220:5: note: in instantiation of member function 'ft::_Rb_tree<int, int, ft::_Identity<int>, ModCmp_comp_test, std::__1::allocator<int> >::_M_construct_node' requested here
+    _M_construct_node(tmp, x);
+    ^
+./../containers/../utils/rb_tree.hpp:1130:21: note: in instantiation of member function 'ft::_Rb_tree<int, int, ft::_Identity<int>, ModCmp_comp_test, std::__1::allocator<int> >::_M_create_node' requested here
+    _Link_type pt = _M_create_node(x);
+                    ^
+./../containers/set.hpp:88:17: note: in instantiation of member function 'ft::_Rb_tree<int, int, ft::_Identity<int>, ModCmp_comp_test, std::__1::allocator<int> >::insert' requested here
+    return _M_t.insert(x);
+                ^
+test_set.cpp:565:18: note: in instantiation of member function 'ft::set<int, ModCmp_comp_test, std::__1::allocator<int> >::insert' requested here
+  rep(i, N) cont.insert(i + 1);
+                 ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1840:9: note: candidate function template not viable: no known conversion from 'int *' to 'std::__1::allocator<ft::_Rb_tree_node<int> >::pointer' (aka 'ft::_Rb_tree_node<int> *') for 1st argument
+        construct(pointer __p, _A0& __a0)
+        ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1847:9: note: candidate function template not viable: no known conversion from 'int *' to 'std::__1::allocator<ft::_Rb_tree_node<int> >::pointer' (aka 'ft::_Rb_tree_node<int> *') for 1st argument
+        construct(pointer __p, const _A0& __a0)
+        ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1855:9: note: candidate function template not viable: requires 3 arguments, but 2 were provided
+        construct(pointer __p, _A0& __a0, _A1& __a1)
+        ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1862:9: note: candidate function template not viable: requires 3 arguments, but 2 were provided
+        construct(pointer __p, const _A0& __a0, _A1& __a1)
+        ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1869:9: note: candidate function template not viable: requires 3 arguments, but 2 were provided
+        construct(pointer __p, _A0& __a0, const _A1& __a1)
+        ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1876:9: note: candidate function template not viable: requires 3 arguments, but 2 were provided
+        construct(pointer __p, const _A0& __a0, const _A1& __a1)
+        ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1831:9: note: candidate function not viable: requires single argument '__p', but 2 arguments were provided
+        construct(pointer __p)
+        ^
+In file included from test_set.cpp:1:
+In file included from ./tester.hpp:13:
+In file included from ./../containers/map.hpp:4:
+./../containers/../utils/rb_tree.hpp:516:16: error: delegating constructors are permitted only in C++11
+  _Rb_tree() : _Rb_tree(key_compare(), _Node_allocator()) {}
+               ^~~~~~~~
+./../containers/set.hpp:41:11: note: in instantiation of member function 'ft::_Rb_tree<std::__1::basic_string<char>, std::__1::basic_string<char>, ft::_Identity<std::__1::basic_string<char> >, std::__1::less<std::__1::basic_string<char> >, std::__1::allocator<std::__1::basic_string<char> > >::_Rb_tree' requested here
+  set() : _M_t() {}
+          ^
+test_set.cpp:648:24: note: in instantiation of member function 'ft::set<std::__1::basic_string<char>, std::__1::less<std::__1::basic_string<char> >, std::__1::allocator<std::__1::basic_string<char> > >::set' requested here
+  ft::set<std::string> a;
+                       ^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+20 errors generated.
+In file included from test_stack.cpp:1:
+In file included from ./tester.hpp:13:
+In file included from ./../containers/map.hpp:4:
+In file included from ./../containers/../utils/rb_tree.hpp:6:
+In file included from ./../containers/../utils/../containers/stack.hpp:4:
+In file included from ./../containers/vector.hpp:9:
+./../containers/../utils/util.hpp:27:38: error: expected ';' at end of declaration list
+  const value_type operator()() const noexcept { return value; }
+                                     ^
+                                     ;
+In file included from test_stack.cpp:1:
+In file included from ./tester.hpp:13:
+In file included from ./../containers/map.hpp:4:
+In file included from ./../containers/../utils/rb_tree.hpp:6:
+In file included from ./../containers/stack.hpp:4:
+./../containers/vector.hpp:45:9: error: delegating constructors are permitted only in C++11
+      : vector(alloc) {
+        ^~~~~~
+test_stack.cpp:21:19: note: in instantiation of member function 'ft::vector<int, std::__1::allocator<int> >::vector' requested here
+  ft::vector<int> myvector(2, 200);  // vector with 2 elements
+                  ^
+In file included from test_stack.cpp:1:
+In file included from ./tester.hpp:13:
+In file included from ./../containers/map.hpp:4:
+In file included from ./../containers/../utils/rb_tree.hpp:6:
+In file included from ./../containers/stack.hpp:4:
+./../containers/vector.hpp:37:14: error: delegating constructors are permitted only in C++11
+  vector() : vector(allocator_type()) {}
+             ^~~~~~
+./../containers/stack.hpp:16:47: note: in instantiation of member function 'ft::vector<int, std::__1::allocator<int> >::vector' requested here
+  explicit stack(const container_type& ctnr = container_type()) : _c(ctnr) {}
+                                              ^
+In file included from test_stack.cpp:1:
+In file included from ./tester.hpp:13:
+In file included from ./../containers/map.hpp:4:
+In file included from ./../containers/../utils/rb_tree.hpp:6:
+In file included from ./../containers/stack.hpp:4:
+./../containers/vector.hpp:62:33: error: delegating constructors are permitted only in C++11
+  vector(const vector& other) : vector(other._alloc) {
+                                ^~~~~~
+./../containers/stack.hpp:16:67: note: in instantiation of member function 'ft::vector<int, std::__1::allocator<int> >::vector' requested here
+  explicit stack(const container_type& ctnr = container_type()) : _c(ctnr) {}
+                                                                  ^
+test_stack.cpp:23:18: note: in instantiation of member function 'ft::stack<int, ft::vector<int, std::__1::allocator<int> > >::stack' requested here
+  ft::stack<int> first;  // empty stack
+                 ^
+In file included from test_stack.cpp:1:
+In file included from ./tester.hpp:13:
+In file included from ./../containers/map.hpp:4:
+In file included from ./../containers/../utils/rb_tree.hpp:6:
+./../containers/stack.hpp:17:31: error: no matching constructor for initialization of 'ft::stack<int, ft::vector<int, std::__1::allocator<int> > >::container_type' (aka 'ft::vector<int, std::__1::allocator<int> >')
+  stack(const stack& other) : _c(other._c) {}
+                              ^  ~~~~~~~~
+test_stack.cpp:97:18: note: in instantiation of member function 'ft::stack<int, ft::vector<int, std::__1::allocator<int> > >::stack' requested here
+  ft::stack<int> eve(alice);
+                 ^
+./../containers/vector.hpp:38:12: note: candidate constructor not viable: no known conversion from 'const ft::stack<int, ft::vector<int, std::__1::allocator<int> > >::container_type' (aka 'const ft::vector<int, std::__1::allocator<int> >') to 'const std::__1::allocator<int>' for 1st argument
+  explicit vector(const Allocator& alloc)
+           ^
+./../containers/vector.hpp:50:3: note: candidate constructor template not viable: requires at least 2 arguments, but 1 was provided
+  vector(InputIt head, InputIt tail, const Allocator& alloc = Allocator(),
+  ^
+5 errors generated.
+In file included from test_util.cpp:1:
+In file included from ./tester.hpp:13:
+In file included from ./../containers/map.hpp:4:
+In file included from ./../containers/../utils/rb_tree.hpp:6:
+In file included from ./../containers/../utils/../containers/stack.hpp:4:
+In file included from ./../containers/vector.hpp:9:
+./../containers/../utils/util.hpp:27:38: error: expected ';' at end of declaration list
+  const value_type operator()() const noexcept { return value; }
+                                     ^
+                                     ;
+test_util.cpp:30:27: error: template argument uses local type 'my_enum' [-Werror,-Wlocal-type-template-args]
+  cout << ft::is_integral<my_enum>::value << ":my_enum is not integral" << endl;
+                          ^~~~~~~
+In file included from test_util.cpp:1:
+In file included from ./tester.hpp:13:
+In file included from ./../containers/map.hpp:4:
+In file included from ./../containers/../utils/rb_tree.hpp:6:
+In file included from ./../containers/stack.hpp:4:
+In file included from ./../containers/vector.hpp:9:
+./../utils/util.hpp:143:54: error: template argument uses local type 'my_enum' [-Werror,-Wlocal-type-template-args]
+    : public __is_integral_helper<typename remove_cv<T>::type>::type {};
+                                                     ^
+test_util.cpp:30:15: note: in instantiation of template class 'ft::is_integral<my_enum>' requested here
+  cout << ft::is_integral<my_enum>::value << ":my_enum is not integral" << endl;
+              ^
+In file included from test_util.cpp:1:
+In file included from ./tester.hpp:13:
+In file included from ./../containers/map.hpp:4:
+In file included from ./../containers/../utils/rb_tree.hpp:6:
+In file included from ./../containers/stack.hpp:4:
+In file included from ./../containers/vector.hpp:9:
+./../utils/util.hpp:74:58: error: template argument uses local type 'my_enum' [-Werror,-Wlocal-type-template-args]
+  typedef typename remove_const<typename remove_volatile<T>::type>::type type;
+                                                         ^
+./../utils/util.hpp:143:44: note: in instantiation of template class 'ft::remove_cv<my_enum>' requested here
+    : public __is_integral_helper<typename remove_cv<T>::type>::type {};
+                                           ^
+test_util.cpp:30:15: note: in instantiation of template class 'ft::is_integral<my_enum>' requested here
+  cout << ft::is_integral<my_enum>::value << ":my_enum is not integral" << endl;
+              ^
+In file included from test_util.cpp:1:
+In file included from ./tester.hpp:13:
+In file included from ./../containers/map.hpp:4:
+In file included from ./../containers/../utils/rb_tree.hpp:6:
+In file included from ./../containers/stack.hpp:4:
+In file included from ./../containers/vector.hpp:9:
+./../utils/util.hpp:74:33: error: template argument uses local type 'my_enum' [-Werror,-Wlocal-type-template-args]
+  typedef typename remove_const<typename remove_volatile<T>::type>::type type;
+                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./../utils/util.hpp:143:35: error: template argument uses local type 'my_enum' [-Werror,-Wlocal-type-template-args]
+    : public __is_integral_helper<typename remove_cv<T>::type>::type {};
+                                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+test_util.cpp:30:15: note: in instantiation of template class 'ft::is_integral<my_enum>' requested here
+  cout << ft::is_integral<my_enum>::value << ":my_enum is not integral" << endl;
+              ^
+6 errors generated.
+In file included from test_vector.cpp:1:
+In file included from ./tester.hpp:13:
+In file included from ./../containers/map.hpp:4:
+In file included from ./../containers/../utils/rb_tree.hpp:6:
+In file included from ./../containers/../utils/../containers/stack.hpp:4:
+In file included from ./../containers/vector.hpp:9:
+./../containers/../utils/util.hpp:27:38: error: expected ';' at end of declaration list
+  const value_type operator()() const noexcept { return value; }
+                                     ^
+                                     ;
+test_vector.cpp:224:13: error: expected ';' at end of declaration
+  RevIt r_it{it};
+            ^
+            ;
+test_vector.cpp:231:14: error: expected ';' at end of declaration
+  RevIt r_end{v.begin()};
+             ^
+             ;
+test_vector.cpp:232:16: error: expected ';' at end of declaration
+  RevIt r_begin{v.end()};
+               ^
+               ;
+test_vector.cpp:247:15: error: alias declarations are a C++11 extension [-Werror,-Wc++11-extensions]
+  using RI1 = ft::reverse_iterator<ft::vector<int>::iterator>;
+              ^
+test_vector.cpp:255:9: error: expected ';' at end of declaration
+  RI1 r1{vi.rend() - 2};
+        ^
+        ;
+test_vector.cpp:265:18: error: expected ';' in 'for' statement specifier
+    for (size_t i{}; i != v.size(); ++i)
+                 ^
+test_vector.cpp:265:18: error: expected expression
+test_vector.cpp:265:35: error: expected ')'
+    for (size_t i{}; i != v.size(); ++i)
+                                  ^
+test_vector.cpp:265:9: note: to match this '('
+    for (size_t i{}; i != v.size(); ++i)
+        ^
+test_vector.cpp:265:40: error: expected ';' after expression
+    for (size_t i{}; i != v.size(); ++i)
+                                       ^
+                                       ;
+test_vector.cpp:265:39: error: use of undeclared identifier 'i'
+    for (size_t i{}; i != v.size(); ++i)
+                                      ^
+test_vector.cpp:265:40: error: expected expression
+    for (size_t i{}; i != v.size(); ++i)
+                                       ^
+test_vector.cpp:277:54: error: expected '(' for function-style cast or type construction
+      ft::reverse_iterator<ft::vector<int>::iterator>{v.rbegin()};
+      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+test_vector.cpp:318:56: error: expected ';' at end of declaration
+    ft::reverse_iterator<ft::vector<int>::iterator> ri2{2 + ri1};
+                                                       ^
+                                                       ;
+test_vector.cpp:497:17: error: expected expression
+                [](const int n) { cout << n << ' '; });
+                ^
+test_vector.cpp:526:17: error: expected expression
+                [](const int n) { cout << n << ' '; });
+                ^
+In file included from test_vector.cpp:1:
+In file included from ./tester.hpp:13:
+In file included from ./../containers/map.hpp:4:
+In file included from ./../containers/../utils/rb_tree.hpp:6:
+In file included from ./../containers/stack.hpp:4:
+./../containers/vector.hpp:45:9: error: delegating constructors are permitted only in C++11
+      : vector(alloc) {
+        ^~~~~~
+test_vector.cpp:27:19: note: in instantiation of member function 'ft::vector<int, std::__1::allocator<int> >::vector' requested here
+  ft::vector<int> v3(5, 123, alloc);
+                  ^
+In file included from test_vector.cpp:1:
+In file included from ./tester.hpp:13:
+In file included from ./../containers/map.hpp:4:
+In file included from ./../containers/../utils/rb_tree.hpp:6:
+In file included from ./../containers/stack.hpp:4:
+./../containers/vector.hpp:62:33: error: delegating constructors are permitted only in C++11
+  vector(const vector& other) : vector(other._alloc) {
+                                ^~~~~~
+test_vector.cpp:29:19: note: in instantiation of member function 'ft::vector<int, std::__1::allocator<int> >::vector' requested here
+  ft::vector<int> v4(v3);
+                  ^
+In file included from test_vector.cpp:1:
+In file included from ./tester.hpp:13:
+In file included from ./../containers/map.hpp:4:
+In file included from ./../containers/../utils/rb_tree.hpp:6:
+In file included from ./../containers/stack.hpp:4:
+./../containers/vector.hpp:37:14: error: delegating constructors are permitted only in C++11
+  vector() : vector(allocator_type()) {}
+             ^~~~~~
+test_vector.cpp:33:19: note: in instantiation of member function 'ft::vector<int, std::__1::allocator<int> >::vector' requested here
+  ft::vector<int> v5;
+                  ^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+20 errors generated.
+make: *** [test0] Error 1
