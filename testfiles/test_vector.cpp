@@ -205,7 +205,7 @@ void rit_op_equal() {
   ft::vector<int> a1(3);
   rep(i, 3) a1[i] = i;
 
-  //	ft::reverse_iterator<ft::vector<int>::const_iterator> it1 =
+  // ft::reverse_iterator<ft::vector<int>::const_iterator> it1 =
   // a1.crbegin();
   ft::reverse_iterator<ft::vector<int>::const_iterator> it1 = a1.rbegin();
   ft::reverse_iterator<ft::vector<int>::iterator> it2 = a1.rbegin();
@@ -221,15 +221,15 @@ void rit_base() {
   typedef ft::reverse_iterator<ft::vector<int>::iterator> RevIt;
 
   const ft::vector<int>::iterator it = v.begin() + 3;
-  RevIt r_it{it};
+  RevIt r_it(it);
 
   cout << "*it == " << *it << '\n'
        << "*r_it == " << *r_it << '\n'
        << "*r_it.base() == " << *r_it.base() << '\n'
        << "*(r_it.base()-1) == " << *(r_it.base() - 1) << '\n';
 
-  RevIt r_end{v.begin()};
-  RevIt r_begin{v.end()};
+  RevIt r_end(v.begin());
+  RevIt r_begin(v.end());
 
   for (ft::vector<int>::iterator itt = r_end.base(); itt != r_begin.base();
        ++itt) {
@@ -244,7 +244,7 @@ void rit_base() {
 }
 
 void rit_op_ref() {
-  using RI1 = ft::reverse_iterator<ft::vector<int>::iterator>;
+  typedef ft::reverse_iterator<ft::vector<int>::iterator> RI1;
   ft::vector<int> vi(4);
   rep(i, 4) vi[i] = i;
   RI1 r0 = vi.rbegin();
@@ -252,7 +252,7 @@ void rit_op_ref() {
   *r0 = 42;
   cout << "vi[3] = " << vi[3] << '\n';
 
-  RI1 r1{vi.rend() - 2};
+  RI1 r1 = vi.rend() - 2;
   cout << "*r1 = " << *r1 << '\n';
 }
 
@@ -262,7 +262,7 @@ void rit_op_block() {
     rep(i, 4) v[i] = i;
     ft::reverse_iterator<ft::vector<int>::iterator> iter;
     iter = v.rbegin();
-    for (size_t i{}; i != v.size(); ++i)
+    for (size_t i = 0; i != v.size(); ++i)
       cout << iter[i] << ' ';  // the type of iter[i] is `int&`
     cout << '\n';
   }
@@ -274,7 +274,7 @@ void rit_ops() {
   rep(i, 5) v.push_back(i);
 
   ft::vector<int>::reverse_iterator rv =
-      ft::reverse_iterator<ft::vector<int>::iterator>{v.rbegin()};
+      (ft::reverse_iterator<ft::vector<int>::iterator>)v.rbegin();
   cout << *(++rv) << ' ';    // 3
   cout << *(--rv) << ' ';    // 4
   cout << *(rv + 3) << ' ';  // 1
@@ -315,7 +315,7 @@ void rit_nonmember_op_plus() {
     ft::reverse_iterator<ft::vector<int>::iterator> ri1;
     ri1 = v.rbegin();
     cout << *ri1 << ' ';  // 3
-    ft::reverse_iterator<ft::vector<int>::iterator> ri2{2 + ri1};
+    ft::reverse_iterator<ft::vector<int>::iterator> ri2 = 2 + ri1;
     cout << *ri2 << ' ';  // 1
   }
 }
@@ -482,7 +482,12 @@ void vector_begin_test() {
   pout("vector_begin_test");
 
   ft::vector<int> nums(5);
-  int _nums[5] = {1, 2, 4, 8, 16};
+  int _nums[5];
+  _nums[0] = 1;
+  _nums[1] = 2;
+  _nums[2] = 4;
+  _nums[3] = 8;
+  _nums[4] = 16;
   rep(i, 5) nums[i] = _nums[i];
 
   ft::vector<std::string> fruits(3);
@@ -493,9 +498,7 @@ void vector_begin_test() {
   ft::vector<char> empty;
 
   // Print vector.
-  std::for_each(nums.begin(), nums.end(),
-                [](const int n) { cout << n << ' '; });
-  cout << '\n';
+  vdebug(nums);
 
   // Sums all integers in the vector nums (if any), printing only the result.
   cout << "Sum of nums: " << std::accumulate(nums.begin(), nums.end(), 0)
@@ -511,7 +514,12 @@ void vector_rbegin_test() {
   pout("vector_rbegin_test");
 
   ft::vector<int> nums(5);
-  int _nums[5] = {1, 2, 4, 8, 16};
+  int _nums[5];
+  _nums[0] = 1;
+  _nums[1] = 2;
+  _nums[2] = 4;
+  _nums[3] = 8;
+  _nums[4] = 16;
   rep(i, 5) nums[i] = _nums[i];
 
   ft::vector<std::string> fruits(3);
@@ -522,9 +530,7 @@ void vector_rbegin_test() {
   ft::vector<char> empty;
 
   // Print vector.
-  std::for_each(nums.rbegin(), nums.rend(),
-                [](const int n) { cout << n << ' '; });
-  cout << '\n';
+  vdebug(nums);
 
   // Sums all integers in the vector nums (if any), printing only the result.
   cout << "Sum of nums: " << std::accumulate(nums.rbegin(), nums.rend(), 0)
@@ -578,7 +584,10 @@ void vector_insert_test() {
   vec.insert(it + 2, vec2.begin(), vec2.end());
   vdebug(vec);
 
-  int arr[] = {501, 502, 503};
+  int arr[3];
+  arr[0] = 501;
+  arr[1] = 502;
+  arr[2] = 503;
   vec.insert(vec.begin(), arr, arr + 2);
   //    vec.insert(vec.end()+1, arr, arr+3); // Segmentation fault
   vdebug(vec);
@@ -749,11 +758,6 @@ void vector_nonmember_swap_test() {
   cout << '\n';
 }
 
-void vector_const_iterator_test() {
-  ft::vector<int> v1;
-  decltype(v1)::const_iterator it = v1.begin();
-}
-
 void vector_test() {
   alloc_test();
   traits_test();
@@ -780,5 +784,4 @@ void vector_test() {
   vector_swap_test();
   vector_nonmember_operator_test();
   vector_nonmember_swap_test();
-  vector_const_iterator_test();
 }

@@ -34,23 +34,24 @@ class vector {
   ** Member functions
   */
 
-  vector() : vector(allocator_type()) {}
+  vector()
+      : _first(NULL),
+        _last(NULL),
+        _reserved_last(NULL),
+        _alloc(allocator_type()) {}
   explicit vector(const Allocator& alloc)
-      : _first(nullptr),
-        _last(nullptr),
-        _reserved_last(nullptr),
-        _alloc(alloc) {}
+      : _first(NULL), _last(NULL), _reserved_last(NULL), _alloc(alloc) {}
   explicit vector(size_type count, const T& value = T(),
                   const Allocator& alloc = Allocator())
-      : vector(alloc) {
+      : _first(NULL), _last(NULL), _reserved_last(NULL), _alloc(alloc) {
     resize(count, value);
   }
 
   template <class InputIt>
   vector(InputIt head, InputIt tail, const Allocator& alloc = Allocator(),
          typename ft::enable_if<!ft::is_integral<InputIt>::value,
-                                InputIt>::type* = nullptr)
-      : vector(alloc) {
+                                InputIt>::type* = NULL)
+      : _first(NULL), _last(NULL), _reserved_last(NULL), _alloc(alloc) {
     difference_type sz = ft::distance(head, tail);
     resize(sz);
     pointer ptr = _first;
@@ -59,7 +60,8 @@ class vector {
     }
   }
 
-  vector(const vector& other) : vector(other._alloc) {
+  vector(const vector& other)
+      : _first(NULL), _last(NULL), _reserved_last(NULL), _alloc(other._alloc) {
     reserve(other.size());
 
     pointer dest = _first;
@@ -69,6 +71,7 @@ class vector {
     }
     _last = _first + other.size();
   }
+
   ~vector() {
     clear();
     deallocate();
@@ -122,7 +125,7 @@ class vector {
   template <class InputIt>
   void assign(InputIt first, InputIt last,
               typename ft::enable_if<!ft::is_integral<InputIt>::value,
-                                     InputIt>::type* = nullptr) {
+                                     InputIt>::type* = NULL) {
     size_type count = last - first;
     if (count > capacity()) {
       clear();
@@ -294,7 +297,7 @@ class vector {
   template <class InputIt>
   void insert(iterator pos, InputIt first, InputIt last,
               typename ft::enable_if<!ft::is_integral<InputIt>::value,
-                                     InputIt>::type* = nullptr) {
+                                     InputIt>::type* = NULL) {
     difference_type count = last - first;
     if (count < 0) throw std::length_error("negative length.");
     if (count == 0) return;
@@ -326,20 +329,19 @@ class vector {
   iterator erase(iterator pos) {
     // The iterator first does not need to be dereferenceable if first==last:
     // erasing an empty range is a no-op.
-    if (_first == _last) return nullptr;
+    if (_first == _last) return NULL;
 
     difference_type offset = pos - begin();
 
-    for (iterator src = pos; src < end(); ++src){
-      *src = *(src + 1);
-      if (src == end()) break;
+    for (iterator src = pos + 1; src < end(); ++src) {
+      *(src - 1) = *src;
     }
     destroy(--_last);
     return (begin() + offset);
   }
 
   iterator erase(iterator first, iterator last) {
-    if (_first == _last) return nullptr;
+    if (_first == _last) return NULL;
 
     difference_type head_offset = first - begin();
     difference_type tail_offset = last - first;
@@ -419,7 +421,7 @@ class vector {
 
   pointer allocate(size_type n) { return _alloc.allocate(n); }
   void deallocate() { _alloc.deallocate(_first, capacity()); }
-  void construct(pointer ptr) { _alloc.construct(ptr); }
+  void construct(pointer ptr) { _alloc.construct(ptr, 0); }
   void construct(pointer ptr, const_reference value) {
     _alloc.construct(ptr, value);
   }

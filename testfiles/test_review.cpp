@@ -108,16 +108,14 @@ void review_vector_refer_elements() {
 }
 
 void review_vector_time() {
-  std::chrono::system_clock::time_point clockstart, clockend;
-  clockstart = std::chrono::system_clock::now();
+  clock_t clockstart, clockend;
+  clockstart = clock();
 
   ft::vector<int> V;
   V.assign(1000000, 42);
 
-  clockend = std::chrono::system_clock::now();
-  double time = std::chrono::duration_cast<std::chrono::microseconds>(
-                    clockend - clockstart)
-                    .count();
+  clockend = clock();
+  double time = (double)(clockend - clockstart);
   out_time("vector", time);
 }
 
@@ -144,7 +142,7 @@ void review_map_insert_delete() {
   ft::map<int, int> M;
   int N = 10;
 
-  for (int i = 0; i < N; ++i) M.insert({i, i});
+  for (int i = 0; i < N; ++i) M.insert(ft::make_pair<int, int>(i, i));
   mdebug(M);
   for (int i = 0; i < N + 3; ++i) {
     int j = (i + 5) % N;
@@ -232,8 +230,8 @@ void review_map_swap() {
 }
 
 void review_map_time() {
-  std::chrono::system_clock::time_point clockstart, clockend;
-  clockstart = std::chrono::system_clock::now();
+  clock_t clockstart, clockend;
+  clockstart = clock();
 
   ft::map<int, int> M;
   int N = 100000;
@@ -241,10 +239,8 @@ void review_map_time() {
   for (int i = 0; i < N; ++i) M[i] = i;
   for (int i = 0; i < N; ++i) M.erase(i);
 
-  clockend = std::chrono::system_clock::now();
-  double time = std::chrono::duration_cast<std::chrono::microseconds>(
-                    clockend - clockstart)
-                    .count();
+  clockend = clock();
+  double time = (double)(clockend - clockstart);
   out_time("map", time);
 }
 
@@ -266,11 +262,11 @@ void review_map_test() {
 void review_stack_test() {
   pout("review_stack_test");
 
-  ft::stack<int, ft::vector<int>> SV;
+  ft::stack<int, ft::vector<int> > SV;
   SV.push(1);
-  ft::stack<int, std::deque<int>> SD;
+  ft::stack<int, std::deque<int> > SD;
   SD.push(2);
-  ft::stack<int, std::list<int>> SL;
+  ft::stack<int, std::list<int> > SL;
   SL.push(3);
 
   cout << SV.top() << SD.top() << SL.top() << endl;

@@ -17,6 +17,8 @@ void sdebug(Con const& S) {
   cout << endl;
 }
 
+static double dist(double x1, double y1) { return (std::sqrt(x1 * x1 + y1 * y1)); }
+
 void set_insert_test() {
   pout("set_insert_test");
 
@@ -161,7 +163,7 @@ void begin_test_out(Con& mag) {
   // Update and print the magnitude of each node
   for (typename Con::iterator iter = mag.begin(); iter != mag.end(); ++iter) {
     Point_begin_test* cur = *iter;
-    double ret = std::hypot(cur->x, cur->y);  // hypot == sqrt(a,b)
+    double ret = dist(cur->x, cur->y);  // hypot == sqrt(a,b)
     cout << "The magnitude of (" << cur->x << ", " << cur->y << ") is ";
     cout << ret << '\n';
   }
@@ -173,7 +175,7 @@ void begin_test_const_out(const Con& mag) {
   for (typename Con::const_iterator iter = mag.begin(); iter != mag.end();
        ++iter) {
     Point_begin_test* cur = *iter;
-    double ret = std::hypot(cur->x, cur->y);  // hypot == sqrt(a,b)
+    double ret = dist(cur->x, cur->y);  // hypot == sqrt(a,b)
     cout << "The magnitude of (" << cur->x << ", " << cur->y << ") is ";
     cout << ret << '\n';
   }
@@ -181,9 +183,12 @@ void begin_test_const_out(const Con& mag) {
 
 void set_begin_test() {
   Point_begin_test points[3];
-  points[0] = {2, 0};
-  points[1] = {1, 0};
-  points[2] = {3, 0};
+  points[0].x = 2;
+  points[0].y = 0;
+  points[1].x = 1;
+  points[1].y = 0;
+  points[2].x = 3;
+  points[2].y = 0;
 
   // points[].first でsortされる
   ft::set<Point_begin_test*, PointCmp_begin_test> mag;
@@ -664,10 +669,20 @@ void set_constructs_test() {
 
   // custom comparison
   ft::set<Point_constructs_test, PointCmp_constructs_test> z;
-  z.insert({2, 5});
-  z.insert({3, 4});
-  z.insert({1, 1});
-  z.insert({1, -1});  // this fails because the magnitude of 1,-1 equals 1,1
+  Point_constructs_test points[4];
+  points[0].x = 2;
+  points[0].y = 5;
+  points[1].x = 3;
+  points[1].y = 4;
+  points[2].x = 1;
+  points[2].y = 1;
+  points[3].x = 1;
+  points[3].y = -1;
+  z.insert(points[0]);
+  z.insert(points[1]);
+  z.insert(points[2]);
+  z.insert(points[3]);  // not fail
+
   for (ft::set<Point_constructs_test, PointCmp_constructs_test>::iterator it =
            z.begin();
        it != z.end(); ++it) {

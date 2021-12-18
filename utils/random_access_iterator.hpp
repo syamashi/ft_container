@@ -21,7 +21,7 @@ class random_access_iterator
   typedef T* pointer;
   typedef T& reference;
 
-  random_access_iterator() : _current(nullptr) {}
+  random_access_iterator() : _current(NULL) {}
   random_access_iterator(pointer x) : _current(x) {}
   random_access_iterator(const random_access_iterator& other)
       : _current(other._current) {}

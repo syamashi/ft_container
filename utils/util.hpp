@@ -7,7 +7,7 @@ namespace ft {
 /*
 type と value_type を宣言する必要がある。
 
-- constexpr operator value_type() const noexcept { return value; } // c++11
+- constexpr operator value_type() const { return value; } // c++11
   ft::is_integral<int>() // 1
   ft::is_integral<int*>() // 0
 
@@ -15,7 +15,7 @@ type と value_type を宣言する必要がある。
 
 ft::is_integral<InputIt>::value さえとれればいい
 
-- const value_type operator()() const noexcept {
+- const value_type operator()() const {
   ft::is_integral<int> F;
   int f = F(); // f==1
 */
@@ -24,7 +24,7 @@ struct integral_constant {
   static const _Tp value = __v;
   typedef _Tp value_type;
   typedef integral_constant<_Tp, __v> type;
-  const value_type operator()() const noexcept { return value; }
+  const value_type operator()() const { return value; }
 };
 
 /// The type used as a compile-time boolean with true value.
@@ -96,11 +96,11 @@ struct __is_integral_helper<unsigned char> : public true_type {};
 template <>
 struct __is_integral_helper<wchar_t> : public true_type {};
 
-template <>
-struct __is_integral_helper<char16_t> : public true_type {};
+//template <>
+//struct __is_integral_helper<char16_t> : public true_type {};
 
-template <>
-struct __is_integral_helper<char32_t> : public true_type {};
+//template <>
+//struct __is_integral_helper<char32_t> : public true_type {};
 
 template <>
 struct __is_integral_helper<short> : public true_type {};
@@ -117,8 +117,8 @@ struct __is_integral_helper<int>{
   static const bool value = true;
   typedef int value_type;
   typedef __is_integral_helper<int> type;
-  const operator value_type() const noexcept { return value; }
-  const value_type operator()() const noexcept { return value; }
+  const operator value_type() const { return value; }
+  const value_type operator()() const { return value; }
 };
 */
 

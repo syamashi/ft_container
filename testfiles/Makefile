@@ -3,7 +3,7 @@ SRCS = $(shell find *.cpp)
 OBJDIR = ./obj/
 OBJS = $(SRCS:%.cpp=$(OBJDIR)%.o)
 
-CXX = clang++
+CXX = clang++ -g -O0
 CFLAGS = -Wall -Werror -Wextra -std=c++98
 
 all: $(OBJDIR) $(NAME)
@@ -27,9 +27,9 @@ fclean: clean
 re: fclean all
 
 test:
-	$(CXX) $(SRCS) -DTEST=0 -o $(NAME)
+	$(CXX) $(CFLAGS) $(SRCS) -DTEST=0 -o $(NAME)
 	@./$(NAME) > out_ft 2>err_ft
-	$(CXX) $(SRCS) -DTEST=1 -o $(NAME)
+	$(CXX) $(CFLAGS) $(SRCS) -DTEST=1 -o $(NAME)
 	@./$(NAME) > out_std 2>err_std
 	diff out_ft out_std
 	@echo "---ft_err---"
@@ -44,18 +44,18 @@ test0:
 	@cat err_ft
 
 test1:
-	$(CXX) $(SRCS) -DTEST=1 -o $(NAME)
+	$(CXX) $(CFLAGS) $(SRCS) -DTEST=1 -o $(NAME)
 	@./$(NAME) > out_std 2>err_std
 	@cat out_std
 	@cat err_std
 
 val0:
-	$(CXX) $(SRCS) -DTEST=0 -o $(NAME)
+	$(CXX) $(CFLAGS) $(SRCS) -DTEST=0 -o $(NAME)
 	valgrind --leak-check=full --show-leak-kinds=all ./$(NAME) > out_ft
 	@make fclean -s
 
 val1:
-	$(CXX) $(SRCS) -DTEST=1 -o $(NAME)
+	$(CXX) $(CFLAGS) $(SRCS) -DTEST=1 -o $(NAME)
 	valgrind --leak-check=full --show-leak-kinds=all ./$(NAME) > out_std
 	@make fclean -s
 

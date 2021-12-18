@@ -6,7 +6,7 @@
 #include <map>
 #include <set>
 #include <stack>
-#include <type_traits>
+// #include <type_traits> c++11
 #include <vector>
 namespace ft = std;
 #else
@@ -21,9 +21,9 @@ namespace ft = std;
 #endif
 
 #include <stdlib.h>
+#include <time.h>  // for clock()
 
 #include <algorithm>  // std::copy
-#include <chrono>
 #include <cmath>    // hypot set
 #include <cstddef>  // size_t
 #include <ctime>

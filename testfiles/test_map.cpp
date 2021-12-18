@@ -18,6 +18,10 @@ void mdebug(ft::map<T, U> const& M) {
   cout << endl;
 }
 
+static double dist(double x1, double y1) {
+  return (std::sqrt(x1 * x1 + y1 * y1));
+}
+
 void map_insert_test() {
   pout("map_insert_test");
 
@@ -224,7 +228,7 @@ void begin_test_out(Con& mag) {
            mag.begin();
        iter != mag.end(); ++iter) {
     Point_begin_test* cur = iter->first;
-    mag[cur] = std::hypot(cur->x, cur->y);  // hypot == sqrt(a,b)
+    mag[cur] = dist(cur->x, cur->y);  // hypot == sqrt(a,b)
     cout << "The magnitude of (" << cur->x << ", " << cur->y << ") is ";
     cout << iter->second << '\n';
   }
@@ -235,7 +239,7 @@ void begin_test_out(Con& mag) {
        iter != mag.end(); ++iter) {
     Point_begin_test* cur = iter->first;
     cur->y = iter->second;
-    mag[cur] = std::hypot(cur->x, cur->y);
+    mag[cur] = dist(cur->x, cur->y);
     cout << "The magnitude of (" << cur->x << ", " << cur->y << ") is ";
     cout << mag[cur] << '\n';
   }
@@ -248,7 +252,6 @@ void begin_test_const_out(const Con& mag) {
            iter = mag.begin();
        iter != mag.end(); ++iter) {
     Point_begin_test* cur = iter->first;
-    //    mag[cur] = std::hypot(cur->x, cur->y); // hypot == sqrt(a,b)
     cout << "The magnitude of (" << cur->x << ", " << cur->y << ") is ";
     cout << iter->second << '\n';
   }
@@ -259,7 +262,7 @@ void begin_test_const_out(const Con& mag) {
        iter != mag.end(); ++iter) {
     Point_begin_test* cur = iter->first;
     cur->y = iter->second;
-    //    mag[cur] = std::hypot(cur->x, cur->y);
+    //    mag[cur] = dist(cur->x, cur->y);
     cout << "The magnitude of (" << cur->x << ", " << cur->y << ") is ";
     cout << "const" << '\n';
   }
@@ -268,7 +271,7 @@ void begin_test_const_out(const Con& mag) {
 void map_begin_test() {
   Point_begin_test points[3];
   points[0].x = 2;
-  points[0].y = 2;
+  points[0].y = 0;
   points[1].x = 1;
   points[1].y = 0;
   points[2].x = 3;
@@ -517,11 +520,61 @@ void map_find_test() {
 }
 
 template <class Con>
-void map_equal_range_test_out(Con& m) {}
+void map_equal_range_test_out(Con& m) {
+  pout("map_equal_range_test_out");
+
+  {
+    typename ft::pair<typename Con::iterator, typename Con::iterator> p =
+        m.equal_range(1);
+    for (typename Con::iterator& q = p.first; q != p.second; ++q) {
+      cout << "m[" << q->first << "] = " << q->second << '\n';
+    }
+
+    if (p.second == m.find(2)) {
+      cout << "end of equal_range (p.second) is one-past p.first\n";
+    } else {
+      cout << "unexpected; p.second expected to be one-past p.first\n";
+    }
+  }
+
+  {
+    typename ft::pair<typename Con::iterator, typename Con::iterator> pp =
+        m.equal_range(-1);
+    if (pp.first == m.begin()) {
+      cout << "pp.first is iterator to first not-less than -1\n";
+    } else {
+      cout << "unexpected pp.first\n";
+    }
+
+    if (pp.second == m.begin()) {
+      cout << "pp.second is iterator to first element greater-than -1\n";
+    } else {
+      cout << "unexpected pp.second\n";
+    }
+  }
+
+  {
+    typename ft::pair<typename Con::iterator, typename Con::iterator> ppp =
+        m.equal_range(3);
+    if (ppp.first == m.end()) {
+      cout << "ppp.first is iterator to first not-less than 3\n";
+    } else {
+      cout << "unexpected ppp.first\n";
+    }
+
+    if (ppp.second == m.end()) {
+      cout << "ppp.second is iterator to first element greater-than 3\n";
+    } else {
+      cout << "unexpected ppp.second\n";
+    }
+  }
+}
 
 template <class Con>
 void map_equal_range_test_const_out(const Con& m) {
   {
+    pout("map_equal_range_test_const_out");
+
     typename ft::pair<typename Con::const_iterator,
                       typename Con::const_iterator>
         p = m.equal_range(1);
@@ -683,8 +736,9 @@ void map_value_comp_test() {
   for (ft::map<int, int, ModCmp_comp_test>::iterator it = cont.begin();
        it != cont.end(); ++it) {
     const ft::pair<int, int> key = *it;
-    bool before = comp_func(key, {100, 100});
-    bool after = comp_func({100, 100}, key);
+    ft::pair<int, int> piv = ft::make_pair(100, 100);
+    bool before = comp_func(key, piv);
+    bool after = comp_func(piv, key);
     if (!before && !after)
       cout << key.first << " equivalent to key 100\n";
     else if (before)
@@ -783,9 +837,12 @@ void map_constructs_test() {
   mag[points[0]] = 13;
   mag[points[1]] = 5;
   mag[points[2]] = 17;
-  for (ft::pair<const Point_constructs_test, double> p : mag)
-    cout << "The magnitude of (" << p.first.x << ", " << p.first.y << ") is "
-         << p.second << '\n';
+  for (ft::map<Point_constructs_test, double,
+               PointCmp_constructs_test>::iterator it = mag.begin();
+       it != mag.end(); ++it) {
+    cout << "The magnitude of (" << it->first.x << ", " << it->first.y
+         << ") is " << it->second << '\n';
+  }
 }
 
 void map_test() {

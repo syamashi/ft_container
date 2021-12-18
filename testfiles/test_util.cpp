@@ -7,9 +7,10 @@ void pout(T s) {
   cout << "--- [" << ++no << "]:" << s << " ---" << endl;
 }
 
-void is_integral_test() {
+void is_integral_test() { // c++11
   pout("is_integral_test");
-  
+/*
+
   cout << ft::is_integral<int>::value << ":int is integral" << endl;
   cout << ft::is_same<ft::is_integral<int>::value_type, bool>::value << ":value_type == bool" << endl;
   cout << ft::is_same<ft::is_integral<int>::type, ft::true_type>::value << ":type == true_type" << endl;
@@ -22,12 +23,9 @@ void is_integral_test() {
 
   cout << ft::is_integral<bool>::value << ":bool is integral" << endl;
   cout << ft::is_integral<char>::value << ":char is integral" << endl;
-  cout << ft::is_integral<char32_t>::value << ":char32_t is integral" << endl;
   cout << ft::is_integral<const long long>::value << ":const long long is integral" << endl;
   cout << ft::is_integral<volatile unsigned>::value << ":volatile unsigned is integral" << endl;
 
-  enum my_enum {};
-  cout << ft::is_integral<my_enum>::value << ":my_enum is not integral" << endl;
   cout << ft::is_integral<int&>::value << ":int& is not integral" << endl;
   cout << ft::is_integral<int[1]>::value << ":int[1] is not integral" << endl;
   cout << ft::is_integral<int()>::value << ":int () is not integral" << endl;
@@ -35,8 +33,6 @@ void is_integral_test() {
 
   cout << ft::is_integral<bool>::value << ":bool is integral" << endl;
   cout << ft::is_integral<char>::value << ":char is integral" << endl;
-  cout << ft::is_integral<char16_t>::value << ":char16 is integral" << endl;
-  cout << ft::is_integral<char32_t>::value << ":char32 is integral" << endl;
   cout << ft::is_integral<wchar_t>::value << ":wchar is integral" << endl;
   cout << ft::is_integral<short>::value << ":short is integral" << endl;
   cout << ft::is_integral<int>::value << ":int is integral" << endl;
@@ -48,6 +44,7 @@ void is_integral_test() {
   ft::is_integral<int> F;
   int f = F();
   cout << f << endl;
+*/
 }
 
 void util_test(){

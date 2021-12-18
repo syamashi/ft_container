@@ -1,15 +1,15 @@
 #include "tester.hpp"
 
 int main() {
-  std::chrono::system_clock::time_point  clockstart, clockend;
-  clockstart = std::chrono::system_clock::now();
+  clock_t clockstart, clockend;
+  clockstart = clock();
 	vector_test();
 	stack_test();
 	map_test();
 	set_test();
   util_test();
   review_test();
-  clockend = std::chrono::system_clock::now();
-  double time = std::chrono::duration_cast<std::chrono::microseconds>(clockend - clockstart).count();
+  clockend = clock();
+  double time = (double)(clockend - clockstart);
   cerr << "totaltime:" << time << endl;
 }

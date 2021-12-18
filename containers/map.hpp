@@ -61,7 +61,7 @@ class map {
   map(InputIt first, InputIt last, const Compare& comp = Compare(),
       const allocator_type& a = allocator_type(),
       typename ft::enable_if<!ft::is_integral<InputIt>::value, InputIt>::type* =
-          nullptr)
+          NULL)
       : _M_t(comp, a) {
     insert(first, last);
   }
@@ -137,7 +137,7 @@ class map {
   template <class InputIt>
   void insert(InputIt first, InputIt last,
               typename ft::enable_if<!ft::is_integral<InputIt>::value,
-                                     InputIt>::type* = nullptr) {
+                                     InputIt>::type* = NULL) {
     for (InputIt head = first; head != last; ++head) {
       insert(*head);
     }

@@ -1,0 +1,108 @@
+test_vector.cpp:224:9: error: no viable conversion from 'const ft::vector<int>::iterator' (aka 'const random_access_iterator<int>') to 'RevIt' (aka 'reverse_iterator<random_access_iterator<int> >')
+  RevIt r_it = it;
+        ^      ~~
+./../utils/iterator.hpp:60:7: note: candidate constructor (the implicit copy constructor) not viable: no known conversion from 'const ft::vector<int>::iterator' (aka 'const random_access_iterator<int>') to 'const ft::reverse_iterator<ft::random_access_iterator<int> > &' for 1st argument
+class reverse_iterator
+      ^
+./../utils/iterator.hpp:83:3: note: candidate template ignored: could not match 'reverse_iterator' against 'random_access_iterator'
+  reverse_iterator(const reverse_iterator<U>& other) : _current(other.base()) {}
+  ^
+./../containers/../utils/random_access_iterator.hpp:75:3: note: candidate function
+  operator random_access_iterator<const T>() const {
+  ^
+test_vector.cpp:231:9: error: no viable conversion from 'ft::vector<int, std::allocator<int> >::iterator' (aka 'random_access_iterator<int>') to 'RevIt' (aka 'reverse_iterator<random_access_iterator<int> >')
+  RevIt r_end = v.begin();
+        ^       ~~~~~~~~~
+./../utils/iterator.hpp:60:7: note: candidate constructor (the implicit copy constructor) not viable: no known conversion from 'ft::vector<int, std::allocator<int> >::iterator' (aka 'random_access_iterator<int>') to 'const ft::reverse_iterator<ft::random_access_iterator<int> > &' for 1st argument
+class reverse_iterator
+      ^
+./../utils/iterator.hpp:83:3: note: candidate template ignored: could not match 'reverse_iterator' against 'random_access_iterator'
+  reverse_iterator(const reverse_iterator<U>& other) : _current(other.base()) {}
+  ^
+./../containers/../utils/random_access_iterator.hpp:75:3: note: candidate function
+  operator random_access_iterator<const T>() const {
+  ^
+test_vector.cpp:232:9: error: no viable conversion from 'ft::vector<int, std::allocator<int> >::iterator' (aka 'random_access_iterator<int>') to 'RevIt' (aka 'reverse_iterator<random_access_iterator<int> >')
+  RevIt r_begin = v.end();
+        ^         ~~~~~~~
+./../utils/iterator.hpp:60:7: note: candidate constructor (the implicit copy constructor) not viable: no known conversion from 'ft::vector<int, std::allocator<int> >::iterator' (aka 'random_access_iterator<int>') to 'const ft::reverse_iterator<ft::random_access_iterator<int> > &' for 1st argument
+class reverse_iterator
+      ^
+./../utils/iterator.hpp:83:3: note: candidate template ignored: could not match 'reverse_iterator' against 'random_access_iterator'
+  reverse_iterator(const reverse_iterator<U>& other) : _current(other.base()) {}
+  ^
+./../containers/../utils/random_access_iterator.hpp:75:3: note: candidate function
+  operator random_access_iterator<const T>() const {
+  ^
+test_vector.cpp:247:15: error: alias declarations are a C++11 extension [-Werror,-Wc++11-extensions]
+  using RI1 = ft::reverse_iterator<ft::vector<int>::iterator>;
+              ^
+test_vector.cpp:502:17: error: expected expression
+                [](const int n) { cout << n << ' '; });
+                ^
+test_vector.cpp:536:17: error: expected expression
+                [](const int n) { cout << n << ' '; });
+                ^
+test_vector.cpp:767:3: error: use of undeclared identifier 'decltype'
+  decltype(v1)::const_iterator it = v1.begin();
+  ^
+In file included from test_vector.cpp:1:
+In file included from ./tester.hpp:13:
+In file included from ./../containers/map.hpp:4:
+In file included from ./../containers/../utils/rb_tree.hpp:6:
+In file included from ./../containers/stack.hpp:4:
+./../containers/vector.hpp:425:53: error: too few arguments to function call, expected 2, have 1
+  void construct(pointer ptr) { _alloc.construct(ptr); }
+                                ~~~~~~~~~~~~~~~~    ^
+./../containers/vector.hpp:380:9: note: in instantiation of member function 'ft::vector<int, std::allocator<int> >::construct' requested here
+        construct(_last);
+        ^
+test_vector.cpp:98:5: note: in instantiation of member function 'ft::vector<int, std::allocator<int> >::resize' requested here
+  V.resize(5);
+    ^
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/ext/new_allocator.h:144:7: note: 'construct' declared here
+      void
+      ^
+In file included from test_vector.cpp:1:
+In file included from ./tester.hpp:13:
+In file included from ./../containers/map.hpp:4:
+In file included from ./../containers/../utils/rb_tree.hpp:6:
+In file included from ./../containers/stack.hpp:4:
+./../containers/vector.hpp:259:64: error: too few arguments to function call, expected 2, have 1
+    for (; _last != _first + new_size; ++_last) construct(_last);
+                                                ~~~~~~~~~      ^
+test_vector.cpp:578:12: note: in instantiation of member function 'ft::vector<int, std::allocator<int> >::insert' requested here
+  it = vec.insert(it, 200);
+           ^
+./../containers/vector.hpp:426:3: note: 'construct' declared here
+  void construct(pointer ptr, const_reference value) {
+  ^
+./../containers/vector.hpp:288:64: error: too few arguments to function call, expected 2, have 1
+    for (; _last != _first + new_size; ++_last) construct(_last);
+                                                ~~~~~~~~~      ^
+test_vector.cpp:581:7: note: in instantiation of member function 'ft::vector<int, std::allocator<int> >::insert' requested here
+  vec.insert(it, 2, 300);
+      ^
+./../containers/vector.hpp:426:3: note: 'construct' declared here
+  void construct(pointer ptr, const_reference value) {
+  ^
+./../containers/vector.hpp:319:64: error: too few arguments to function call, expected 2, have 1
+    for (; _last != _first + new_size; ++_last) construct(_last);
+                                                ~~~~~~~~~      ^
+test_vector.cpp:588:7: note: in instantiation of function template specialization 'ft::vector<int, std::allocator<int> >::insert<ft::random_access_iterator<int> >' requested here
+  vec.insert(it + 2, vec2.begin(), vec2.end());
+      ^
+./../containers/vector.hpp:426:3: note: 'construct' declared here
+  void construct(pointer ptr, const_reference value) {
+  ^
+./../containers/vector.hpp:319:64: error: too few arguments to function call, expected 2, have 1
+    for (; _last != _first + new_size; ++_last) construct(_last);
+                                                ~~~~~~~~~      ^
+test_vector.cpp:595:7: note: in instantiation of function template specialization 'ft::vector<int, std::allocator<int> >::insert<int *>' requested here
+  vec.insert(vec.begin(), arr, arr + 2);
+      ^
+./../containers/vector.hpp:426:3: note: 'construct' declared here
+  void construct(pointer ptr, const_reference value) {
+  ^
+12 errors generated.
+make: *** [test0] Error 1
