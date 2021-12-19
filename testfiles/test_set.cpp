@@ -248,11 +248,11 @@ void set_empty_test() {
 void set_max_size_test() {
   pout("set_max_size_test");
 
-  ft::set<int> SII;
-  ft::set<char> SCC;
+  ft::set<int> SI;
+  ft::set<char> SC;
 
-  cout << "int:" << SII.max_size() << endl;
-  cout << "char:" << SCC.max_size() << endl;
+  cout << "SI:" << SI.max_size() << endl;
+  cout << "SC:" << SC.max_size() << endl;
 }
 
 void set_clear_test() {

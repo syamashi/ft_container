@@ -558,10 +558,10 @@ void vector_max_size_test() {
   pout("vector_max_size_test");
 
   ft::vector<char> s;
-  cout << "Maximum size of a 'vector' is " << s.max_size() << "\n";
+  cout << "VC:" << s.max_size() << "\n";
 
   ft::vector<int> v;
-  cout << "Maximum size of a 'vector' is " << v.max_size() << "\n";
+  cout << "VI:" << v.max_size() << "\n";
 }
 
 void vector_insert_test() {

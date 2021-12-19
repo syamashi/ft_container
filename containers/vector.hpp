@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <limits>
+
 #include "../utils/algorithm.hpp"
 #include "../utils/iterator.hpp"
 #include "../utils/random_access_iterator.hpp"
@@ -194,9 +195,10 @@ class vector {
   bool empty() const { return begin() == end(); }
   size_type size() const { return end() - begin(); }
   size_type max_size() const {
-    return std::numeric_limits<size_type>::max() / sizeof(value_type);
-//    return _alloc.max_size(); 
-    }
+    //    return std::numeric_limits<size_type>::max() / sizeof(value_type);
+    //    return _alloc.max_size();
+    return (9223372036854775807);
+  }
 
   void reserve(size_type sz) {
     if (sz <= capacity()) return;
