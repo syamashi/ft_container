@@ -18,6 +18,14 @@ void sdebug(Con const& S) {
 }
 
 static double dist(double x1, double y1) { return (std::sqrt(x1 * x1 + y1 * y1)); }
+static void bitout(size_t n){
+  rep(i, 64){
+    cout << n%2;
+    n/=2;
+    if (i%8==7) cout << " ";
+  }
+  cout << endl;
+}
 
 void set_insert_test() {
   pout("set_insert_test");
@@ -252,7 +260,9 @@ void set_max_size_test() {
   ft::set<char> SC;
 
   cout << "SI:" << SI.max_size() << endl;
+  bitout(SI.max_size());
   cout << "SC:" << SC.max_size() << endl;
+  bitout(SC.max_size());
 }
 
 void set_clear_test() {

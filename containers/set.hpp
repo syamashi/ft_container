@@ -81,7 +81,7 @@ class set {
   size_type size() const { return _M_t.size(); }
   size_type max_size() const { 
     return std::numeric_limits<size_type>::max() / sizeof(value_type);
-    return _M_t.max_size();
+//    return _M_t.max_size();
     }
 
   //// Modifiers

@@ -16,6 +16,15 @@ void vdebug(T& V) {
   cout << "}" << endl;
 }
 
+static void bitout(size_t n){
+  rep(i, 64){
+    cout << n%2;
+    n/=2;
+    if (i%8==7) cout << " ";
+  }
+  cout << endl;
+}
+
 void alloc_test() {
   pout("alloc_test");
 
@@ -559,9 +568,11 @@ void vector_max_size_test() {
 
   ft::vector<char> s;
   cout << "VC:" << s.max_size() << "\n";
+  bitout(s.max_size());
 
   ft::vector<int> v;
   cout << "VI:" << v.max_size() << "\n";
+  bitout(v.max_size());
 }
 
 void vector_insert_test() {

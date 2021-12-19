@@ -21,6 +21,14 @@ void mdebug(ft::map<T, U> const& M) {
 static double dist(double x1, double y1) {
   return (std::sqrt(x1 * x1 + y1 * y1));
 }
+static void bitout(size_t n){
+  rep(i, 64){
+    cout << n%2;
+    n/=2;
+    if (i%8==7) cout << " ";
+  }
+  cout << endl;
+}
 
 void map_insert_test() {
   pout("map_insert_test");
@@ -349,9 +357,13 @@ void map_max_size_test() {
   ft::map<char, int> MCI;
 
   cout << "MII:" << MII.max_size() << endl;
+  bitout(MII.max_size());
   cout << "MCC:" << MCC.max_size() << endl;
+  bitout(MCC.max_size());
   cout << "MIC:" << MIC.max_size() << endl;
+  bitout(MIC.max_size());
   cout << "MCI:" << MCI.max_size() << endl;
+  bitout(MCI.max_size());
 }
 
 void map_clear_test() {
