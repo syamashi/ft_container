@@ -5,8 +5,7 @@ double dist(double x1, double y1) {
 
 void bitout(size_t n){
   rep(i, 64){
-    cout << n%2;
-    n/=2;
+    cout << ((n>>(63-i))&1);
     if (i%8==7) cout << " ";
   }
   cout << endl;
