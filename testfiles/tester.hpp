@@ -50,4 +50,7 @@ void set_test();
 void util_test();
 void review_test();
 
+//// helper
+double dist(double x1, double y1);
+void bitout(size_t n);
 #endif

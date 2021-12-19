@@ -16,14 +16,6 @@ void vdebug(T& V) {
   cout << "}" << endl;
 }
 
-static void bitout(size_t n){
-  rep(i, 64){
-    cout << ((n>>(63-i))&1);
-    if (i%8==7) cout << " ";
-  }
-  cout << endl;
-}
-
 void alloc_test() {
   pout("alloc_test");
 

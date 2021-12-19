@@ -18,18 +18,6 @@ void mdebug(ft::map<T, U> const& M) {
   cout << endl;
 }
 
-static double dist(double x1, double y1) {
-  return (std::sqrt(x1 * x1 + y1 * y1));
-}
-static void bitout(size_t n){
-  rep(i, 64){
-    cout << n%2;
-    n/=2;
-    if (i%8==7) cout << " ";
-  }
-  cout << endl;
-}
-
 void map_insert_test() {
   pout("map_insert_test");
 
