@@ -1,6 +1,7 @@
 #ifndef SET_HPP
 #define SET_HPP
 
+#include <limits>
 #include "../utils/rb_tree.hpp"
 
 namespace ft {
@@ -78,7 +79,10 @@ class set {
 
   bool empty() const { return _M_t.empty(); }
   size_type size() const { return _M_t.size(); }
-  size_type max_size() const { return _M_t.max_size(); }
+  size_type max_size() const { 
+    return std::numeric_limits<size_type>::max() / sizeof(value_type);
+    return _M_t.max_size();
+    }
 
   //// Modifiers
 

@@ -2,6 +2,7 @@
 #define MAP_HPP
 
 #include "../utils/rb_tree.hpp"
+#include <limits>
 
 namespace ft {
 template <typename _Key, typename _Tp, typename Compare = std::less<_Key>,
@@ -116,7 +117,11 @@ class map {
 
   bool empty() const { return _M_t.empty(); }
   size_type size() const { return _M_t.size(); }
-  size_type max_size() const { return _M_t.max_size(); }
+  size_type max_size() const {
+    return std::numeric_limits<size_type>::max() / sizeof(value_type);
+    
+//    return _M_t.max_size();
+    }
 
   //// Modifiers
 

@@ -977,6 +977,7 @@ class _Rb_tree {
        /
       R2
       */
+
     if (v == _S_root()) _M_root() = u;
     v->swapNode(u);
     deleteNode(v);
@@ -1200,7 +1201,9 @@ class _Rb_tree {
     --_M_node_count;
       _Alloc value_alloc;
 
+    value_alloc.destroy(p->_M_value_type);
     value_alloc.deallocate(p->_M_value_type, 1);
+    _M_node_alloc.destroy(p);
     _M_node_alloc.deallocate(p, 1);
   }
   void _M_construct_node(_Link_type node, const value_type& x) {
