@@ -195,9 +195,10 @@ class vector {
   bool empty() const { return begin() == end(); }
   size_type size() const { return end() - begin(); }
   size_type max_size() const {
-    return std::numeric_limits<size_type>::max() / sizeof(value_type);
+    size_t div = sizeof(value_type);
+    if (div == 1) ++div;
+    return std::numeric_limits<size_type>::max() / div;
 //    return _alloc.max_size();
-//    return (9223372036854775807);
   }
 
   void reserve(size_type sz) {
@@ -436,9 +437,6 @@ class vector {
       destroy(&*riter);
     }
   }
-
-  public:
-  size_type get_value_type_size() { return sizeof(value_type) ;}
 };
 
 /*

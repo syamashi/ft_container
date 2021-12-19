@@ -560,12 +560,9 @@ void vector_max_size_test() {
   ft::vector<char> s;
   cout << "VC:" << s.max_size() << "\n";
   bitout(s.max_size());
-  cout << VC.get_value_type_size() << endl;
-
   ft::vector<int> v;
   cout << "VI:" << v.max_size() << "\n";
   bitout(v.max_size());
-  cout << VI.get_value_type_size() << endl;
 }
 
 void vector_insert_test() {

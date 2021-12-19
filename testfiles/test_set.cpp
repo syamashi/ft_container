@@ -251,12 +251,8 @@ void set_max_size_test() {
 
   cout << "SI:" << SI.max_size() << endl;
   bitout(SI.max_size());
-  cout << SI.get_value_type_size() << endl;
-
-
   cout << "SC:" << SC.max_size() << endl;
   bitout(SC.max_size());
-  cout << SC.get_value_type_size() << endl;
 }
 
 void set_clear_test() {

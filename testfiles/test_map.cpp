@@ -346,19 +346,12 @@ void map_max_size_test() {
 
   cout << "MII:" << MII.max_size() << endl;
   bitout(MII.max_size());
-  cout << MII.get_value_type_size() << endl;
-
   cout << "MCC:" << MCC.max_size() << endl;
   bitout(MCC.max_size());
-  cout << MCC.get_value_type_size() << endl;
-
   cout << "MIC:" << MIC.max_size() << endl;
   bitout(MIC.max_size());
-  cout << MIC.get_value_type_size() << endl;
-
   cout << "MCI:" << MCI.max_size() << endl;
   bitout(MCI.max_size());
-  cout << MCI.get_value_type_size() << endl;
 }
 
 void map_clear_test() {
