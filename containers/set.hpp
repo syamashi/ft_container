@@ -174,6 +174,8 @@ class set {
  public:
   void debug() { _M_t.debug(); }
   void debug2() { _M_t.debug2(); }
+  size_type get_value_type_size() { return sizeof(value_type) ;}
+
 };
 
 //// Non-member functions
