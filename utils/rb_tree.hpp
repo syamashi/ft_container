@@ -505,8 +505,8 @@ class _Rb_tree {
   bool empty() const { return _M_node_count == 0; }
   size_type size() const { return _M_node_count; }
   size_type max_size() const {
-    size_t div = 32;
-    if (sizeof(value_type) >= 4) div += 8;
+    size_t div = sizeof(_Link_type) * 4 + sizeof(value_type);
+    div = (div / 8) * 8;
     return std::numeric_limits<size_type>::max() / div ;
 //    return _M_node_alloc.max_size();
   }
