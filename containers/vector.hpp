@@ -195,8 +195,8 @@ class vector {
   bool empty() const { return begin() == end(); }
   size_type size() const { return end() - begin(); }
   size_type max_size() const {
-    //    return std::numeric_limits<size_type>::max() / sizeof(value_type);
-        return _alloc.max_size();
+    return std::numeric_limits<size_type>::max() / sizeof(value_type);
+//    return _alloc.max_size();
 //    return (9223372036854775807);
   }
 

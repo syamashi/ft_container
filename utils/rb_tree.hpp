@@ -504,7 +504,10 @@ class _Rb_tree {
   allocator_type get_allocator() const { return allocator_type(_M_node_alloc); }
   bool empty() const { return _M_node_count == 0; }
   size_type size() const { return _M_node_count; }
-  size_type max_size() const { return _M_node_alloc.max_size(); }
+  size_type max_size() const {
+    return std::numeric_limits<size_type>::max() / sizeof(_Link_type);
+//    return _M_node_alloc.max_size();
+  }
 
  public:
   _Rb_tree() : _M_key_compare(key_compare()), _M_node_alloc(_Node_allocator()) {
