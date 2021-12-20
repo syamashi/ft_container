@@ -1,17 +1,13 @@
 # ft_container
 
-- submit 3 files
-/containers
-/utils
-/testfiles
-other is debug
+submit 3 files
+- /containers
+- /utils
+- /testfiles
+- other is sandbox
 
-- tester
+tester
 
-/testfiles/Makefile will work
+- /testfiles/Makefile will work
 
-- Please
-
-I'm always making bugs.
-
-welcome issue if you find bug.
+I'm always making bugs. welcome issue if you find bug.
