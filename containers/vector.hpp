@@ -401,8 +401,6 @@ class vector {
   }
 
   void swap(vector& other) {
-    if (other == *this) return;
-
     pointer save_first = other._first;
     pointer save_last = other._last;
     pointer save_reserved_last = other._reserved_last;

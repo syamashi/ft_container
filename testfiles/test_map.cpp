@@ -344,13 +344,13 @@ void map_max_size_test() {
   ft::map<int, char> MIC;
   ft::map<char, int> MCI;
 
-  cout << "MII:" << MII.max_size() << endl;
+  cerr << "MII:" << MII.max_size() << endl;
   bitout(MII.max_size());
-  cout << "MCC:" << MCC.max_size() << endl;
+  cerr << "MCC:" << MCC.max_size() << endl;
   bitout(MCC.max_size());
-  cout << "MIC:" << MIC.max_size() << endl;
+  cerr << "MIC:" << MIC.max_size() << endl;
   bitout(MIC.max_size());
-  cout << "MCI:" << MCI.max_size() << endl;
+  cerr << "MCI:" << MCI.max_size() << endl;
   bitout(MCI.max_size());
 }
 

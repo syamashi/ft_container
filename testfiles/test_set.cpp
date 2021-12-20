@@ -249,9 +249,9 @@ void set_max_size_test() {
   ft::set<int> SI;
   ft::set<char> SC;
 
-  cout << "SI:" << SI.max_size() << endl;
+  cerr << "SI:" << SI.max_size() << endl;
   bitout(SI.max_size());
-  cout << "SC:" << SC.max_size() << endl;
+  cerr << "SC:" << SC.max_size() << endl;
   bitout(SC.max_size());
 }
 
