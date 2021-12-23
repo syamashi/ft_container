@@ -29,8 +29,9 @@ void tutorial_test() {
     auto ci = cv.begin();
     // エラー
     // const_iteratorを参照した先には代入できない
-    *ci = 0;
+    cout << *ci << endl;
   }
+
 
   {
     ft::vector<int> v(1);

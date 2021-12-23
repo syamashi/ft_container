@@ -6,7 +6,6 @@
 #include <map>
 #include <set>
 #include <stack>
-// #include <type_traits> c++11
 #include <vector>
 namespace ft = std;
 #else
@@ -43,16 +42,16 @@ namespace ft = std;
 
 //// tester
 
-void tutorial_test();
 void vector_test();
 void stack_test();
 void map_test();
 void set_test();
 void util_test();
 void review_test();
+void tutorial_test();
 
 //// helper
-double dist(double x1, double y1);
-void bitout(size_t n);
+// double dist(double x1, double y1);
+// void bitout(size_t n);
 
 #endif
