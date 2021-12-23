@@ -34,6 +34,7 @@ namespace ft = std;
 #include <numeric>
 #include <string>
 #include <typeinfo>  // typeid
+#include <array>
 
 #define cout std::cout
 #define endl std::endl
@@ -42,6 +43,7 @@ namespace ft = std;
 
 //// tester
 
+void tutorial_test();
 void vector_test();
 void stack_test();
 void map_test();

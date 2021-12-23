@@ -4,8 +4,9 @@ OBJDIR = ./obj/
 OBJS = $(SRCS:%.cpp=$(OBJDIR)%.o)
 
 CXX = clang++ -g -O0
-CFLAGS = -Wall -Werror -Wextra -std=c++98
+CFLAGS = -Wall -Werror -Wextra
 
+# -std=c++98
 all: $(OBJDIR) $(NAME)
 
 $(OBJDIR):
