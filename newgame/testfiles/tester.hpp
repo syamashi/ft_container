@@ -45,6 +45,6 @@ void vector_test();
 
 //// helper
 // double dist(double x1, double y1);
-// void bitout(size_t n);
+ void bitout(size_t n);
 
 #endif
