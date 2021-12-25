@@ -33,7 +33,6 @@ namespace ft = std;
 #include <numeric>
 #include <string>
 #include <typeinfo>  // typeid
-#include <array>
 
 #define cout std::cout
 #define endl std::endl

@@ -32,7 +32,6 @@ void tutorial_test() {
     cout << *ci << endl;
   }
 
-
   {
     ft::vector<int> v(1);
     // ft::vector<int>::const_iterator
@@ -182,7 +181,7 @@ void tutorial_test() {
     // 空
     ft::vector<int> v1(alloc);
     // 要素数5
-//    ft::vector<int> v2(5, alloc);
+    //    ft::vector<int> v2(5, alloc);
     // 要素数5で初期値123
     ft::vector<int> v3(5, 123, alloc);
   }
@@ -223,8 +222,8 @@ void tutorial_test() {
   }
 
   {
-    ft::vector<int> v ;
-    for(int i=1; i<=3; ++i) v.push_back(i);
+    ft::vector<int> v;
+    for (int i = 1; i <= 3; ++i) v.push_back(i);
     v.resize(5, 4);
     // vは{1,2,3,4,4}
   }
