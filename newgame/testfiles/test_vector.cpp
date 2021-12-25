@@ -39,6 +39,22 @@ void vector_construct_test() {
   vdebug(v5);
 }
 
+void vector_copy_construct_test() {
+  pout("vector_copy_constructer_test");
+
+  ft::vector<int> V1(3, 1);
+  ft::vector<int> V2(V1);
+  ft::vector<int> V3;
+  ft::vector<int> V4(10, 42);
+  vdebug(V1);
+  vdebug(V2);
+  V3 = V2;
+  vdebug(V3);
+  V4 = V2;
+  vdebug(V4);
+}
+
 void vector_test() {
   vector_construct_test();
+  vector_copy_construct_test();
 }

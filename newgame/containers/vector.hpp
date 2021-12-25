@@ -24,10 +24,10 @@ class vector {
   typedef std::size_t size_type;
   typedef std::ptrdiff_t difference_type;
 
-  typedef pointer iterator;
-  typedef const_pointer const_iterator;
-  typedef ft::reverse_iterator<iterator> reverse_iterator;
-  typedef ft::reverse_iterator<const_iterator> const_reverse_iterator;
+  typedef typename ft::random_access_iterator<value_type> iterator;
+  typedef typename ft::random_access_iterator<const value_type> const_iterator;
+  typedef typename ft::reverse_iterator<iterator> reverse_iterator;
+  typedef typename ft::reverse_iterator<const_iterator> const_reverse_iterator;
 
   // コンストラクター
   vector()
@@ -49,7 +49,7 @@ class vector {
                                 InputIterator>::type* = NULL)
       : first(NULL), last(NULL), reserved_last(NULL), alloc(alloc) {
     reserve(ft::distance(first, last));
-    for (pointer i = first; i != last; ++i) {
+    for (InputIterator i = first; i != last; ++i) {
       push_back(*i);
     }
   }
@@ -62,19 +62,12 @@ class vector {
     // コピー元の要素をコピー構築
     // destはコピー先
     // [src, last)はコピー元
-    for (pointer dest = first, src = r.begin(), last = r.end(); src != last;
+    pointer dest = first;
+    for (const_iterator src = r.begin(), last = r.end(); src != last;
          ++dest, ++src) {
       construct(dest, *src);
     }
     last = first + r.size();
-  }
-
-  // デストラクター
-  ~vector() {
-    // 1. 要素を末尾から先頭に向かう順番で破棄
-    clear();
-    // 2. 生のメモリーを解放する
-    deallocate();
   }
 
   vector& operator=(const vector& r) {
@@ -92,6 +85,7 @@ class vector {
       // 有効な要素はコピー
       std::copy(r.begin(), r.begin() + r.size(), begin());
       // 残りはコピー構築
+      last = first + r.size();
       for (const_iterator src_iter = r.begin() + r.size(), src_end = r.end();
            src_iter != src_end; ++src_iter, ++last) {
         construct(last, *src_iter);
@@ -104,14 +98,22 @@ class vector {
       // 予約
       reserve(r.size());
       // コピー構築
-      for (const_iterator src_iter = r.begin(), src_end = r.end(),
-                          dest_iter = begin();
-           src_iter != src_end; ++src_iter, ++dest_iter, ++last) {
-        construct(dest_iter, *src_iter);
+      for (const_iterator src_iter = r.begin(), src_end = r.end();
+           src_iter != src_end; ++src_iter, ++last) {
+        construct(last, *src_iter);
       }
     }
     return *this;
   }
+
+  // デストラクター
+  ~vector() {
+    // 1. 要素を末尾から先頭に向かう順番で破棄
+    clear();
+    // 2. 生のメモリーを解放する
+    deallocate();
+  }
+
   // 容量確認
   size_type size() const { return end() - begin(); }
   bool empty() const { return begin() == end(); }
@@ -161,10 +163,8 @@ class vector {
   // イテレーターアクセス
   iterator begin() { return first; }
   iterator end() { return last; }
-  iterator begin() const { return first; }
-  iterator end() const { return last; }
-  const_iterator cbegin() const { return first; }
-  const_iterator cend() const { return last; }
+  const_iterator begin() const { return first; }
+  const_iterator end() const { return last; }
   reverse_iterator rbegin() { return reverse_iterator(last); }
   reverse_iterator rend() { return reverse_iterator(first); }
   const_reverse_iterator rbegin() const { return reverse_iterator(last); }
@@ -201,7 +201,8 @@ class vector {
 
     // 古いストレージから新しいストレージに要素をコピー構築
     // 実際にはムーブ構築
-    for (pointer old_iter = old_first; old_iter != old_last; ++old_iter, ++last) {
+    for (pointer old_iter = old_first; old_iter != old_last;
+         ++old_iter, ++last) {
       // このコピーの理解にはムーブセマンティクスの理解が必要
       construct(last, *old_iter);
     }
@@ -209,7 +210,7 @@ class vector {
     // 新しいストレージにコピーし終えたので
     // 古いストレージの値は破棄
     for (reverse_iterator riter = reverse_iterator(old_last),
-              rend = reverse_iterator(old_first);
+                          rend = reverse_iterator(old_first);
          riter != rend; ++riter) {
       destroy(&*riter);
     }
@@ -262,8 +263,8 @@ class vector {
     pointer ptr = allocate(size());
     // コピー
     size_type current_size = size();
-    for (pointer raw_ptr = ptr, iter = begin(), iter_end = end(); iter != iter_end;
-         ++iter, ++raw_ptr) {
+    for (pointer raw_ptr = ptr, iter = begin(), iter_end = end();
+         iter != iter_end; ++iter, ++raw_ptr) {
       construct(raw_ptr, *iter);
     }
     // 破棄
