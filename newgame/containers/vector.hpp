@@ -456,7 +456,7 @@ class vector {
     this->alloc = save_alloc;
   }
 
- private:
+ protected:
   // 先頭の要素へのポインター
   pointer first;
   // 最後の要素の1つ前方のポインター

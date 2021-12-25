@@ -10,4 +10,5 @@ void bitout(size_t n){
 
 int main() {
   vector_test();
+  stack_test();
 }

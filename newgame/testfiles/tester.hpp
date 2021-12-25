@@ -42,6 +42,7 @@ namespace ft = std;
 //// tester
 
 void vector_test();
+void stack_test();
 
 //// helper
 // double dist(double x1, double y1);
