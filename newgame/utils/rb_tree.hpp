@@ -733,37 +733,6 @@ class _Rb_tree {
     _M_root()->_M_color = _S_black;
   }
 
-  // delete
-
-  // find node that do not have a left child
-  // in the subtree of the given node
-  // 今いる場所から、左の突き当りノード
-  _Link_type successor(_Link_type x) {
-    _Link_type temp = x;
-
-    while (temp->_M_left != NULL) temp = temp->_M_left;
-
-    return temp;
-  }
-
-  // find node that replaces a deleted node in BST
-  _Link_type BSTreplace(_Link_type x) {
-    // when node have 2 children
-    // 子供が2人いるなら、RLLLLL
-    if (x->_M_left != NULL and x->_M_right != NULL)
-      return successor(x->_M_right);
-
-    // when leaf
-    if (x->_M_left == NULL and x->_M_right == NULL) return NULL;
-
-    // when single child
-    // 子供が1人なら左から返す。
-    if (x->_M_left != NULL)
-      return x->_M_left;
-    else
-      return x->_M_right;
-  }
-
  public:
   ft::pair<iterator, bool> insert(const value_type& x) {
     ft::pair<iterator, bool> ret;
