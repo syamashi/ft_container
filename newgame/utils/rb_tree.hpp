@@ -2,6 +2,7 @@
 #define RB_TREE_HPP
 
 #include <iostream>
+#include <limits>
 
 #include "./algorithm.hpp"
 #include "./iterator.hpp"
@@ -20,7 +21,7 @@ struct _Rb_tree_node {
   _Link_type _M_parent;
   _Link_type _M_left;
   _Link_type _M_right;
-  _Val *_M_value_type;
+  _Val* _M_value_type;
 
   // returns pointer to uncle
   /*
@@ -90,6 +91,59 @@ struct _Rb_tree_node {
   bool hasRedChild() {
     return (_M_left != NULL and _M_left->_M_color == _S_red) or
            (_M_right != NULL and _M_right->_M_color == _S_red);
+  }
+  /*
+               B10
+              /   \
+            R7     R22
+           / \      / \
+         B6  B8   B13  B26
+         /
+        R2
+
+    ---B10.swap(B13)---
+               B13
+              /   \
+            R7     B22
+           / \        \
+         B6  B8        R26
+         /
+        R2
+  */
+  /*
+  swap except _Val = pair(const key, val)
+  const cannot swap or copy
+
+  header->parent cannot apply
+  */
+  void swapNode(_Link_type& x) {
+    // xのまわり
+    _Link_type xp = x->_M_parent;
+    _Link_type xr = x->_M_right;
+    _Link_type xl = x->_M_left;
+    _Link_type tp = _M_parent;
+    _Link_type tr = _M_right;
+    _Link_type tl = _M_left;
+
+    if (xp->_M_left == x)
+      xp->_M_left = this;
+    else if (xp->_M_right == x)
+      xp->_M_right = this;
+    if (xl) xl->_M_parent = this;
+    if (xr) xr->_M_parent = this;
+
+    // 自分のまわり
+    if (isOnLeft())
+      tp->_M_left = x;
+    else
+      tp->_M_right = x;
+    if (tl) tl->_M_parent = x;
+    if (tr) tr->_M_parent = x;
+
+    std::swap(_M_color, x->_M_color);
+    std::swap(_M_parent, x->_M_parent);
+    std::swap(_M_right, x->_M_right);
+    std::swap(_M_left, x->_M_left);
   }
 };
 
@@ -441,18 +495,66 @@ class _Rb_tree {
   const_reverse_iterator rend() const {
     return const_reverse_iterator(begin());
   }
+  key_compare key_comp() const { return _M_key_compare; }
+  allocator_type get_allocator() const { return allocator_type(_M_node_alloc); }
   bool empty() const { return _M_node_count == 0; }
   size_type size() const { return _M_node_count; }
+  size_type max_size() const {
+    size_t div = sizeof(_Link_type) * 4 + sizeof(value_type);
+    div = (div / 8) * 8;
+    return std::numeric_limits<size_type>::max() / div;
+    //    return _M_node_alloc.max_size();
+  }
 
  public:
   _Rb_tree() : _M_key_compare(key_compare()), _M_node_alloc(_Node_allocator()) {
     _M_header = _M_create_node(value_type());  // size()==1 になっちゃう
     _M_reset();
   }
+  _Rb_tree(const key_compare& key_comp, const _Node_allocator& node_alloc)
+      : _M_key_compare(key_comp), _M_node_alloc(node_alloc) {
+    _M_header = _M_create_node(value_type());  // size()==1 になっちゃう
+    _M_reset();
+  }
+  _Rb_tree(_Rb_tree const& src) {
+    // headerもコピー
+    _M_header = _M_create_node(value_type());  // size()==1 になっちゃう
+    _M_reset();
+    _M_key_compare = src._M_key_compare;
+    _M_node_alloc = src._M_node_alloc;
+    if (src._M_root() != 0) {
+      _M_root() = _M_copy(src._M_header->_M_parent, _M_header);
+      _M_header->_M_left = _S_mostleft();
+      _M_header->_M_right = _S_mostright();
+    }
+  }
   ~_Rb_tree() {
     _M_erase(_S_root());
     ++_M_node_count;
     _M_put_node(_M_header);
+  }
+  _Rb_tree& operator=(const _Rb_tree& src) {
+    if (this == &src) return *this;
+    _M_erase(_S_root());
+
+    // headerは上書き再利用
+    _M_reset();
+    _M_key_compare = src._M_key_compare;
+    _M_node_alloc = src._M_node_alloc;
+    // root以下クローン
+    if (src._M_node_count) {
+      _M_root() = _M_copy(src._M_header->_M_parent, _M_header);
+      _M_header->_M_left = _S_mostleft();
+      _M_header->_M_right = _S_mostright();
+    }
+    return *this;
+  }
+
+  //// Modifiers
+
+  void clear() {
+    _M_erase(_S_root());
+    _M_reset();
   }
 
   // insertのhelper4関数
@@ -733,6 +835,285 @@ class _Rb_tree {
     _M_root()->_M_color = _S_black;
   }
 
+  // delete
+
+  // find node that do not have a left child
+  // in the subtree of the given node
+  // 今いる場所から、左の突き当りノード
+  _Link_type successor(_Link_type x) {
+    _Link_type temp = x;
+
+    while (temp->_M_left != NULL) temp = temp->_M_left;
+
+    return temp;
+  }
+
+  // find node that replaces a deleted node in BST
+  _Link_type BSTreplace(_Link_type x) {
+    // when node have 2 children
+    // 子供が2人いるなら、RLLLLL
+    if (x->_M_left != NULL and x->_M_right != NULL)
+      return successor(x->_M_right);
+
+    // when leaf
+    if (x->_M_left == NULL and x->_M_right == NULL) return NULL;
+
+    // when single child
+    // 子供が1人なら左から返す。
+    if (x->_M_left != NULL)
+      return x->_M_left;
+    else
+      return x->_M_right;
+  }
+
+  // deletes the given node
+  void deleteNode(_Link_type v) {
+    _Link_type u = BSTreplace(v);
+
+    // True when u and v are both black
+    bool uvBlack =
+        ((u == NULL or u->_M_color == _S_black) and (v->_M_color == _S_black));
+    _Link_type parent = v->_M_parent;
+
+    if (u == NULL) {  // vが葉
+      // u is NULL therefore v is leaf
+      if (v == _S_root()) {
+        // v is root, making root null
+        _M_root() = _M_header;
+      } else {
+        if (uvBlack) {
+          // u and v both black
+          // v is leaf, fix double black at v
+          /*
+               B
+              /
+            v:B
+          */
+          fixDoubleBlack(v);
+        } else {
+          // v is red
+          /*
+                B
+               / \
+            v:R  (R)
+          */
+          if (v->sibling() != NULL)
+            // sibling is not null, make it red"
+            v->sibling()->_M_color = _S_red;
+        }
+
+        // delete v from the tree
+        if (v->isOnLeft()) {
+          parent->_M_left = NULL;
+        } else {
+          parent->_M_right = NULL;
+        }
+      }
+      _M_put_node(v);
+      return;
+    }
+
+    if (v->_M_left == NULL or v->_M_right == NULL) {
+      // v has 1 child
+      if (v == _S_root()) {
+        // v is root, assign the value of u to v, and delete u
+        /*
+              v
+             /
+            u
+
+             u
+            / \
+           NU NU
+        */
+        _M_root() = u;
+        v->swapNode(u);
+        u->_M_left = u->_M_right = NULL;
+        _M_put_node(v);
+      } else {
+        // Detach v from tree and move u up
+        /*
+                 B
+                /
+             v:R
+              /
+          u:(B)
+        */
+        if (v->isOnLeft()) {
+          parent->_M_left = u;
+        } else {
+          parent->_M_right = u;
+        }
+        _M_put_node(v);
+        u->_M_parent = parent;
+        if (uvBlack) {
+          // u and v both black, fix double black at u
+          fixDoubleBlack(u);
+        } else {
+          // u or v red, color u black
+          u->_M_color = _S_black;
+        }
+      }
+      return;
+    }
+
+    // v has 2 children, swap values with successor and recurse
+    /*
+     before del(B10)
+             B10:v
+            /   \
+          R7      R22
+         / \      /  \
+       B6  B8   B13:u B26
+       /
+      R2
+
+      after
+             B13
+            /   \
+          R7     B22
+         / \        \
+       B6  B8        R26
+       /
+      R2
+      */
+
+    if (v == _S_root()) _M_root() = u;
+    v->swapNode(u);
+    deleteNode(v);
+  }
+
+  void fixDoubleBlack(_Link_type x) {
+    if (x == _S_root())
+      // Reached root
+      return;
+
+    _Link_type sibling = x->sibling();
+    _Link_type parent = x->_M_parent;
+    if (sibling == NULL) {
+      // No sibiling, double black pushed up
+      fixDoubleBlack(parent);
+    } else {
+      if (sibling->_M_color == _S_red) {
+        // Sibling red
+        /*
+        before
+              B
+             / \
+          x:B   R
+
+        after
+             (R)
+             / \
+          x:B   (B)
+        */
+        parent->_M_color = _S_red;
+        sibling->_M_color = _S_black;
+        if (sibling->isOnLeft()) {
+          // left case
+          rightRotate(parent);
+        } else {
+          // right case
+          /*
+               (B)
+               /
+             (R)
+             /
+           x:B
+          */
+          leftRotate(parent);  // 右が持ち上がる
+        }
+        fixDoubleBlack(x);
+      } else {
+        // Sibling black
+        if (sibling->hasRedChild()) {
+          // 赤い子供がいるならおしまい
+          // vを削除しても、どの葉からも黒ノードが同じ数になる。
+          // at least 1 red children
+          if (sibling->_M_left != NULL and
+              sibling->_M_left->_M_color == _S_red) {  // 左が赤
+            if (sibling->isOnLeft()) {
+              // left left
+              sibling->_M_left->_M_color = sibling->_M_color;
+              sibling->_M_color = parent->_M_color;
+              rightRotate(parent);
+            } else {
+              // right left
+              sibling->_M_left->_M_color = parent->_M_color;
+              rightRotate(sibling);
+              leftRotate(parent);
+            }
+          } else {  // 右が赤
+            if (sibling->isOnLeft()) {
+              // left right
+              /*
+              before
+                  R
+                 / \
+              x:B   B
+               /   /
+              R   R
+              xをdelすると、x下の葉がB0, それ以外がB1になってしまう
+
+              changeColor
+                  R
+                 / \
+              x:B  (R)
+                   /
+                 (B)
+
+              leftRotate
+                    (R)
+                    /  \
+                   R    B
+                 /
+               x:B
+              changeColor
+                     (R)
+                     /  \
+            parent:(B)    B
+                  /
+                x:B
+              // xを除いた場合どの葉もB1になった。
+              */
+              sibling->_M_right->_M_color = parent->_M_color;
+              leftRotate(sibling);
+              rightRotate(parent);
+            } else {
+              // right right
+              sibling->_M_right->_M_color = sibling->_M_color;
+              sibling->_M_color = parent->_M_color;
+              leftRotate(parent);
+            }
+          }
+          parent->_M_color = _S_black;
+        } else {
+          // 2 black children
+          /*
+                R
+              /  \
+            x:B   B
+                 / \
+                B   B
+            xがなくなるとx側がB1に。右側がB2になってしまう
+
+              (B)
+              /  \
+            x:B  (R)
+                 / \
+                B   B
+          */
+          sibling->_M_color = _S_red;
+          if (parent->_M_color ==
+              _S_black)  // parent以下全体の黒が1個減ってしまうので、さらにparentで調整
+            fixDoubleBlack(parent);
+          else
+            parent->_M_color = _S_black;
+        }
+      }
+    }
+  }
+
  public:
   ft::pair<iterator, bool> insert(const value_type& x) {
     ft::pair<iterator, bool> ret;
@@ -764,6 +1145,52 @@ class _Rb_tree {
     return ret;
   }
 
+  // utility function that deletes the node with given value
+  size_type erase(const key_type& key) {
+    if (_S_root() == NULL)
+      // Tree is empty
+      return 0;
+
+    iterator v = lower_bound(key);  // {1,3,5} key=4 v=5
+
+    if (v == end() || _M_key_compare(key, _S_key(v))) return 0;
+
+    deleteNode(v.get_link());
+
+    // headerの更新
+    if (size()) {
+      _M_root()->_M_parent = _M_header;
+      _M_header->_M_left = _S_mostleft();
+      _M_header->_M_right = _S_mostright();
+    } else {
+      _M_root() = NULL;
+      _M_header->_M_left = _M_header;
+      _M_header->_M_right = _M_header;
+    }
+
+    return 1;
+  }
+
+  void swap(_Rb_tree& __t) {
+    // どちらかが size==0 の場合、移す or reset()する
+    if (_M_root() == 0) {
+      if (__t._M_root() != 0) _M_move_data(__t);
+    } else if (__t._M_root() == 0)
+      __t._M_move_data(*this);
+    else {  // どっちも要素がある場合
+      std::swap(_M_root(), __t._M_root());
+      std::swap(_M_header->_M_left, __t._M_header->_M_left);
+      std::swap(_M_header->_M_right, __t._M_header->_M_right);
+
+      _M_root()->_M_parent = _M_end();
+      __t._M_root()->_M_parent = __t._M_end();
+      std::swap(_M_node_count, __t._M_node_count);
+    }
+    // No need to swap header's color as it does not change.
+    std::swap(_M_key_compare, __t._M_key_compare);
+    std::swap(_M_node_alloc, __t._M_node_alloc);
+  }
+
   // helper ////
  protected:
   _Link_type _M_get_node() {
@@ -772,7 +1199,7 @@ class _Rb_tree {
   }
   void _M_put_node(_Link_type p) {
     --_M_node_count;
-      _Alloc value_alloc;
+    _Alloc value_alloc;
 
     value_alloc.destroy(p->_M_value_type);
     value_alloc.deallocate(p->_M_value_type, 1);
@@ -786,7 +1213,7 @@ class _Rb_tree {
       node->_M_right = NULL;
       node->_M_parent = NULL;
       _Alloc value_alloc;
-      typename _Alloc::pointer p =  value_alloc.allocate(1);
+      typename _Alloc::pointer p = value_alloc.allocate(1);
       value_alloc.construct(p, x);
       node->_M_value_type = p;
     } catch (...) {
@@ -845,6 +1272,25 @@ class _Rb_tree {
     return const_iterator(y);
   }
 
+  iterator _M_upper_bound(_Link_type x, _Link_type y, const _Key& k) {
+    while (x != 0)
+      if (_M_key_compare(k, _S_key(x)))
+        y = x, x = x->_M_left;
+      else
+        x = x->_M_right;
+    return iterator(y);
+  }
+
+  const_iterator _M_upper_bound(_Const_Link_type x, _Const_Link_type y,
+                                const _Key& k) const {
+    while (x != 0)
+      if (_M_key_compare(k, _S_key(x)))
+        y = x, x = x->_M_left;
+      else
+        x = x->_M_right;
+    return const_iterator(y);
+  }
+
   // all_erase(root)
   /*
          3:root
@@ -869,6 +1315,75 @@ class _Rb_tree {
     }
   }
 
+  // valと色だけコピー。親、右、左はさらにクローンしたものをつけるから。
+  _Link_type _M_clone_node(_Const_Link_type x) {
+    _Link_type tmp = _M_create_node(*x->_M_value_type);
+    tmp->_M_color = x->_M_color;
+    tmp->_M_left = 0;
+    tmp->_M_right = 0;
+    return tmp;
+  }
+
+  /*
+        head
+         |
+         3:root
+       /   \
+      1     5
+     / \   / \
+    0   2 4   7
+             / \
+            6   8
+                 \
+                  9
+  1(x:3 p:header)
+  2(x:5 p:3)
+  3(x:7 p:5)
+  4(x:8 p:7)
+  5(x:9 p:8)
+  6(x:2 p:1) // 3->leftの再帰
+  */
+  _Link_type _M_copy(_Const_Link_type x, _Link_type p) {  // {origin, parent}
+    _Link_type top = _M_clone_node(x);
+    top->_M_parent = p;
+
+    try {
+      if (x->_M_right) top->_M_right = _M_copy(x->_M_right, top);
+      p = top;
+      x = x->_M_left;  // 左に進んで次の探索
+
+      while (x != 0) {
+        _Link_type y = _M_clone_node(x);
+        p->_M_left = y;
+        y->_M_parent = p;
+        if (x->_M_right) y->_M_right = _M_copy(x->_M_right, y);
+        p = y;
+        x = x->_M_left;
+      }
+    } catch (...) {
+      _M_erase(top);
+      throw;  // throw_exception_again;
+    }
+    return top;
+  }
+
+ public:
+  iterator find(const _Key& __k) {
+    iterator __j = lower_bound(__k);
+    if (__j == end() || _M_key_compare(__k, _S_key(__j)))
+      return end();
+    else
+      return __j;
+  }
+
+  const_iterator find(const _Key& __k) const {
+    const_iterator __j = lower_bound(__k);
+    if (__j == end() || _M_key_compare(__k, _S_key(__j)))
+      return end();
+    else
+      return __j;
+  }
+
   iterator lower_bound(const key_type& k) {
     return _M_lower_bound(_S_root(), _M_end(), k);  // root , header
   }
@@ -877,6 +1392,139 @@ class _Rb_tree {
     return _M_lower_bound(_S_root(), _M_end(), k);
   }
 
+  iterator upper_bound(const key_type& k) {
+    return _M_upper_bound(_S_root(), _M_end(), k);
+  }
+
+  const_iterator upper_bound(const key_type& k) const {
+    return _M_upper_bound(_S_root(), _M_end(), k);
+  }
+
+  ft::pair<iterator, iterator> equal_range(const _Key& __k) {
+    _Link_type __x = _S_root();
+    _Link_type __y = _M_end();
+    while (__x != 0) {
+      if (_M_key_compare(_S_key(__x), __k))
+        __x = __x->_M_right;
+      else if (_M_key_compare(__k, _S_key(__x)))
+        __y = __x, __x = __x->_M_left;
+      else {  // __x が keyに合致。 __yは__x->_M_parent
+        _Link_type __xu(__x);
+        _Link_type __yu(__y);
+        __y = __x,
+        __x = __x->_M_left;  // __yはkeyに一致。 __xはkeyより小さいかNULL
+        __xu = __xu->_M_right;  // __xuはkeyより大きいかNULL
+        /*
+        __x : key->left
+        __y : keyに一致
+        __xu : key->right
+        __yu : keyに一致
+
+        _M_lower_bound(__x, __y, __k) :
+        __x==NULLなら__y
+        __xのできるだけ右を返す == keyの前
+
+        _M_upper_bound(__xu, __yu, __k) :
+        __xu==NULLなら__yu。
+        __xuのできるだけ左を返す == keyの次
+
+        つまり、
+        p.first = M.lower_bound(key);
+        p.second = M.upper_bound(key);
+                を効率化してるだけ
+        */
+        return ft::pair<iterator, iterator>(_M_lower_bound(__x, __y, __k),
+                                            _M_upper_bound(__xu, __yu, __k));
+      }
+    }
+    // 末端まで来た
+    return ft::pair<iterator, iterator>(iterator(__y), iterator(__y));
+  }
+
+  ft::pair<const_iterator, const_iterator> equal_range(
+      const key_type& __k) const {
+    _Const_Link_type __x = _S_root();
+    _Const_Link_type __y = _M_end();
+    while (__x != 0) {
+      if (_M_key_compare(_S_key(__x), __k))
+        __x = __x->_M_right;
+      else if (_M_key_compare(__k, _S_key(__x)))
+        __y = __x, __x = __x->_M_left;
+      else {  // __x が keyに合致。 __yは__x->_M_parent
+        _Const_Link_type __xu(__x);
+        _Const_Link_type __yu(__y);
+        __y = __x,
+        __x = __x->_M_left;  // __yはkeyに一致。 __xはkeyより小さいかNULL
+        __xu = __xu->_M_right;  // __xuはkeyより大きいかNULL
+        /*
+        p.first = M.lower_bound(key);
+        p.second = M.upper_bound(key);
+                を効率化してるだけ
+        */
+        return ft::pair<const_iterator, const_iterator>(
+            _M_lower_bound(__x, __y, __k), _M_upper_bound(__xu, __yu, __k));
+      }
+    }
+    // 末端まで来た
+    return ft::pair<const_iterator, const_iterator>(const_iterator(__y),
+                                                    const_iterator(__y));
+  }
 };
+//// Non-member functions
+
+template <typename _Key, typename _Val, typename Compare,
+          typename _Alloc>
+inline bool operator==(
+    const ft::_Rb_tree<_Key, _Val, Compare, _Alloc>& __x,
+    const ft::_Rb_tree<_Key, _Val, Compare, _Alloc>& __y) {
+  return __x.size() == __y.size() &&
+         ft::equal(__x.begin(), __x.end(), __y.begin());
+}
+
+template <typename _Key, typename _Val, typename Compare,
+          typename _Alloc>
+
+inline bool operator<(
+    const ft::_Rb_tree<_Key, _Val, Compare, _Alloc>& __x,
+    const ft::_Rb_tree<_Key, _Val, Compare, _Alloc>& __y) {
+  return ft::lexicographical_compare(__x.begin(), __x.end(), __y.begin(),
+                                     __y.end());
+}
+
+template <typename _Key, typename _Val, typename Compare,
+          typename _Alloc>
+
+inline bool operator!=(
+    const ft::_Rb_tree<_Key, _Val, Compare, _Alloc>& __x,
+    const ft::_Rb_tree<_Key, _Val, Compare, _Alloc>& __y) {
+  return !(__x == __y);
+}
+
+template <typename _Key, typename _Val, typename Compare,
+          typename _Alloc>
+
+inline bool operator>(
+    const ft::_Rb_tree<_Key, _Val, Compare, _Alloc>& __x,
+    const ft::_Rb_tree<_Key, _Val, Compare, _Alloc>& __y) {
+  return __y < __x;
+}
+
+template <typename _Key, typename _Val, typename Compare,
+          typename _Alloc>
+
+inline bool operator<=(
+    const ft::_Rb_tree<_Key, _Val, Compare, _Alloc>& __x,
+    const ft::_Rb_tree<_Key, _Val, Compare, _Alloc>& __y) {
+  return !(__y < __x);
+}
+
+template <typename _Key, typename _Val, typename Compare,
+          typename _Alloc>
+
+inline bool operator>=(
+    const ft::_Rb_tree<_Key, _Val, Compare, _Alloc>& __x,
+    const ft::_Rb_tree<_Key, _Val, Compare, _Alloc>& __y) {
+  return !(__x < __y);
+}
 }  // namespace ft
 #endif

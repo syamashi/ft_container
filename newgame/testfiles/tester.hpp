@@ -46,7 +46,7 @@ void stack_test();
 void map_test();
 
 //// helper
-// double dist(double x1, double y1);
+ double dist(double x1, double y1);
  void bitout(size_t n);
 
 #endif

@@ -8,6 +8,10 @@ void bitout(size_t n){
   cout << endl;
 }
 
+double dist(double x1, double y1) {
+  return (std::sqrt(x1 * x1 + y1 * y1));
+}
+
 int main() {
 //  vector_test();
 //  stack_test();
