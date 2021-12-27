@@ -395,7 +395,7 @@ inline bool operator!=(const _Rb_tree_iterator<_Val>& __x,
   return __x._M_node != __y._M_node;
 }
 
-template <typename _Key, typename _Val, typename Compare,
+template <typename _Key, typename _Val, typename _KeyOfValue, typename _Compare,
           typename _Alloc = std::allocator<_Val> >
 class _Rb_tree {
   // _Allocの引数<_Val> を <Node<_Val> > に 置き換える
@@ -416,7 +416,7 @@ class _Rb_tree {
   typedef size_t size_type;
   typedef ptrdiff_t difference_type;
   typedef _Alloc allocator_type;
-  typedef Compare key_compare;
+  typedef _Compare key_compare;
 
   //// member value ////
  private:
@@ -432,11 +432,15 @@ class _Rb_tree {
   typedef ft::reverse_iterator<const_iterator> const_reverse_iterator;
 
  protected:
-  key_type _S_key(_Link_type x) const { return x->_M_value_type->first; }
-  key_type _S_key(_Const_Link_type x) const { return x->_M_value_type->first; }
-  key_type _S_key(value_type x) const { return x.first; }
-  key_type _S_key(iterator x) const { return x->first; }
-  key_type _S_key(const_iterator x) const { return x->first; }
+  key_type _S_key(_Link_type x) const {
+    return _KeyOfValue()(*(x->_M_value_type));
+  }
+  key_type _S_key(_Const_Link_type x) const {
+    return _KeyOfValue()(*(x->_M_value_type));
+  }
+  key_type _S_key(value_type x) const { return _KeyOfValue()(x); }
+  key_type _S_key(iterator x) const { return _KeyOfValue()(*x); }
+  key_type _S_key(const_iterator x) const { return _KeyOfValue()(*x); }
   _Link_type _M_end() { return _M_header; }
   _Const_Link_type _M_end() const { return _M_header; }
   _Link_type _S_root() { return _M_header->_M_parent; }
@@ -1472,58 +1476,46 @@ class _Rb_tree {
 };
 //// Non-member functions
 
-template <typename _Key, typename _Val, typename Compare,
-          typename _Alloc>
-inline bool operator==(
-    const ft::_Rb_tree<_Key, _Val, Compare, _Alloc>& __x,
-    const ft::_Rb_tree<_Key, _Val, Compare, _Alloc>& __y) {
+template <typename _Key, typename _Val, typename Compare, typename _Alloc>
+inline bool operator==(const ft::_Rb_tree<_Key, _Val, Compare, _Alloc>& __x,
+                       const ft::_Rb_tree<_Key, _Val, Compare, _Alloc>& __y) {
   return __x.size() == __y.size() &&
          ft::equal(__x.begin(), __x.end(), __y.begin());
 }
 
-template <typename _Key, typename _Val, typename Compare,
-          typename _Alloc>
+template <typename _Key, typename _Val, typename Compare, typename _Alloc>
 
-inline bool operator<(
-    const ft::_Rb_tree<_Key, _Val, Compare, _Alloc>& __x,
-    const ft::_Rb_tree<_Key, _Val, Compare, _Alloc>& __y) {
+inline bool operator<(const ft::_Rb_tree<_Key, _Val, Compare, _Alloc>& __x,
+                      const ft::_Rb_tree<_Key, _Val, Compare, _Alloc>& __y) {
   return ft::lexicographical_compare(__x.begin(), __x.end(), __y.begin(),
                                      __y.end());
 }
 
-template <typename _Key, typename _Val, typename Compare,
-          typename _Alloc>
+template <typename _Key, typename _Val, typename Compare, typename _Alloc>
 
-inline bool operator!=(
-    const ft::_Rb_tree<_Key, _Val, Compare, _Alloc>& __x,
-    const ft::_Rb_tree<_Key, _Val, Compare, _Alloc>& __y) {
+inline bool operator!=(const ft::_Rb_tree<_Key, _Val, Compare, _Alloc>& __x,
+                       const ft::_Rb_tree<_Key, _Val, Compare, _Alloc>& __y) {
   return !(__x == __y);
 }
 
-template <typename _Key, typename _Val, typename Compare,
-          typename _Alloc>
+template <typename _Key, typename _Val, typename Compare, typename _Alloc>
 
-inline bool operator>(
-    const ft::_Rb_tree<_Key, _Val, Compare, _Alloc>& __x,
-    const ft::_Rb_tree<_Key, _Val, Compare, _Alloc>& __y) {
+inline bool operator>(const ft::_Rb_tree<_Key, _Val, Compare, _Alloc>& __x,
+                      const ft::_Rb_tree<_Key, _Val, Compare, _Alloc>& __y) {
   return __y < __x;
 }
 
-template <typename _Key, typename _Val, typename Compare,
-          typename _Alloc>
+template <typename _Key, typename _Val, typename Compare, typename _Alloc>
 
-inline bool operator<=(
-    const ft::_Rb_tree<_Key, _Val, Compare, _Alloc>& __x,
-    const ft::_Rb_tree<_Key, _Val, Compare, _Alloc>& __y) {
+inline bool operator<=(const ft::_Rb_tree<_Key, _Val, Compare, _Alloc>& __x,
+                       const ft::_Rb_tree<_Key, _Val, Compare, _Alloc>& __y) {
   return !(__y < __x);
 }
 
-template <typename _Key, typename _Val, typename Compare,
-          typename _Alloc>
+template <typename _Key, typename _Val, typename Compare, typename _Alloc>
 
-inline bool operator>=(
-    const ft::_Rb_tree<_Key, _Val, Compare, _Alloc>& __x,
-    const ft::_Rb_tree<_Key, _Val, Compare, _Alloc>& __y) {
+inline bool operator>=(const ft::_Rb_tree<_Key, _Val, Compare, _Alloc>& __x,
+                       const ft::_Rb_tree<_Key, _Val, Compare, _Alloc>& __y) {
   return !(__x < __y);
 }
 }  // namespace ft
